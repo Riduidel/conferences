@@ -1,0 +1,83 @@
+= Nicolas Delsaux
+
+Une présentation désopilante
+
+image::images/desopilant.gif[size=cover]
+
+== Me, myself, and I
+
+* 43 ans
+* Marié, deux enfants
+* 13 ème entreprise
+
+=== Où ?
+* Cambrai, 
+* Boulogne s/Mer (le vrai), 
+* Paris (et pas la banlieue), 
+* Lille (à 100 mètres)
+
+== Tellement de questions
+
+https://stackexchange.com/users/8620[ image:https://stackexchange.com/users/flair/8620.png[]]
+
+=== Et de réponses
+
+image::images/badges.png[]
+
+== Un peu de code ?
+image::images/github.png[]
+
+== De la sous-culture comme à Burger Quiz
+
+== Un film préféré ?
+
+=== Un indice ?
+
+image::images/Conan_le_barbare_arbre.JPG[]
+
+=== Un autre indice ?
+
+image::images/Conan_le_barbare_decapitation.jpg[]
+
+=== Encore un indice ?
+
+image::images/Conan_le_barbare_attaque.jpg[]
+
+=== Quasiment la réponse ?
+
+image::images/Conan_le_barbare_arnold.jpg[]
+
+=== Et vraiment la réponse
+
+image::images/Conan_le_barbare_mechant.jpg[]
+
+=== Mais tout ça c'est vieux, non ?
+
+image::images/Cohen-the-last-hero.jpg[]
+
+== Des lectures de bon goût ?
+
+image::images/goodreads_best.png[]
+
+== De la musique de qualité, bien sûr
+
+image::images/last.fm.png[]
+
+== Et des podcasts sympa
+
+* Podcast Science
+* Salle 101
+* Les castcodeurs
+* Classic 21 Metal
+* Bienvenue à Valnuit
+* La méthode scientifique
+
+== Et quelques sites ...
+
+* Coding Horror
+* Dan Luu
+* Yegor256
+* Code Without Rules
+* XKCD (et What If)
+* Sexactu
+* Les 400 Culs
