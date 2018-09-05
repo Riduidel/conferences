@@ -92,4 +92,12 @@
       "}"
       ]
   },
+  "FizzBuzz multi_parameters": {
+    "prefix": "1_5_fizzbuzz_multi_param",
+    "body": [
+      "println!(\"{}\", opt.numbers.iter()",
+      "   .map(|&i| fizzbuzz(i))",
+      "   .fold(\" \".to_owned(), |acc, value| format!(\"{} {}\", acc, value)));"
+    ]
+  },
 }
