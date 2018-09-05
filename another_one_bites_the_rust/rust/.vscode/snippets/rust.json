@@ -1,0 +1,23 @@
+{
+    "Install structopt": {
+      "prefix": "structopt_declare",
+      "body": [
+        "#[macro_use]",
+        "extern crate structopt;",
+        "\nuse structopt::StructOpt;",
+        "\n#[derive(Debug, StructOpt)]",
+        "#[structopt()]",
+        "struct Options {",
+        "    number:u32",
+        "}\n"
+              ],
+      "description": "Installation de structopt et création de la structure"
+    },
+    "Use structopt": {
+      "prefix": "structopt_use",
+      "body": [
+        "let opt = Options::from_args();"
+      ],
+      "description": "Simple structopt use"
+    }
+  }

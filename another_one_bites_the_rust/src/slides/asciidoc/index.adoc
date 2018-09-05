@@ -1,0 +1,89 @@
+= Another one bites the Rust
+
+== Pourquoi ?
+
+=== Pourquoi j'apprends un nouveau langage ?
+
+* Pour découvrir de nouveaux concepts
+* Pour ne pas subir l'hypothèse de Sapir-Whorf
+
+[NOTE.speaker]
+--
+Mes enfants ont posé la question.
+A quoi sert un langage de programmation ? 
+Comme pour un langage, ça sert à dialoguer, en l'occurence avec un ordinateur.
+
+Dans la linguistique, il y a eu il y a quelques années une intéressante controverse autour de l'hypothèse de https://fr.wikipedia.org/wiki/Hypoth%C3%A8se_de_Sapir-Whorf[Sapir-Whorf]
+--
+
+=== Pourquoi apprendre Rust ?
+
+=== D'où vient le Rust ?
+
+* Inventé par Mozilla
+* Utilisé pour éviter certains "problèmes" liés au C++
+
+[NOTE.speaker]
+--
+Il faut parler en particulier des histoires de pointeurs désaolloués.
+--
+
+== Qu'est-ce que Rust apporte ?
+
+[cols=2*] 
+|===
+| Guaranteed memory safety
+| Fast
+| Open source
+| Minimal runtime
+| Algebraic data types
+| Pattern matching
+| Type inference
+| Concurrent
+| Practical
+| Efficient C bindings
+|===
+
+[NOTE.speaker]
+--
+D'après https://stackshare.io/rust[StackShare]
+
+On va se focaliser un peu sur trois aspects clés
+
+* Guaranteed memory safety
+* Algebraic data types
+* Pattern matching
+
+Tout le reste est assez "standard" : c'est un langage qui se compile à travers LLVM (pas d'inquiétude, vous ne vous en rendrez pas compte) pour produire des exécutables natifs. Donc avec peu d'empreinte mémoire.
+Et comme c'est un langage natif, et que les gens qui s'en servent font pour l'instant beaucoup de programmation système, il y a des bindings en C qui marchent bien (et c'est à mon avis quasiment une mauvaise nouvelle).
+--
+
+=== Comment on s'en sert ?
+
+Deux composants essentiels
+
+* rustup gère les composants système de Rust
+* cargo est l'outil de build Rust
+
+Et des supports pour les IDE avec https://github.com/rust-lang-nursery/rls[RLS] et un bon site d'état du support des IDE (https://areweideyet.com/[Are we (I)DE yet?])
+
+
+== On y va ?
+
+Vous n'êtes pas venu pour voir des slides ... Si ?
+
+=== FizzBuzz as a CLI
+
+[NOTE.speaker]
+--
+Tout le monde voit ce qu'est foobar ?
+
+Si c'est un multiple de 3, on le remplace par ... "Fizz".
+Si c'est un multiple de 5, on le remplace par ... "Buzz".
+Et si c'est un multiple des deux, on le remplace par ... "FizzBuzz" (dans l'ordre) ;-)
+
+Donc on crée le projet d'un coup de `cargo new rust` (à lancer depuis le dossier `another_one_bites_the_rust`).
+
+On lit la ligne de commande avec structopt
+--
+
