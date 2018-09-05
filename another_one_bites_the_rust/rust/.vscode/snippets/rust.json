@@ -1,23 +1,95 @@
 {
-    "Install structopt": {
-      "prefix": "structopt_declare",
-      "body": [
-        "#[macro_use]",
-        "extern crate structopt;",
-        "\nuse structopt::StructOpt;",
-        "\n#[derive(Debug, StructOpt)]",
-        "#[structopt()]",
-        "struct Options {",
-        "    number:u32",
-        "}\n"
-              ],
-      "description": "Installation de structopt et création de la structure"
-    },
-    "Use structopt": {
-      "prefix": "structopt_use",
-      "body": [
-        "let opt = Options::from_args();"
-      ],
-      "description": "Simple structopt use"
-    }
-  }
+  "Install structopt": {
+    "prefix": "0_structopt_declare",
+    "body": [
+      "#[macro_use]",
+      "extern crate structopt;",
+      "\nuse structopt::StructOpt;",
+      "\n#[derive(Debug, StructOpt)]",
+      "#[structopt()]",
+      "struct Options {",
+      "    number:u32",
+      "}\n"
+    ]
+  },
+  "Use structopt": {
+    "prefix": "0_structopt_use",
+    "body": [
+      "let opt = Options::from_args();"
+    ]
+  },
+  "FizzBuzz with an if": {
+    "prefix": "1_0_fizzbuzz_if",
+    "body": [
+      "fn fizzbuzz(i:u32)->String {",
+      "   let divisible_by_three = i % 3 == 0;",
+      "   let divisible_by_five = i % 5 == 0;",
+      "   ",
+      "   if divisible_by_three && divisible_by_five {",
+      "       return \"FizzBuzz\".to_owned();",
+      "   } else if divisible_by_three {",
+      "       return \"Fizz\".to_owned();",
+      "   } else if divisible_by_five {",
+      "       return \"Buzz\".to_owned();",
+      "   } else {",
+      "       return format!(\"{}\", i);",
+      "   }",
+      "}"
+    ]
+  },
+  "FizzBuzz tests": {
+    "prefix": "1_1_fizzbuzz_test",
+    "body": [
+      "#[cfg(test)]",
+      "mod tests {",
+      "    // Note this useful idiom: importing names from outer (for mod tests) scope.",
+      "    use super::*;",
+      "",
+      "    #[test]",
+      "    fn test_2() {",
+      "        assert_eq!(fizzbuzz(2), \"2\");",
+      "    }",
+      "}"
+    ]
+  },
+  "FizzBuzz enum": {
+    "prefix": "1_2_fizzbuzz_enum",
+    "body": [
+      "#[derive(Debug)]",
+      "enum FizzBuzz {",
+      "    Fizz,",
+      "    Buzz,",
+      "    FizzBuzz,",
+      "    Other(u32),",
+      "}"
+    ]
+  },
+  "FizzBuzz from": {
+    "prefix": "1_3_fizzbuzz_from",
+    "body": [
+      "impl From<u32> for FizzBuzz {",
+      "  fn from(item: u32) -> Self {",
+      "      match (item % 3 == 0, item % 5 == 0) {",
+      "          (false, false) => FizzBuzz::Other(item),",
+      "          (true, false) => FizzBuzz::Fizz,",
+      "          (false, true) => FizzBuzz::Buzz,",
+      "          (true, true) => FizzBuzz::FizzBuzz,",
+      "      }",
+      "  }",
+      "}"
+    ]
+  },
+  "FizzBuzz to_string": {
+    "prefix": "1_4_fizzbuzz_to_string",
+    "body": [
+      "impl ToString for FizzBuzz {",
+      "  fn to_string(&self) -> String {",
+      "      match self {",
+      "          FizzBuzz::Other(number) => return format!(\"{:?}\", number),",
+      "          _ => return format!(\"{:?}\", self)",
+      "      }",
+      "  }",
+      "}"
+      ]
+  },
+}
