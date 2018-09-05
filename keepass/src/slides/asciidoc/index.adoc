@@ -1,0 +1,76 @@
+= Keepass
+
+== Comment gérer ses mots de passe ?
+
+=== Le même mot de passe partout ?
+
+[quote, Randall Munroe, https://xkcd.com/792/]
+____
+image::https://imgs.xkcd.com/comics/password_reuse.png[]
+____
+
+=== Un mot de passe par site ?
+
+Mais comment s'en souvenir ?
+
+=== En s'en souvenant ?
+
+image::https://www.appliedbehavioranalysisprograms.com/wp-content/uploads/2017/04/1988-Rain-Man-02.jpg[]
+
+=== Avec la bonne stratégie de génération ?
+
+[quote, Randall Munroe, https://xkcd.com/936/]
+____
+image::https://imgs.xkcd.com/comics/password_strength.png[]
+____
+
+=== Autrement ?
+
+image::http://1.bp.blogspot.com/-jNDiacJLpgo/UC5cgP1QJzI/AAAAAAAAATc/YwzckcpWQAQ/s1600/PI+Password+Book+3a.jpg[]
+
+[%notitle,background-iframe="http://enigmaze.org/"]
+=== Ou encore
+
+== En générant et stockant des mots de passe
+
+=== https://alternativeto.net/software/keepass/[D'innombrables alternatives]
+
+* KeePass
+* LastPass
+* 1Password
+* MasterPassword
+
+=== Mais
+
+* Peut-on confier sa sécurité à des sites web faillibles ?
+** https://myers.io/2015/10/22/1password-leaks-your-data/[1Password Leaks Your Data]
+** https://www.forbes.com/sites/johnray/2011/05/05/possible-lastpass-data-leak/[Possible LastPass Data Leak - Forbes]
+
+=== KeePass est immunisé ?
+
+* Il a été http://www.ssi.gouv.fr/uploads/IMG/cspn/anssi-cspn_2010-07fr.pdf[audité par l'ANSSI ... en 2011]
+[quote]
+____
+Ce rapport de certification de sécurité de premier niveau atteste que le produit « KeePass 
+Version 2.10 Portable » soumis à l’évaluation répond  aux caractéristiques de sécurité spécifiées dans sa cible de sécurité [ST].  
+____
+* Il est open-source (vous pouvez l'auditer)
+
+[%notitle]
+=== Comment ça marche ?
+
+image::https://prestonguildhall.co.uk/wp-content/uploads/2016/12/photoshop-NEW-SITE-WEB-IMAGE-62-1800x1000.jpg[background, size=cover]
+
+== Allons plus loin
+
+* Le logiciel est faillible
+* Mais pas le matériel
+
+=== Donc un token matériel
+
+* https://www.yubico.com/[Yubikey]
+* https://www.themooltipass.com/[Mooltipass]
+
+=== Mais c'est un peu plus strict
+
+* Pas de plugins
