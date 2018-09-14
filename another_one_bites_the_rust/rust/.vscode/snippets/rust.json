@@ -1,4 +1,17 @@
 {
+  "Read command line args": {
+    "prefix": "0_read_command_line",
+    "body": [
+      "let args: Vec<_> = env::args().collect();"
+    ]
+  },
+  "Read only the real argument": {
+    "prefix": "0_read_command_line",
+    "body": [
+      "let first = env::args().nth(1).expect(\"please supply an argument\");",
+      "let n: i32 = first.parse().expect(\"not an integer!\");"
+    ]
+  },
   "Install structopt": {
     "prefix": "0_structopt_declare",
     "body": [
@@ -8,7 +21,7 @@
       "\n#[derive(Debug, StructOpt)]",
       "#[structopt()]",
       "struct Options {",
-      "    number:u32",
+      "    number:i32",
       "}\n"
     ]
   },
@@ -92,8 +105,28 @@
       "}"
       ]
   },
+  "FizzBuzz to_display": {
+    "prefix": "1_5_fizzbuzz_to_display",
+    "body": [
+      "impl fmt::Display for MyType {",
+      "  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {",
+      "      write!(f, \"{}\", self.to_string());",
+      "  }",
+      "}"
+      ]
+  },
   "FizzBuzz multi_parameters": {
-    "prefix": "1_5_fizzbuzz_multi_param",
+    "prefix": "1_7_fizzbuzz_multi_param_map",
+    "body": [
+      "let mut result = String::new();",
+      "for i in opt.numbers {",
+      "    result.push_str(\" \");",
+      "    result.push_str(&fizzbuzz(i));",
+      "}"
+      ]
+  },
+  "FizzBuzz multi_parameters old school": {
+    "prefix": "1_6_fizzbuzz_multi_param_loop",
     "body": [
       "println!(\"{}\", opt.numbers.iter()",
       "   .map(|&i| fizzbuzz(i))",
