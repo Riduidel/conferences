@@ -87,3 +87,8 @@ Donc on crée le projet d'un coup de `cargo new rust` (à lancer depuis le dossi
 On lit la ligne de commande avec structopt
 --
 
+== Quelques liens
+
+* https://doc.rust-lang.org/rust-by-example/[Rust by Example]
+* https://stevedonovan.github.io/rust-gentle-intro/readme.html[A Gentle Introduction To Rust]
+* https://doc.rust-lang.org/book/second-edition/[The Rust Programming Language]
