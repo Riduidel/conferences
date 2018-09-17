@@ -1,19 +1,19 @@
 {
   "Read command line args": {
-    "prefix": "0_read_command_line",
+    "prefix": "0_1_read_command_line",
     "body": [
       "let args: Vec<_> = env::args().collect();"
     ]
   },
   "Read only the real argument": {
-    "prefix": "0_read_command_line",
+    "prefix": "0_2_parse_command_line",
     "body": [
       "let first = env::args().nth(1).expect(\"please supply an argument\");",
       "let n: i32 = first.parse().expect(\"not an integer!\");"
     ]
   },
   "Install structopt": {
-    "prefix": "0_structopt_declare",
+    "prefix": "0_3_structopt_declare",
     "body": [
       "#[macro_use]",
       "extern crate structopt;",
@@ -26,15 +26,15 @@
     ]
   },
   "Use structopt": {
-    "prefix": "0_structopt_use",
+    "prefix": "0_4_structopt_use",
     "body": [
       "let opt = Options::from_args();"
     ]
   },
   "FizzBuzz with an if": {
-    "prefix": "1_0_fizzbuzz_if",
+    "prefix": "1_1_fizzbuzz_if",
     "body": [
-      "fn fizzbuzz(i:u32)->String {",
+      "fn fizzbuzz(i:i32)->String {",
       "   let divisible_by_three = i % 3 == 0;",
       "   let divisible_by_five = i % 5 == 0;",
       "   ",
@@ -51,7 +51,7 @@
     ]
   },
   "FizzBuzz tests": {
-    "prefix": "1_1_fizzbuzz_test",
+    "prefix": "1_0_fizzbuzz_test",
     "body": [
       "#[cfg(test)]",
       "mod tests {",
@@ -73,15 +73,15 @@
       "    Fizz,",
       "    Buzz,",
       "    FizzBuzz,",
-      "    Other(u32),",
+      "    Other(i32),",
       "}"
     ]
   },
   "FizzBuzz from": {
     "prefix": "1_3_fizzbuzz_from",
     "body": [
-      "impl From<u32> for FizzBuzz {",
-      "  fn from(item: u32) -> Self {",
+      "impl From<i32> for FizzBuzz {",
+      "  fn from(item: i32) -> Self {",
       "      match (item % 3 == 0, item % 5 == 0) {",
       "          (false, false) => FizzBuzz::Other(item),",
       "          (true, false) => FizzBuzz::Fizz,",
@@ -105,16 +105,6 @@
       "}"
       ]
   },
-  "FizzBuzz to_display": {
-    "prefix": "1_5_fizzbuzz_to_display",
-    "body": [
-      "impl fmt::Display for MyType {",
-      "  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {",
-      "      write!(f, \"{}\", self.to_string());",
-      "  }",
-      "}"
-      ]
-  },
   "FizzBuzz multi_parameters": {
     "prefix": "1_7_fizzbuzz_multi_param_map",
     "body": [
@@ -133,4 +123,21 @@
       "   .fold(\" \".to_owned(), |acc, value| format!(\"{} {}\", acc, value)));"
     ]
   },
+  "FizzBuzz Warp": {
+    "prefix": "2_1_warp_hello",
+    "body": [
+      "#[macro_use]",
+      "extern crate warp;",
+      "",
+      "use warp::Filter;",
+      "",
+      "fn main() {",
+      "    let hello = path!(\"hello\" / String)",
+      "        .map(|name| format!(\"Hello, {}!\", name));",
+      "",
+      "    warp::serve(hello)",
+      "        .run(([127, 0, 0, 1], 3030));",
+      "}"
+    ]
+  }
 }
