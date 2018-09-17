@@ -16,6 +16,7 @@
     "prefix": "0_3_structopt_declare",
     "body": [
       "#[macro_use]",
+      "// structopt=\"0.2.10\"",
       "extern crate structopt;",
       "\nuse structopt::StructOpt;",
       "\n#[derive(Debug, StructOpt)]",
@@ -34,6 +35,11 @@
   "FizzBuzz with an if": {
     "prefix": "1_1_fizzbuzz_if",
     "body": [
+      "impl Options {",
+      "   fn fizzbuzz(&self)->String {",
+      "      fizzbuzz(self.number)",
+      "   }",
+      "}",
       "fn fizzbuzz(i:i32)->String {",
       "   let divisible_by_three = i % 3 == 0;",
       "   let divisible_by_five = i % 5 == 0;",
@@ -106,37 +112,52 @@
       ]
   },
   "FizzBuzz multi_parameters": {
-    "prefix": "1_7_fizzbuzz_multi_param_map",
+    "prefix": "1_6_fizzbuzz_multi_param_loop",
     "body": [
       "let mut result = String::new();",
-      "for i in opt.numbers {",
+      "for i in self.numbers {",
       "    result.push_str(\" \");",
       "    result.push_str(&fizzbuzz(i));",
-      "}"
+      "}",
+      "result"
       ]
   },
   "FizzBuzz multi_parameters old school": {
-    "prefix": "1_6_fizzbuzz_multi_param_loop",
+    "prefix": "1_7_fizzbuzz_multi_param_map",
     "body": [
-      "println!(\"{}\", opt.numbers.iter()",
+      "self.numbers.iter()",
       "   .map(|&i| fizzbuzz(i))",
-      "   .fold(\" \".to_owned(), |acc, value| format!(\"{} {}\", acc, value)));"
+      "   .fold(\" \".to_owned(), |acc, value| format!(\"{} {}\", acc, value))"
     ]
   },
-  "FizzBuzz Warp": {
-    "prefix": "2_1_warp_hello",
+  "FizzBuzz modularizing": {
+    "prefix": "1_8_fizzbuzz_modularizing",
     "body": [
-      "#[macro_use]",
-      "extern crate warp;",
+      "use fizzbuzz::*;",
+      "mod fizzbuzz;"
+          ]
+  },
+  "FizzBuzz Warp": {
+    "prefix": "2_1_fizzbuzz_web_hello",
+    "body": [
+      "// actix-web=\"0.7.7\"",
+      "extern crate actix_web;",
+      "use actix_web::{server, App, HttpRequest, Responder};",
       "",
-      "use warp::Filter;",
+      "fn fizzbuzz(req: &HttpRequest) -> impl Responder {",
+      "    let to = req.match_info().get(\"name\").unwrap_or(\"World\");",
+      "    format!(\"Fizzbuzzing {}!\", to)",
+      "}",
       "",
       "fn main() {",
-      "    let hello = path!(\"hello\" / String)",
-      "        .map(|name| format!(\"Hello, {}!\", name));",
-      "",
-      "    warp::serve(hello)",
-      "        .run(([127, 0, 0, 1], 3030));",
+      "    server::new(|| {",
+      "        App::new()",
+      "            .resource(\"/\", |r| r.f(fizzbuzz))",
+      "            .resource(\"/{name}\", |r| r.f(fizzbuzz))",
+      "    })",
+      "    .bind(\"127.0.0.1:8000\")",
+      "    .expect(\"Can not bind to port 8000\")",
+      "    .run();",
       "}"
     ]
   }
