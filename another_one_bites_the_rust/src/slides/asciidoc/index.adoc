@@ -1,4 +1,7 @@
+[%notitle]
 = Another one bites the Rust
+
+image::images/queen.jpg[size=cover, background]
 
 == Pourquoi ?
 
@@ -20,25 +23,25 @@ Dans la linguistique, il y a eu il y a quelques années une intéressante contro
 
 === D'où vient le Rust ?
 
-* Inventé par Mozilla
+* Inventé chez Mozilla Research
 * Utilisé pour éviter certains "problèmes" liés au C++
 
 [NOTE.speaker]
 --
-Il faut parler en particulier des histoires de pointeurs désaolloués.
+Il faut parler en particulier des histoires de pointeurs désalloués.
 --
 
 == Qu'est-ce que Rust apporte ?
 
 [cols=2*] 
 |===
-| Guaranteed memory safety
+| Minimal runtime
 | Fast
 | Open source
-| Minimal runtime
 | Algebraic data types
 | Pattern matching
 | Type inference
+| Guaranteed memory safety
 | Concurrent
 | Practical
 | Efficient C bindings
@@ -58,6 +61,13 @@ Tout le reste est assez "standard" : c'est un langage qui se compile à travers 
 Et comme c'est un langage natif, et que les gens qui s'en servent font pour l'instant beaucoup de programmation système, il y a des bindings en C qui marchent bien (et c'est à mon avis quasiment une mauvaise nouvelle).
 --
 
+
+=== Quelques projets
+
+* https://servo.org/[Firefox Servo]
+* https://conduit.io/[Conduit] service mesh
+* https://www.sozu.io/[SŌZU]
+
 === Comment on s'en sert ?
 
 Deux composants essentiels
@@ -76,7 +86,7 @@ Vous n'êtes pas venu pour voir des slides ... Si ?
 
 [NOTE.speaker]
 --
-Tout le monde voit ce qu'est foobar ?
+Tout le monde voit ce qu'est fizzbuzz ?
 
 Si c'est un multiple de 3, on le remplace par ... "Fizz".
 Si c'est un multiple de 5, on le remplace par ... "Buzz".
@@ -87,8 +97,16 @@ Donc on crée le projet d'un coup de `cargo new rust` (à lancer depuis le dossi
 On lit la ligne de commande avec structopt
 --
 
+=== FizzBuzz as a web app
+
 == Quelques liens
 
 * https://doc.rust-lang.org/rust-by-example/[Rust by Example]
 * https://stevedonovan.github.io/rust-gentle-intro/readme.html[A Gentle Introduction To Rust]
 * https://doc.rust-lang.org/book/second-edition/[The Rust Programming Language]
+* https://github.com/rust-unofficial/awesome-rust[Awesome Rust]
+* https://www.rust-lang.org/fr-FR/friends.html[Amis de Rust]
+
+== Merci
+
+image::https://media.giphy.com/media/xT8qB3XvvuhoYG9MNa/giphy.gif[]
