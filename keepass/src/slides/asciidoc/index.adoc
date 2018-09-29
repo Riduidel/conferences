@@ -2,6 +2,19 @@
 
 == Comment gérer ses mots de passe ?
 
+[NOTE.speaker]
+--
+Vous êtes des développeurs donc vous avez des tonnes de mots de passe (à vous, pas à une équipe).
+Vous en avez pour
+
+* Votre compte GitHub
+* Vos comptes sociaux (Twitter, Google+ - non je déconne)
+* Vos accès SSH divers et variés
+
+Alors comment vous gérez vos mots de passe ?
+--
+
+
 === Le même mot de passe partout ?
 
 [quote, Randall Munroe, https://xkcd.com/792/]
@@ -9,13 +22,41 @@ ____
 image::https://imgs.xkcd.com/comics/password_reuse.png[]
 ____
 
+
+[NOTE.speaker]
+--
+Pour à peu près la blague, je connais quelqu'un qui fait encore ça, bien que je lui explique régulièrement que c'est une **mauvaise** idée.
+Et pour lui expliquer ... non, je ne lui montre pas le dessin.
+--
+
+
 === Un mot de passe par site ?
 
+
+[NOTE.speaker]
+--
+Si j'ai un mot de passe par site, il n'y a qu'une seule question qui compte :
+--
+
 Mais comment s'en souvenir ?
+
+[NOTE.speaker]
+--
+Parce qu'évidement, chaque mot de passe est différent des autres *et* différent du nom du site.
+Sinon ce serait trop facile pour les attaquants.
+--
 
 === En s'en souvenant ?
 
 image::https://www.appliedbehavioranalysisprograms.com/wp-content/uploads/2017/04/1988-Rain-Man-02.jpg[]
+
+[NOTE.speaker]
+--
+Se souvenir de tous ces mots de passe, ça n'est pas forcément facile.
+C'est même assez délicat.
+C'est même, honnêtement, impossible.
+Sauf pour Rain Man (qui est un personnage de fiction, et pas un exemple d'une maladie).
+--
 
 === Avec la bonne stratégie de génération ?
 
@@ -24,14 +65,42 @@ ____
 image::https://imgs.xkcd.com/comics/password_strength.png[]
 ____
 
+[NOTE.speaker]
+--
+Tout le monde connaît ce dessin ?
+Si ça n'est pas le cas, il s'agit d'une blague de Randall qui permet de générer des mots de passe complexes à déchiffrer,
+mais néanmoins faciles à mémoriser ... pour un être humain.
+Cette stratégie de génération présente toutefois un inconvénient : c'est le développeur qui doit implémenter l'algorithme dans sa tête, sinon le secret est perdu.
+--
+
 === Autrement ?
 
 image::http://1.bp.blogspot.com/-jNDiacJLpgo/UC5cgP1QJzI/AAAAAAAAATc/YwzckcpWQAQ/s1600/PI+Password+Book+3a.jpg[]
 
+[NOTE.speaker]
+--
+On peut aussi utiliser ... un cahier de mot de passe !
+C'est idiot, c'est dangereux, ne le faites pas.
+--
+
 [%notitle,background-iframe="http://enigmaze.org/"]
 === Ou encore
 
+[NOTE.speaker]
+--
+Alors là, vous ne le voyez peut-être pas, mais c'est un cahier de mot de passes utilisant un calque avec le mot de passe à utiliser.
+Ca m'a l'air plus compliqué ... sans un gain énorme.
+--
+
+
 == En générant et stockant des mots de passe
+
+[NOTE.speaker]
+--
+La dernière solution (et ma préférée, évidement), c'est la solution préférée des informaticiens face à n'importe quel problème :
+tirer un nombre au hasard et s'en servir comme solution de base.
+Donc il existe tout un tas d'outils permettant de générer des mots de passe aléatoires et de les stocker de façon à peu près sûre.
+--
 
 === https://alternativeto.net/software/keepass/[D'innombrables alternatives]
 
@@ -39,6 +108,17 @@ image::http://1.bp.blogspot.com/-jNDiacJLpgo/UC5cgP1QJzI/AAAAAAAAATc/YwzckcpWQAQ
 * LastPass
 * 1Password
 * MasterPassword
+
+[NOTE.speaker]
+--
+Il y en a tout un paquet, subtilement différentes
+
+* KeePass est une application Mono
+* LastPass et 1Password sont des sites web accédés à travers des extensions pour les différents navigateurs
+* MasterPassword est un site web générant un mot de passe pour chaque site à partir d'une graine aléatoire commune à tous les mots de passe d'un utilisateur.
+
+--
+
 
 === Mais
 
@@ -56,10 +136,30 @@ Version 2.10 Portable » soumis à l’évaluation répond  aux caractéristique
 ____
 * Il est open-source (vous pouvez l'auditer)
 
+[NOTE.speaker]
+--
+Quand on considère ces deux éléments, c'est plutôt rassurant, non ?
+--
+
 [%notitle]
 === Comment ça marche ?
 
 image::https://prestonguildhall.co.uk/wp-content/uploads/2016/12/photoshop-NEW-SITE-WEB-IMAGE-62-1800x1000.jpg[background, size=cover]
+
+[NOTE.speaker]
+--
+Une démo tirée de Youtube par exemple (cherchez "Keepass autotype")
+
+video::wPD8qtiiDN0[youtube]
+
+Comme vous le voyez, en tapant un raccourci clavier (j'utilise kbd:[Ctrl,Alt,A]), 
+l'entrée Keepass correspondant à la fenêtre active est tapée automatiquement.
+
+Ca marche vachement bien.
+Par contre, Keepass n'est pas un outil d'équipe.
+Pour une équipe qui veut accéder de façon sécurisée à un ensemble de serveurs, il y a d'autres solutions (typiquement KeyCloak). Mais **pas** Keepass.
+--
+
 
 == Allons plus loin
 
