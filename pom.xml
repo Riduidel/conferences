@@ -126,6 +126,10 @@
 									PATH, the location of dot command of Graphviz, required by PlantUML libraries -->
 								<!-- Windows: <graphvizdot>C:\Program Files (x86)\Graphviz2.38\bin\dot.exe</graphvizdot> -->
 								<!-- *nix : <graphvizdot>/usr/local/bin/dot</graphvizdot> -->
+								<sectnums>true</sectnums>
+								<revnumber>${project.version}</revnumber>
+        						<revdate>${maven.build.timestamp}</revdate>
+						        <organization>${project.organization.name}</organization>
 							</attributes>
 						</configuration>
 						<executions>
