@@ -1,0 +1,81 @@
+
+= Votre directeur technique local vous parle
+
+image::images/genie_musichall.gif[]
+
+== A quoi ça sert ?
+
+Comme un directeur technique
+
+mais en plus petit
+
+image::images/genie_head.gif[]
+
+=== Autrement dit ?
+
+A vous mettre en lumière
+
+image::images/genie_kiss.gif[]
+
+=== Avertissement
+
+Si vous voulez rester dans l'ombre ...
+
+Ne me le dites pas maintenant 
+
+(mais dites-le moi quand même)
+
+image::images/genie_shocked.gif[]
+
+== !
+
+image::images/genie_what_do_you_want.gif[]
+
+=== Des formations ?
+
+Vous avez besoin d'une formation ?
+
+Venez nous en parler
+
+image::images/genie_earth.gif[]
+
+=== Des conseils ?
+
+J'ai des tonnes de mauvais conseils à vous donner
+
+image::images/genie_great.gif[]
+
+
+Mais je peux aussi vous donner les bonnes questions à poser (et c'est peut-être mieux)
+
+=== Vous sortir des ennuis ?
+
+image::images/genie_tell_her_the_truth.gif[]
+
+
+=== Des moyens techniques ?
+
+Google Compute ? Amazon Web Services ? Clever Cloud ?
+
+On a des accès ... il suffit de demander
+
+image::images/genie_excuse_me.gif[]
+
+== Qu'est-ce qu'on peut faire ensemble ?
+
+image::images/genie_sit_down.gif[]
+
+=== Vous avez forcément de bonnes idées
+
+On en parle ?
+
+image::images/genie_cheerleader.gif[]
+
+=== Quelques exemples
+
+* OK Moogle (le plus mauvais assistant du monde)
+* Debugging Zenikanard (si ça vous intéresse)
+* MailFX (un client mail en ... JavaFX)
+
+image::images/genie_spinning.gif[]
+

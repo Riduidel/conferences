@@ -277,6 +277,7 @@
 										<revealjs_theme>black</revealjs_theme>
 										<revealjs_transition>linear</revealjs_transition>
 										<project-version>${project.version}</project-version>
+										<stylesheet></stylesheet>
 									</attributes>
 								</configuration>
 							</execution>
@@ -290,5 +291,7 @@
 	<modules>
 		<module>another_one_bites_the_rust</module>
 		<module>Cyberpunk_or_Technology</module>
+		<module>bootcamp-myself</module>
+		<module>dtl-myself</module>
 	</modules>
 </project>
