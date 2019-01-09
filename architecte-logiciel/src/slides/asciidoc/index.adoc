@@ -1,0 +1,102 @@
+
+:icons: font
+:revealjs_history: true
+:revealjs_previewLinks: true
+
+
+= Un architecte logiciel ?
+
+image::images/architecte.png[]
+
+[NOTE.speaker]
+--
+Pour le reste de la présentation, on va essayer d'en dresser le portrait ensemble
+--
+
+== Qui ?
+
+[NOTE.speaker]
+--
+Est-ce que c'est un individu différent des développeurs ?
+--
+
+== Pourquoi ?
+
+* Comment partager une vision commune ?
+** Entre développeurs ?
+** Autour de l'équipe de développement
+
+== Quoi ?
+
+* Quelle forme doit prendre l'architecture logicielle ?
+
+[NOTE.speaker]
+--
+* Quelle forme doit prendre l'architecture logicielle ?
+* Un diagramme UML ou plusieurs ?
+* Une documentation ?
+* Un ensemble de tests
+--
+
+=== Voir aussi
+
+* http://www.codingthearchitecture.com/2016/05/31/agile_software_architecture_documentation.html[Agile Architecture Documentation]
+* https://doctoolchain.github.io/docToolchain/[docToolchain]
+* https://www.archunit.org/[ArchUnit]
+* https://www.slideshare.net/RufM/design-visualization-smoke-and-mirrors-slides-55822413[Design Visualization, Some and Mirrors]
+
+== Quand ?
+
+* A quel moment a-t-on besoin d'un architecte ?
+** Au début d'un projet pour en tracer le plan ?
+** Pendant le projet pour le suivre ?
+** Après le projet pour l'auditer ?
+
+=== !
+pass:[<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">here is a zine page on design that I&#39;m working on! <a href="https://t.co/PgoE4PMnef">pic.twitter.com/PgoE4PMnef</a></p>&mdash; 🔎Julia Evans🔍 (@b0rk) <a href="https://twitter.com/b0rk/status/930645786790125569?ref_src=twsrc%5Etfw">November 15, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>]
+
+
+=== Voir aussi
+
+== Où ?
+
+* Quels niveaux d'architecture ?
+** Architecte d'entreprise (informatique)
+** Architecte fonctionnel (informatique)
+** Architecte applicatif (informatique)
+** Architecte logiciel (informatique)
+** Architecte technique système (informatique)
+** Architecte technique réseau (informatique)
+** Architecte technique infrastructure (informatique)
+
+merci https://fr.wikipedia.org/wiki/Architecte_informatique[la wikipedia]
+
+=== Voir aussi
+
+* https://www.geeek.org/zoom-architecte-entreprise-solutions-expert-technique-176.html[Architecte Entreprise, Architecte Solutions et Expert Technique : Tout n'est qu'une question de focale]
+
+== Comment ?
+
+* Dans une équipe sépcialisée ?
+** Architecture transverse
+** Performances
+** SRE
+** Chaos team
+* Dans l'équipe de développement ?
+
+=== !
+
+pass:[<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Put &quot;architects&quot; back to work... Like writing code... <a href="https://twitter.com/hashtag/INGLovesIT?src=hash&amp;ref_src=twsrc%5Etfw">#INGLovesIT</a> <a href="https://twitter.com/hashtag/Bucharest?src=hash&amp;ref_src=twsrc%5Etfw">#Bucharest</a> (great slide from <a href="https://twitter.com/KrisBuytaert?ref_src=twsrc%5Etfw">@KrisBuytaert</a>) <a href="https://t.co/nC7UsZCIJx">pic.twitter.com/nC7UsZCIJx</a></p>&mdash; Gabriel PREDA (@eRadical) <a href="https://twitter.com/eRadical/status/850262015700422656?ref_src=twsrc%5Etfw">April 7, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>]
+
+=== Comment choisir
+
+[quote, Grady Booch, On Design]
+____
+All architecture is design but not all design is architecture. Architecture represents the significant design decisions that shape a system, where significant is measured by cost of change. 
+____
+
+=== Voir aussi
+
+* https://www.slideshare.net/RufM/the-architects-clue-bucket[The architect's clue bucket]
