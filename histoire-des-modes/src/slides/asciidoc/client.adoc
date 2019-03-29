@@ -1,0 +1,35 @@
+== Côté front-end
+
+
+[NOTE.speaker]
+--
+Voir par exemple https://dev.to/_adam_barker/the-super-brief-history-of-javascript-frameworks-for-those-somewhat-interested-3m82
+--
+
+
+=== Il y a vingt ans
+
+* Un peu de javascript pour "dynamiser l'affichage"
+** Parce que c'est lent
+* Pas d'échanges client-serveur en Javascript
+
+=== Il y a dix ans
+
+* La révolution Chrome
+* jQuery everywhere
+
+=== Aujourd'hui
+
+[%step]
+* ReactJS
+* Angular
+* VueJS
+
+
+[NOTE.speaker]
+--
+Pendant logntemps, la rumeur voulait qu'Angular ne soit qu'un moyen pour Google de détecter les développeurs prometteurs.
+Et React est clairement l'outil de Facebook (l'entreprise) pour développer Facebook (le produit).
+Alors quand vous investissez sur l'un ou l'autre, vous travaillez pour qui ? Votre projet, ou votre employabilité dans une entreprise aux choix moraux ... spécifiques ?
+--
+

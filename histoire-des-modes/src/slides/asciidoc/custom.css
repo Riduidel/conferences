@@ -1,0 +1,16 @@
+.reveal section img {
+    border: none;
+    margin: 0%;
+    background: none;
+}
+
+.slides {
+    width: 1280px !important;
+}
+
+.reveal .green {
+    color: green;
+}
+.reveal .red {
+    color: red;
+}

@@ -1,0 +1,124 @@
+:icons: font
+:revealjs_progress: true
+:revealjs_previewLinks: true
+:revealjs_mouseWheel: true
+:revealjs_history: true
+:customcss: custom.css
+
+= Une rapide histoire des modes en informatique
+
+pass:[<small>Des opinions ... peuvent apparaître.</small>]
+
+== Quoi ?
+
+[quote, Charles Lehalle, circa 1999]
+--
+En informatique, tout est dans tout
+--
+
+[NOTE.speaker]
+--
+Pourquoi parler de modes en informatique ?
+
+Après tout nous sommes des professionnels de la technique, guidés par des choix rationnels, non ?
+
+Mais en informatique, on peut utiliser n'impote quelle solution, pourvu qu'elle marche, non ?
+--
+
+=== Autrement dit ?
+
+* Est-ce qu'on utilise nos méthodes, nos outils pour leurs qualités ?
+
+include::language.adoc[]
+
+include::server.adoc[]
+
+include::client.adoc[]
+
+== Conclusion
+
+=== Retenez les leçons de l'histoire
+
++++
+<table>
+<tr>
+<td>
+<blockquote class="twitter-tweet" data-lang="en" data-width="400"><p lang="en" dir="ltr">Nothing in software is new. Some of it is useful.</p>&mdash; Christian Posta (@christianposta) <a href="https://twitter.com/christianposta/status/1032391711882764290?ref_src=twsrc%5Etfw">August 22, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Don&#39;t be that young dev who thinks ideas that date back more than 20 years must be irrelevant now. Almost every good idea in computing is decades older than you think</p>&mdash; Codemanship (@codemanship) <a href="https://twitter.com/codemanship/status/975303766000963586?ref_src=twsrc%5Etfw">March 18, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+</tr>
+</table>
++++
+
+=== Ne soyez pas des conference-driven-developers !
+
++++
+<table>
+<tr>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">It’s funny, software developers often won’t listen to architects in their own organisations who haven’t written code for N years, yet they *will* listen to speakers at conferences who haven’t built or run real software systems for N years.</p>&mdash; Simon Brown (@simonbrown) <a href="https://twitter.com/simonbrown/status/1106088844158480384?ref_src=twsrc%5Etfw">March 14, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Just so I’m clear, laptop stickers are the tech equivalent of prison tattoos right?</p>&mdash; I Am Recruitr (@iamrecruitr) <a href="https://twitter.com/iamrecruitr/status/986576233579384833?ref_src=twsrc%5Etfw">April 18, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+</tr>
+</table>
++++
+
+=== Ayez une distance critique !
+
+
++++
+<table>
+<tr>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">🧠 thought of day : if code is power, developing a framework is a lobbyist action. While main contribution in framework architecture come from Google, Microsoft, Facebook, IBM, Netflix : how they influenced us ? ⬇️</p>&mdash; Thomas Haessle 🇫🇷👨‍💻 (@Oteku) <a href="https://twitter.com/Oteku/status/1108628707953004545?ref_src=twsrc%5Etfw">March 21, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Our industry is blog post educated.<br>This result in overhyped bad practices and total dissonance between perceived professionnal work and real solutions for beginners.<br>Fighting this daily..</p>&mdash; stephane le dorze (@stephaneledorze) <a href="https://twitter.com/stephaneledorze/status/1096526391636561920?ref_src=twsrc%5Etfw">February 15, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+</tr>
+</table>
++++
+
+=== Méfiez-vous des silver bullets !
+
++++
+<table>
+<tr>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">OH: Monads solve everything, they&#39;re like Docker or React</p>&mdash; Benji Weber (@benjiweber) <a href="https://twitter.com/benjiweber/status/778565169144266752?ref_src=twsrc%5Etfw">September 21, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Git has seemingly convinced a generation of devs that better software development revolves around finding the right branching strategy.</p>&mdash; Brian Guthrie (@bguthrie) <a href="https://twitter.com/bguthrie/status/776163773522534406?ref_src=twsrc%5Etfw">September 14, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+</tr>
+</table>
++++
+
+=== N'ajoutez pas à l'entropie logicielle
+
++++
+<table>
+<tr>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Everybody likes to write reusable code, and no one wants to reuse anybody else&#39;s code.&quot; A funny and true sentiment from <a href="https://twitter.com/eryno?ref_src=twsrc%5Etfw">@eryno</a> 😂</p>&mdash; Jessie Link 👑🍌👖 (@mad_typist) <a href="https://twitter.com/mad_typist/status/834063329459130370?ref_src=twsrc%5Etfw">February 21, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;A primary cause of complexity is that software vendors uncritically adopt almost any feature that users want.&quot;- Niklaus Wirth</p>&mdash; Programming Wisdom (@CodeWisdom) <a href="https://twitter.com/CodeWisdom/status/1030795700374851584?ref_src=twsrc%5Etfw">August 18, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+</tr>
+</table>
++++

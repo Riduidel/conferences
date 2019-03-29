@@ -26,6 +26,11 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<groupId>com.fizzed</groupId>
+					<artifactId>fizzed-watcher-maven-plugin</artifactId>
+					<version>1.0.6</version>
+				</plugin>
+				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.6.1</version>
@@ -84,6 +89,22 @@
 			<build>
 				<defaultGoal>process-resources</defaultGoal>
 				<plugins>
+					<plugin>
+						<groupId>com.fizzed</groupId>
+						<artifactId>fizzed-watcher-maven-plugin</artifactId>
+						<configuration>
+							<touchFile>target/watcher.docs.touchfile</touchFile>
+							<watches>
+								<watch>
+									<directory>${asciidoc.source.docs.directory}</directory>
+								</watch>
+							</watches>
+							<goals>
+								<goal>clean</goal>
+								<goal>process-resources</goal>
+							</goals>
+						</configuration>
+					</plugin>
 					<plugin>
 						<groupId>org.asciidoctor</groupId>
 						<artifactId>asciidoctor-maven-plugin</artifactId>
@@ -188,6 +209,22 @@
 			</activation>
 			<build>
 				<plugins>
+					<plugin>
+						<groupId>com.fizzed</groupId>
+						<artifactId>fizzed-watcher-maven-plugin</artifactId>
+						<configuration>
+							<touchFile>target/watcher.slides.touchfile</touchFile>
+							<watches>
+								<watch>
+									<directory>${asciidoc.source.slides.directory}</directory>
+								</watch>
+							</watches>
+							<goals>
+								<goal>clean</goal>
+								<goal>process-resources</goal>
+							</goals>
+						</configuration>
+					</plugin>
 					<plugin>
 						<groupId>com.googlecode.maven-download-plugin</groupId>
 						<artifactId>download-maven-plugin</artifactId>
@@ -294,5 +331,6 @@
 		<module>bootcamp-myself</module>
 		<module>dtl-myself</module>
 		<module>architecte-logiciel</module>
+		<module>histoire-des-modes</module>
 	</modules>
 </project>

@@ -1,0 +1,121 @@
+== Côté serveur
+
+
+[NOTE.speaker]
+--
+Comment est-ce qu'au fil du temps, on a pu adapter le développement d'un back-end aux
+évolutions technologiques ?
+--
+
+
+=== En 2000
+
+* J'écris une servlet
+* Je la package dans un WAR
+* Je la déploie dans une instance de Tomcat fournie par mon admin sys
+* La supervision se fait avec JMX dans ... Nagios
+
+[NOTE.speaker]
+--
+La spec Servlet existe depuis 1997. Donc en 2000, il y a déja des gens qui font des servlets.
+Peu, c'est vrai, mais ils existent.
+--
+
+=== Si j'en veux plus
+
+* Je peux faire du JavaEE, mais c'est l'enfer
+* Personne ne sait ce que ça fournit
+* Les interfaces sont complexes
+* Les modes de développement hasardeux (voir https://en.wikipedia.org/wiki/XDoclet[ejbdoclet])
+
+=== Je persiste mes données
+
+* Vive le SQL
+* Vive Oracle
+
+=== En 2010
+
+* J'ai autant de frameworks côté serveur que de jours de la semaine
+** Struts, Wicket, GWT, JSF, ...
+* L'écriture d'EJB (et donc de code complexe dans un serveur) devient supportable
+* On peut utiliser des bases non SQL ... mais elles s'intègrent peu dans la logique transactionnelle
+
+=== En 2019
+
+* Je crée un JAR exécutable avec
+** Spring Boot
+** https://micronaut.io/[Micronaut]
+** https://quarkus.io/[Quarkus]
+* Je package ce JAR dans un conteneur Docker
+* Et ce conteneur s'exécute dans Kubernetes
+
+
+[NOTE.speaker]
+--
+Notez que ces trois frameworks ont un point commun important : 
+ils ont remis à la compilation des éléments qui doivent y être traités,
+et que JavaEE traitait à l'exécution par habitude.
+--
+
+
+=== C'est mieux, non ?
+
+
++++
+<table>
+<tr>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">All these software developers who can’t seem to extract/define/create an appropriate model and interface for a bunch of code blocks are somehow going to create well designed microservices API? Right.....</p>&mdash; William Louth (@autoletics) <a href="https://twitter.com/autoletics/status/978324381507178496?ref_src=twsrc%5Etfw">March 26, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+<td>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;If you&#39;ve failed at SOA, why do you think you&#39;ll succeed with microservices?&quot; - <a href="https://twitter.com/bobmcwhirter?ref_src=twsrc%5Etfw">@bobmcwhirter</a> <a href="https://twitter.com/hashtag/JavaOne?src=hash&amp;ref_src=twsrc%5Etfw">#JavaOne</a></p>&mdash; Roy van Rijn (@royvanrijn) <a href="https://twitter.com/royvanrijn/status/779027766352019456?ref_src=twsrc%5Etfw">September 22, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</td>
+</tr>
+</table>
++++
+
+
+[NOTE.speaker]
+--
+Le gros problème de cette évolution, c'est qu'on fait confiance à des mecs qui n'ont jamais su utiliser des EJBs pour faire des services où la seule intégration se fait en HTTP.
+Ca n'est pas vraiment la recette du succès.
+--
+
+
+=== Plus sérieusement
+
+* On peut créer des systèmes polyglotes icon:check-circle[role=green]
+* Enfin une vraie gestion de l'autoscaling icon:check-circle[role=green]
+* Plus de transaction icon:times-circle[role=red] 
+* On retélécharge (en HTTP !) l'image Docker sur chaque hôte Kubernetes icon:times-circle[role=red] 
+
+
+[NOTE.speaker]
+--
+Si le dernier point est anecdotique 
+(parce que c'est essentiellement un problème quand on fait du FaaS, qui est un cas extrême),
+la perte des transactions est sans doute une vraie limitation de ces architectures.
+Bien sûr, les afficionados des event driven architecture expliquent toujours que les transactions ne servent plus à rien.
+Mais l'hypothèse des opérations de compensation est plus difficilement explicable.
+--
+
+[%notitle%]
+=== Mais pourquoi tout le monde est passé à Docker/Kubernetes ?
+
++++
+<div align=center>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="fr" dir="ltr">Déployer un index.html dans k8s:<br><br>- un Makefile pour générer un dossier target<br>- un Dockerfile pour coller dans NGiNX<br>- un package Helm<br>- un tls secret pour l’https<br>- une static ip gce<br>- un lb gce<br>- un pipeline de déploiement <a href="https://t.co/sj8QSTGN2B">pic.twitter.com/sj8QSTGN2B</a></p>&mdash; Lascar Dev (@LascarDev) <a href="https://twitter.com/LascarDev/status/978293243535380480?ref_src=twsrc%5Etfw">March 26, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
++++
+
+=== Mais pourquoi tout le monde est passé à Docker/Kubernetes ?
+
+[%step]
+* Pour les raisons techniques ?
+** Mais Rancher ?
+** Mais [insérez ici les autres concurrents de Kubernetes]
+* Parce que Google le fait (et que j'ai l'ambition d'être Google) ?
+
