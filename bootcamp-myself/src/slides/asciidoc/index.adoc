@@ -6,11 +6,12 @@ image::images/desopilant.gif[size=cover]
 
 == Me, myself, and I
 
-* 43 ans
+* 45 ans (dans un mois, c'est bon, on est large)
 * Marié, deux enfants
-* 13 ème entreprise
+* 10 ème entreprise
 
 === Où ?
+[%step]
 * Cambrai, 
 * Boulogne s/Mer (le vrai), 
 * Paris (et pas la banlieue), 
