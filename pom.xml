@@ -43,6 +43,7 @@
 					<groupId>org.asciidoctor</groupId>
 					<artifactId>asciidoctor-maven-plugin</artifactId>
 					<version>${asciidoctor.maven.plugin.version}</version>
+            		<inherited>true</inherited>
 					<dependencies>
 						<dependency>
 							<groupId>org.asciidoctor</groupId>
@@ -311,8 +312,7 @@
 										<revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
 										<!-- put here the reveal.js specific attributes -->
 										<sourcedir>${basedir}/src/main/java</sourcedir>
-										<revealjs_theme>black</revealjs_theme>
-										<revealjs_transition>linear</revealjs_transition>
+										<revealjs_theme>solarized</revealjs_theme>
 										<project-version>${project.version}</project-version>
 										<stylesheet></stylesheet>
 									</attributes>
