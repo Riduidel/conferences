@@ -16,7 +16,7 @@
     "prefix": "0_3_structopt_declare",
     "body": [
       "#[macro_use]",
-      "// structopt=\"0.2.10\"",
+      "// structopt=\"0.2.16\"",
       "extern crate structopt;",
       "\nuse structopt::StructOpt;",
       "\n#[derive(Debug, StructOpt)]",
@@ -133,6 +133,7 @@
   "FizzBuzz modularizing": {
     "prefix": "1_8_fizzbuzz_modularizing",
     "body": [
+      "// Move all code except main in fizzbuzz, please",
       "use fizzbuzz::*;",
       "mod fizzbuzz;"
           ]
