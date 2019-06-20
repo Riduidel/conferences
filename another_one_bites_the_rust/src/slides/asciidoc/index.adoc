@@ -1,7 +1,10 @@
-[%notitle]
+:notitle:
 = Another one bites the Rust
 
-image::images/queen.jpg[size=cover, background]
+[%notitle]
+== Générique
+
+image::images/queen.jpg[background, size=cover]
 
 == Pourquoi ?
 
