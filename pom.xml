@@ -13,7 +13,7 @@
 		<jruby.version>9.2.8.0</jruby.version>
 		<revealjs.version>3.8.0</revealjs.version>
 		<asciidoctor.highlighter>highlightjs</asciidoctor.highlighter>
-		<asciidoctor-revealjs.version>1.0.4</asciidoctor-revealjs.version>
+		<asciidoctor-revealjs.version>2.0.0</asciidoctor-revealjs.version>
 		<asciidoc.source.docs.directory>src/docs/asciidoc</asciidoc.source.docs.directory>
 		<asciidoc.target.docs.directory>${project.build.directory}/asciidoc/docs</asciidoc.target.docs.directory>
 		<asciidoc.source.slides.directory>src/slides/asciidoc</asciidoc.source.slides.directory>
@@ -231,7 +231,7 @@
 				<dependency>
 					<groupId>rubygems</groupId>
 					<artifactId>asciidoctor-revealjs</artifactId>
-					<version>2.0.0</version>
+					<version>${asciidoctor-revealjs.version}</version>
 					<type>gem</type>
 					<!-- Avoid downloading gems included in AsciidoctorJ -->
 					<exclusions>
