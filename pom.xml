@@ -5,17 +5,14 @@
 	<artifactId>conferences</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<asciidoctor.maven.plugin.version>1.5.5</asciidoctor.maven.plugin.version>
-		<asciidoctorj.pdf.version>1.5.0-alpha.15</asciidoctorj.pdf.version>
-		<asciidoctorj.version>1.5.5</asciidoctorj.version>
-		<asciidoctorj.diagram.version>1.5.4</asciidoctorj.diagram.version>
-		<jruby.version>1.7.26</jruby.version>
-		<revealjs.version>3.6.0</revealjs.version>
-		<asciidoctor-revealjs.version>master</asciidoctor-revealjs.version>
+		<asciidoctor.maven.plugin.version>1.6.0</asciidoctor.maven.plugin.version>
+		<asciidoctorj.pdf.version>1.5.0-beta.6</asciidoctorj.pdf.version>
+		<asciidoctorj.version>1.6.2</asciidoctorj.version>
+		<asciidoctorj.diagram.version>1.5.18</asciidoctorj.diagram.version>
+		<jruby.version>9.2.8.0</jruby.version>
+		<revealjs.version>3.8.0</revealjs.version>
+		<asciidoctor.highlighter>highlightjs</asciidoctor.highlighter>
+		<asciidoctor-revealjs.version>1.0.4</asciidoctor-revealjs.version>
 		<asciidoc.source.docs.directory>src/docs/asciidoc</asciidoc.source.docs.directory>
 		<asciidoc.target.docs.directory>${project.build.directory}/asciidoc/docs</asciidoc.target.docs.directory>
 		<asciidoc.source.slides.directory>src/slides/asciidoc</asciidoc.source.slides.directory>
@@ -43,7 +40,7 @@
 					<groupId>org.asciidoctor</groupId>
 					<artifactId>asciidoctor-maven-plugin</artifactId>
 					<version>${asciidoctor.maven.plugin.version}</version>
-            		<inherited>true</inherited>
+					<inherited>true</inherited>
 					<dependencies>
 						<dependency>
 							<groupId>org.asciidoctor</groupId>
@@ -88,24 +85,8 @@
 			</properties>
 
 			<build>
-				<defaultGoal>process-resources</defaultGoal>
+				<defaultGoal>package</defaultGoal>
 				<plugins>
-					<plugin>
-						<groupId>com.fizzed</groupId>
-						<artifactId>fizzed-watcher-maven-plugin</artifactId>
-						<configuration>
-							<touchFile>target/watcher.docs.touchfile</touchFile>
-							<watches>
-								<watch>
-									<directory>${asciidoc.source.docs.directory}</directory>
-								</watch>
-							</watches>
-							<goals>
-								<goal>clean</goal>
-								<goal>process-resources</goal>
-							</goals>
-						</configuration>
-					</plugin>
 					<plugin>
 						<groupId>org.asciidoctor</groupId>
 						<artifactId>asciidoctor-maven-plugin</artifactId>
@@ -137,7 +118,7 @@
 							</dependency>
 						</dependencies>
 						<configuration>
-							<sourceDirectory>${asciidoc.source.docs.directory}</sourceDirectory>
+							<sourceHighlighter>${asciidoctor.highlighter}</sourceHighlighter>
 							<preserveDirectories>true</preserveDirectories>
 							<relativeBaseDir>true</relativeBaseDir>
 							<requires>
@@ -149,23 +130,32 @@
 								<!-- Windows: <graphvizdot>C:\Program Files (x86)\Graphviz2.38\bin\dot.exe</graphvizdot> -->
 								<!-- *nix : <graphvizdot>/usr/local/bin/dot</graphvizdot> -->
 								<sectnums>true</sectnums>
+								<project-group-id>${project.groupId}</project-group-id>
+								<project-artifact-id>${project.artifactId}</project-artifact-id>
+								<project-name>${project.name}</project-name>
+								<project-version>${project.version}</project-version>
+								<project-build-timestamp>${maven.build.timestamp}</project-build-timestamp>
+								<!-- These properties generate a footer with revision number and 
+									date -->
 								<revnumber>${project.version}</revnumber>
-        						<revdate>${maven.build.timestamp}</revdate>
-						        <organization>${project.organization.name}</organization>
+								<revdate>${maven.build.timestamp}</revdate>
+								<organization>${project.organization.name}</organization>
 							</attributes>
 						</configuration>
 						<executions>
 							<execution>
 								<id>generate-html-doc</id>
-								<phase>generate-resources</phase>
+								<phase>package</phase>
 								<goals>
 									<goal>process-asciidoc</goal>
 								</goals>
 								<configuration>
+									<sourceHighlighter>${asciidoctor.highlighter}</sourceHighlighter>
+									<sourceDirectory>${asciidoc.source.docs.directory}</sourceDirectory>
 									<backend>html5</backend>
-									<outputDirectory>${asciidoc.target.docs.directory}</outputDirectory>
+									<outputDirectory>${asciidoc.target.docs.directory}/html</outputDirectory>
 									<attributes>
-										<plantumldir></plantumldir>
+										<plantumldir />
 										<imagesdir>./images</imagesdir>
 										<toc>left</toc>
 										<icons>font</icons>
@@ -178,14 +168,15 @@
 							<!-- doesn't work in docker !!! -->
 							<execution>
 								<id>generate-pdf-doc</id>
-								<phase>generate-resources</phase>
+								<phase>package</phase>
 								<goals>
 									<goal>process-asciidoc</goal>
 								</goals>
 								<configuration>
+									<sourceDirectory>${asciidoc.source.docs.directory}</sourceDirectory>
 									<backend>pdf</backend>
-									<outputDirectory>${asciidoc.target.docs.directory}</outputDirectory>
-									<sourceHighlighter>coderay</sourceHighlighter>
+									<outputDirectory>${asciidoc.target.docs.directory}/pdf</outputDirectory>
+									<sourceHighlighter>${asciidoctor.highlighter}</sourceHighlighter>
 									<attributes>
 										<plantumldir>${asciidoc.target.docs.directory}</plantumldir>
 										<icons>font</icons>
@@ -194,6 +185,30 @@
 										<idprefix />
 										<idseparator>-</idseparator>
 									</attributes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>com.fizzed</groupId>
+						<artifactId>fizzed-watcher-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>watch-docs</id>
+								<configuration>
+									<touchFile>target/watcher.docs.touchfile</touchFile>
+									<watches>
+										<watch>
+											<directory>${project.basedir}/src/main/java</directory>
+										</watch>
+										<watch>
+											<directory>${asciidoc.source.docs.directory}</directory>
+										</watch>
+									</watches>
+									<goals>
+										<goal>prepare-package</goal>
+										<goal>org.asciidoctor:asciidoctor-maven-plugin:process-asciidoc@generate-html-doc</goal>
+									</goals>
 								</configuration>
 							</execution>
 						</executions>
@@ -211,22 +226,6 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>com.fizzed</groupId>
-						<artifactId>fizzed-watcher-maven-plugin</artifactId>
-						<configuration>
-							<touchFile>target/watcher.slides.touchfile</touchFile>
-							<watches>
-								<watch>
-									<directory>${asciidoc.source.slides.directory}</directory>
-								</watch>
-							</watches>
-							<goals>
-								<goal>clean</goal>
-								<goal>process-resources</goal>
-							</goals>
-						</configuration>
-					</plugin>
-					<plugin>
 						<groupId>com.googlecode.maven-download-plugin</groupId>
 						<artifactId>download-maven-plugin</artifactId>
 						<version>1.2.1</version>
@@ -238,7 +237,7 @@
 									<goal>wget</goal>
 								</goals>
 								<configuration>
-									<url>https://github.com/asciidoctor/asciidoctor-reveal.js/archive/${asciidoctor-revealjs.version}.zip</url>
+									<url>https://github.com/asciidoctor/asciidoctor-reveal.js/archive/v${asciidoctor-revealjs.version}.zip</url>
 									<unpack>true</unpack>
 									<outputFileName>asciidoctor-reveal.js-${asciidoctor-revealjs.version}.zip</outputFileName>
 									<outputDirectory>${project.build.directory}</outputDirectory>
@@ -285,7 +284,6 @@
 							</dependency>
 						</dependencies>
 						<configuration>
-							<sourceDirectory>${asciidoc.source.slides.directory}</sourceDirectory>
 							<preserveDirectories>true</preserveDirectories>
 							<relativeBaseDir>true</relativeBaseDir>
 							<requires>
@@ -295,15 +293,16 @@
 						<executions>
 							<execution>
 								<id>generate-slides</id>
-								<phase>process-resources</phase>
+								<phase>package</phase>
 								<goals>
 									<goal>process-asciidoc</goal>
 								</goals>
 								<configuration>
+									<sourceDirectory>${asciidoc.source.slides.directory}</sourceDirectory>
 									<outputDirectory>${asciidoc.target.slides.directory}</outputDirectory>
 									<backend>revealjs</backend>
 									<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates/slim</templateDir>
-									<sourceHighlighter>coderay</sourceHighlighter>
+									<sourceHighlighter>${asciidoctor.highlighter}</sourceHighlighter>
 									<attributes>
 										<plantumldir>images/</plantumldir>
 										<imagesdir>.</imagesdir>
@@ -313,9 +312,41 @@
 										<!-- put here the reveal.js specific attributes -->
 										<sourcedir>${basedir}/src/main/java</sourcedir>
 										<revealjs_theme>solarized</revealjs_theme>
+										<project-group-id>${project.groupId}</project-group-id>
+										<project-artifact-id>${project.artifactId}</project-artifact-id>
+										<project-name>${project.name}</project-name>
 										<project-version>${project.version}</project-version>
-										<stylesheet></stylesheet>
+										<project-build-timestamp>${maven.build.timestamp}</project-build-timestamp>
+										<!-- These properties generate a footer with revision number and 
+											date -->
+										<revnumber>${project.version}</revnumber>
+										<revdate>${maven.build.timestamp}</revdate>
+										<stylesheet />
 									</attributes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>com.fizzed</groupId>
+						<artifactId>fizzed-watcher-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>watch-slides</id>
+								<configuration>
+									<touchFile>target/watcher.slides.touchfile</touchFile>
+									<watches>
+										<watch>
+											<directory>${project.basedir}/src/main/java</directory>
+										</watch>
+										<watch>
+											<directory>${asciidoc.source.slides.directory}</directory>
+										</watch>
+									</watches>
+									<goals>
+										<goal>prepare-package</goal>
+										<goal>org.asciidoctor:asciidoctor-maven-plugin:process-asciidoc@generate-slides</goal>
+									</goals>
 								</configuration>
 							</execution>
 						</executions>
