@@ -1,5 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.zenika.ndx</groupId>
 	<artifactId>conferences</artifactId>
@@ -199,9 +200,6 @@
 									<touchFile>target/watcher.docs.touchfile</touchFile>
 									<watches>
 										<watch>
-											<directory>${project.basedir}/src/main/java</directory>
-										</watch>
-										<watch>
 											<directory>${asciidoc.source.docs.directory}</directory>
 										</watch>
 									</watches>
@@ -223,6 +221,35 @@
 					<exists>${asciidoc.source.slides.directory}</exists>
 				</file>
 			</activation>
+			<repositories>
+				<repository>
+					<id>rubygems-releases</id>
+					<url>http://rubygems-proxy.torquebox.org/releases</url>
+				</repository>
+			</repositories>
+			<dependencies>
+				<dependency>
+					<groupId>rubygems</groupId>
+					<artifactId>asciidoctor-revealjs</artifactId>
+					<version>2.0.0</version>
+					<type>gem</type>
+					<!-- Avoid downloading gems included in AsciidoctorJ -->
+					<exclusions>
+						<exclusion>
+							<groupId>rubygems</groupId>
+							<artifactId>asciidoctor</artifactId>
+						</exclusion>
+						<exclusion>
+							<groupId>rubygems</groupId>
+							<artifactId>thread_safe</artifactId>
+						</exclusion>
+						<exclusion>
+							<groupId>rubygems</groupId>
+							<artifactId>concurrent-ruby</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+			</dependencies>
 			<build>
 				<plugins>
 					<plugin>
@@ -230,19 +257,6 @@
 						<artifactId>download-maven-plugin</artifactId>
 						<version>1.2.1</version>
 						<executions>
-							<execution>
-								<id>install-asciidoctor-revealjs</id>
-								<phase>generate-resources</phase>
-								<goals>
-									<goal>wget</goal>
-								</goals>
-								<configuration>
-									<url>https://github.com/asciidoctor/asciidoctor-reveal.js/archive/v${asciidoctor-revealjs.version}.zip</url>
-									<unpack>true</unpack>
-									<outputFileName>asciidoctor-reveal.js-${asciidoctor-revealjs.version}.zip</outputFileName>
-									<outputDirectory>${project.build.directory}</outputDirectory>
-								</configuration>
-							</execution>
 							<execution>
 								<id>install-revealjs</id>
 								<phase>generate-resources</phase>
@@ -255,6 +269,26 @@
 									<outputFileName>reveal.js-${revealjs.version}.zip</outputFileName>
 									<outputDirectory>${asciidoc.target.slides.directory}</outputDirectory>
 								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>de.saumya.mojo</groupId>
+						<artifactId>gem-maven-plugin</artifactId>
+						<version>1.1.5</version>
+						<configuration>
+							<jrubyVersion>${jruby.version}</jrubyVersion>
+							<gemHome>${project.build.directory}/gems</gemHome>
+							<gemPath>${project.build.directory}/gems</gemPath>
+						</configuration>
+						<executions>
+							<!-- Install required gems in target directory -->
+							<execution>
+								<id>install-gems</id>
+								<goals>
+									<goal>initialize</goal>
+								</goals>
+								<phase>initialize</phase>
 							</execution>
 						</executions>
 					</plugin>
@@ -286,9 +320,6 @@
 						<configuration>
 							<preserveDirectories>true</preserveDirectories>
 							<relativeBaseDir>true</relativeBaseDir>
-							<requires>
-								<require>asciidoctor-diagram</require>
-							</requires>
 						</configuration>
 						<executions>
 							<execution>
@@ -298,6 +329,11 @@
 									<goal>process-asciidoc</goal>
 								</goals>
 								<configuration>
+									<gemPath>${project.build.directory}/gems</gemPath>
+									<requires>
+										<require>asciidoctor-diagram</require>
+										<require>asciidoctor-revealjs</require>
+									</requires>
 									<sourceDirectory>${asciidoc.source.slides.directory}</sourceDirectory>
 									<outputDirectory>${asciidoc.target.slides.directory}</outputDirectory>
 									<backend>revealjs</backend>
@@ -336,9 +372,6 @@
 								<configuration>
 									<touchFile>target/watcher.slides.touchfile</touchFile>
 									<watches>
-										<watch>
-											<directory>${project.basedir}/src/main/java</directory>
-										</watch>
 										<watch>
 											<directory>${asciidoc.source.slides.directory}</directory>
 										</watch>
