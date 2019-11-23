@@ -24,3 +24,7 @@ body {
     background-repeat: no-repeat;
     background-size: 50px;
 }
+
+div.tweet {
+    transform: scale(2) translateY(1.5em);
+}

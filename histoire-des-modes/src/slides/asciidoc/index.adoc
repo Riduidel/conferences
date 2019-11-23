@@ -4,6 +4,7 @@
 :revealjs_mouseWheel: true
 :revealjs_history: true
 :customcss: custom.css
+:source-highlighter: highlightjs
 
 :notitle:
 = Le diable s'habille en java
@@ -21,28 +22,6 @@ Combien d'entre vous sont sensibles aux modes ?
 --
 
 [%notitle]
-=== Une entreprise dans les années 80
-
-image::images/personnel-usine-bajart.jpg[background, size=cover]
-
-
-[NOTE.speaker]
---
-Cette photo vient du site de http://www.bajart.be/entreprise/historique/[l'entreprise Bajart] (qui n'est pas le sujet de cette présentation).
-
-Pourtant, la plupart d'entre vous (et moi-même, d'ailleurs) portons régulièrement des jeans ?
-Pourquoi ?
-Parce que c'est tendances ?
-Sûrement pas, puisque nous ne sommes pas sensibles aux modes ...
-Non, c'est parce que le jean, c'est solide, c'est pratique, c'est passe-partout.
-
-Qu'est-ce que je veux dire par là ? 
-Qu'il y a des modes, et que certaines sont pratiques.
-
-Par contre, sur cette photo, il manque quelque chose ...
---
-
-[%notitle]
 === Une équipe de Rugby en l'an 2000
 
 image::images/equipe-de-france-rugby.jpg[background, size=cover]
@@ -50,7 +29,7 @@ image::images/equipe-de-france-rugby.jpg[background, size=cover]
 
 [NOTE.speaker]
 --
-Là aussi, il manque quelque chose.
+Sur cette image, il manque quelque chose.
 
 (au passage, je prends beaucoup d'exemple masculins .... essentiellement parce que mon public est majoritairement masculin)
 
@@ -71,12 +50,35 @@ Evidement, tout ça n'a rien à faire en informatique ...
 --
 
 [%notitle]
+=== Une entreprise dans les années 80
+
+image::images/personnel-usine-bajart.jpg[background, size=cover]
+
+
+[NOTE.speaker]
+--
+Cette photo vient du site de http://www.bajart.be/entreprise/historique/[l'entreprise Bajart] (qui n'est pas le sujet de cette présentation).
+
+Pourtant, la plupart d'entre vous (et moi-même, d'ailleurs) portons régulièrement des jeans ?
+Pourquoi ?
+Parce que c'est tendances ?
+Sûrement pas, puisque nous ne sommes pas sensibles aux modes ...
+Non, c'est parce que le jean, c'est solide, c'est pratique, c'est passe-partout.
+
+Qu'est-ce que je veux dire par là ? 
+Qu'il y a des modes, et que certaines sont pratiques.
+--
+
+[%notitle]
 == Qui suis-je ?
 
 Nicolas Delsaux / @riduidel on https://twitter.com/riduidel[icon:twitter[]] / https://github.com/riduidel[icon:github[]] / https://stackexchange.com/users/8620[icon:stack-overflow[]]
 
 Développeur Java depuis l'an 2000
 
+image::images/zenika.png[height=100]
+
+// OK pour l'intro
 
 == Revenons à l'informatique
 
@@ -125,7 +127,6 @@ Le premier truc à intégrer, c'est qu'on est en 2019, et depuis 20 ans,
 il y a un truc qui a changé l'informatique : internet.
 Trop bien, internet.
 Ca a un petit défaut : notre application qui était simple se retrouve coupée en deux.
-Je ne peux pas dire que 
 --
 
 
@@ -172,6 +173,8 @@ Comment est-ce qu'au fil du temps, on a pu adapter le développement d'un back-e
 * J'écris une servlet
 * Je la package dans un WAR
 * Je la déploie dans une instance de Tomcat fournie par mon admin sys
+** Mais en prod je prends un serveur payant
+** Comme mon IDE (JBuilder ...)
 * La supervision se fait avec JMX dans ... Nagios
 
 [NOTE.speaker]
@@ -197,7 +200,17 @@ Peu, c'est vrai, mais ils existent.
 * J'ai autant de frameworks côté serveur que de jours de la semaine
 ** Struts, Wicket, GWT, JSF, ...
 * L'écriture d'EJB (et donc de code complexe dans un serveur) devient supportable
-* On peut utiliser des bases non SQL ... mais elles s'intègrent peu dans la logique transactionnelle
+* On peut utiliser des bases non SQL ...
+** mais elles s'intègrent peu dans la logique transactionnelle
+
+=== Et tout ça en open-source !
+
++++
+<div align=center class=tweet>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Welcome to 21st century tech, where the whole world runs on the hobby time of the 0.01%</p>&mdash; Daniel Spiewak (@djspiewak) <a href="https://twitter.com/djspiewak/status/810957682777722880?ref_src=twsrc%5Etfw">December 19, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
++++
 
 === En 2019
 
@@ -220,8 +233,7 @@ et que JavaEE traitait à l'exécution par habitude.
 === Docker, c'est mieux, non ?
 
 * Une super idée
-* Aucun rapport avec https://fr.wikipedia.org/wiki/Cgroups[cgroups]
-* Quelle meilleure personne pour assurer la sécurité d'un conteneur qu'un développeur ?
+* Aucun rapport avec https://fr.wikipedia.org/wiki/chroot[chroot] + https://fr.wikipedia.org/wiki/Cgroups[cgroups] + namespaces
 
 [NOTE.speaker]
 --
@@ -230,10 +242,10 @@ En effet, Docker est avant tout une copie de la mise en place Google des cgroups
 Borg, qui a ensuite donné naissance à ... Kubernetes (mais on y reviendra plus tard).
 --
 
-=== Docker, c'est vraiment mieux !
+=== Avec Docker, DevOps, c'est facile !
 
 +++
-<div align=center>
+<div align=center class=tweet>
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">DevOps is a software engineering culture and practice of putting horrors into containers and then talking about Kubernetes at conferences.</p>&mdash; seasonally affected server (@sadserver) <a href="https://twitter.com/sadserver/status/1011652439303262208?ref_src=twsrc%5Etfw">June 26, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
@@ -248,7 +260,7 @@ Cela dit, même avec DevOps, exécuter des conteneurs Docker en prod, ou plutôt
 === Kubernetes, c'est mieux non ?
 
 +++
-<div align=center>
+<div align=center class=tweet>
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;If you&#39;ve failed at SOA, why do you think you&#39;ll succeed with microservices?&quot; - <a href="https://twitter.com/bobmcwhirter?ref_src=twsrc%5Etfw">@bobmcwhirter</a> <a href="https://twitter.com/hashtag/JavaOne?src=hash&amp;ref_src=twsrc%5Etfw">#JavaOne</a></p>&mdash; Roy van Rijn (@royvanrijn) <a href="https://twitter.com/royvanrijn/status/779027766352019456?ref_src=twsrc%5Etfw">September 22, 2016</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
@@ -260,6 +272,15 @@ Cela dit, même avec DevOps, exécuter des conteneurs Docker en prod, ou plutôt
 Le gros problème de cette évolution, c'est qu'on fait confiance à des mecs qui n'ont jamais su utiliser des EJBs pour faire des services où la seule intégration se fait en HTTP.
 Ca n'est pas vraiment la recette du succès.
 --
+
+=== Clairement, c'est mieux
+
++++
+<div align=center>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="fr" dir="ltr">Déployer un index.html dans k8s:<br><br>- un Makefile pour générer un dossier target<br>- un Dockerfile pour coller dans NGiNX<br>- un package Helm<br>- un tls secret pour l’https<br>- une static ip gce<br>- un lb gce<br>- un pipeline de déploiement <a href="https://t.co/sj8QSTGN2B">pic.twitter.com/sj8QSTGN2B</a></p>&mdash; Lascar Dev (@LascarDev) <a href="https://twitter.com/LascarDev/status/978293243535380480?ref_src=twsrc%5Etfw">March 26, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
++++
 
 
 === Plus sérieusement
@@ -278,17 +299,6 @@ la perte des transactions est sans doute une vraie limitation de ces architectur
 Bien sûr, les afficionados des event driven architecture expliquent toujours que les transactions ne servent plus à rien.
 Mais l'hypothèse des opérations de compensation est plus difficilement explicable.
 --
-
-[%notitle%]
-=== Mais pourquoi tout le monde est passé à Docker/Kubernetes ?
-
-+++
-<div align=center>
-<blockquote class="twitter-tweet" data-lang="en"><p lang="fr" dir="ltr">Déployer un index.html dans k8s:<br><br>- un Makefile pour générer un dossier target<br>- un Dockerfile pour coller dans NGiNX<br>- un package Helm<br>- un tls secret pour l’https<br>- une static ip gce<br>- un lb gce<br>- un pipeline de déploiement <a href="https://t.co/sj8QSTGN2B">pic.twitter.com/sj8QSTGN2B</a></p>&mdash; Lascar Dev (@LascarDev) <a href="https://twitter.com/LascarDev/status/978293243535380480?ref_src=twsrc%5Etfw">March 26, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-+++
-
 
 === Mais pourquoi tout le monde est passé à Docker/Kubernetes ?
 
@@ -361,7 +371,7 @@ function compose(f, g) {
 [source, lisp]
 ----
 >(let ((id (compose #'sin #'asin)))
-   (funcall id 0.5))
+    (funcall id 0.5))
 0.5
 ----
 
@@ -386,14 +396,14 @@ Et le code JS vient de https://rosettacode.org/wiki/Function_composition#Simple_
 
 === En 2010
 
-[%step%]
+[%step]
 * Java a tellement gagné qu'il est copié (merci Microsoft)
 ** La JVM commence à héberger d'https://vmlanguages.is-research.de/[autres langages]/d'autres paradigmes
 * Javascript ... ne bouge pas (même si Chrome existe déja)
 
 === En 2019
 
-[%step%]
+[%step]
 * Tous les langages incluent un nouveau paradigme
 ** La https://fr.wikipedia.org/wiki/Programmation_fonctionnelle[programmation fonctionnelle] date de 1958 avec Lisp
 
@@ -417,11 +427,11 @@ image::images/map_reduce_vs_functional_programming.png[]
 +++
 <table>
 <tr>
-<td>
+<td style="transform: scale(1.5) translateY(1em) translateX(-2em); ">
 <blockquote class="twitter-tweet" data-lang="en" data-width="400"><p lang="en" dir="ltr">Nothing in software is new. Some of it is useful.</p>&mdash; Christian Posta (@christianposta) <a href="https://twitter.com/christianposta/status/1032391711882764290?ref_src=twsrc%5Etfw">August 22, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </td>
-<td>
+<td style="transform: scale(1.5) translateY(1em) translateX(2em); ">
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Don&#39;t be that young dev who thinks ideas that date back more than 20 years must be irrelevant now. Almost every good idea in computing is decades older than you think</p>&mdash; Codemanship (@codemanship) <a href="https://twitter.com/codemanship/status/975303766000963586?ref_src=twsrc%5Etfw">March 18, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </td>
@@ -438,7 +448,6 @@ image::images/map_reduce_vs_functional_programming.png[]
 ** Kafka
 ** Cassandra
 * La fin de la loi de Moore
-* Les besoins techniques de disponibilité
 
 
 [%notitle]
@@ -459,11 +468,20 @@ Par exemple, le fait qu'un développeur soit considéré comme senior dès 5 ans
 
 == Conclusion
 
+=== Ecrivez vos décisions
+
++++
+<div align=center class=tweet>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">joelparkerhenderson/architecture_decision_record: Architecture decision record (ADR) examples for software planning, IT leadership, and template documenation <a href="https://t.co/kDyHX2icsg">https://t.co/kDyHX2icsg</a></p>&mdash; Dan (@dnvtrn) <a href="https://twitter.com/dnvtrn/status/1033156811057246209?ref_src=twsrc%5Etfw">August 25, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
++++
+
 
 === Ayez une distance critique !
 
 +++
-<div align=center>
+<div align=center class=tweet>
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Our industry is blog post educated.<br>This result in overhyped bad practices and total dissonance between perceived professionnal work and real solutions for beginners.<br>Fighting this daily..</p>&mdash; stephane le dorze (@stephaneledorze) <a href="https://twitter.com/stephaneledorze/status/1096526391636561920?ref_src=twsrc%5Etfw">February 15, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
@@ -472,30 +490,23 @@ Par exemple, le fait qu'un développeur soit considéré comme senior dès 5 ans
 === Méfiez-vous des silver bullets !
 
 +++
-<table>
-<tr>
-<td>
+<div align=center class=tweet>
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">OH: Monads solve everything, they&#39;re like Docker or React</p>&mdash; Benji Weber (@benjiweber) <a href="https://twitter.com/benjiweber/status/778565169144266752?ref_src=twsrc%5Etfw">September 21, 2016</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</td>
-<td>
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Git has seemingly convinced a generation of devs that better software development revolves around finding the right branching strategy.</p>&mdash; Brian Guthrie (@bguthrie) <a href="https://twitter.com/bguthrie/status/776163773522534406?ref_src=twsrc%5Etfw">September 14, 2016</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</td>
-</tr>
-</table>
+</div>
 +++
 
 === Ne soyez pas des conference-driven-developers !
 
 +++
-<div align=center>
+<div align=center class=tweet>
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">It’s funny, software developers often won’t listen to architects in their own organisations who haven’t written code for N years, yet they *will* listen to speakers at conferences who haven’t built or run real software systems for N years.</p>&mdash; Simon Brown (@simonbrown) <a href="https://twitter.com/simonbrown/status/1106088844158480384?ref_src=twsrc%5Etfw">March 14, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 +++
 
 
+
 == Merci !
 
-image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[]
+image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
