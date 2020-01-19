@@ -509,7 +509,19 @@ N'oubliez pas l'exemple de GWT.
 </div>
 +++
 
+=== Voir aussi
 
++++
+<table>
+<tr>
+<td>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uFxVH5mFAKg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</td>
+<td>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AbgsfeGvg3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+</tr>
+</table>
++++
 
 == Merci !
 
