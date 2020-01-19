@@ -31,8 +31,6 @@ image::images/equipe-de-france-rugby.jpg[background, size=cover]
 --
 Sur cette image, il manque quelque chose.
 
-(au passage, je prends beaucoup d'exemple masculins .... essentiellement parce que mon public est majoritairement masculin)
-
 Vous voyez beaucoup de barbus ?
 
 Et quand vous regardez autour de vous, vous en voyez beaucoup (moi aussi, j'en vois partout).
@@ -59,14 +57,15 @@ image::images/personnel-usine-bajart.jpg[background, size=cover]
 --
 Cette photo vient du site de http://www.bajart.be/entreprise/historique/[l'entreprise Bajart] (qui n'est pas le sujet de cette présentation).
 
-Pourtant, la plupart d'entre vous (et moi-même, d'ailleurs) portons régulièrement des jeans ?
+La plupart d'entre vous (et moi-même, d'ailleurs) portons régulièrement des jeans ?
 Pourquoi ?
-Parce que c'est tendances ?
+Parce que c'est tendance ?
 Sûrement pas, puisque nous ne sommes pas sensibles aux modes ...
 Non, c'est parce que le jean, c'est solide, c'est pratique, c'est passe-partout.
 
 Qu'est-ce que je veux dire par là ? 
 Qu'il y a des modes, et que certaines sont pratiques.
+Et que si on reparle des barbes, d'autres sont peut-être un peu moins révolutionnaires.
 --
 
 [%notitle]
@@ -123,7 +122,7 @@ Application <-> Database
 Fondamentalement, notre métier, c'est de développer des applications
 que les utilisateurs utilisent et qui stockent des données dans une base de données.
 Mais ça, c'est vraiment une vision simpliste.
-Le premier truc à intégrer, c'est qu'on est en 2019, et depuis 20 ans, 
+Le premier truc à intégrer, c'est qu'on est en 2020, et depuis 20 ans, 
 il y a un truc qui a changé l'informatique : internet.
 Trop bien, internet.
 Ca a un petit défaut : notre application qui était simple se retrouve coupée en deux.
@@ -212,7 +211,7 @@ Peu, c'est vrai, mais ils existent.
 </div>
 +++
 
-=== En 2019
+=== En 2020
 
 * Je crée un JAR exécutable avec
 ** Spring Boot
@@ -224,7 +223,7 @@ Peu, c'est vrai, mais ils existent.
 
 [NOTE.speaker]
 --
-Notez que ces trois frameworks ont un point commun important : 
+Notez que Micronaut et Quarkus ont un point commun important : 
 ils ont remis à la compilation des éléments qui doivent y être traités,
 et que JavaEE traitait à l'exécution par habitude.
 --
@@ -287,9 +286,9 @@ Ca n'est pas vraiment la recette du succès.
 
 * On peut créer des systèmes polyglotes icon:check-circle[role=green]
 * Enfin une vraie gestion de l'autoscaling icon:check-circle[role=green]
-* Plus de transaction icon:times-circle[role=red] 
+* Plus de transaction distribuées icon:times-circle[role=red]
+* Plus de système de fichiers icon:times-circle[role=red]
 * On retélécharge (en HTTP !) l'image Docker sur chaque hôte Kubernetes icon:times-circle[role=red] 
-
 
 [NOTE.speaker]
 --
@@ -401,7 +400,7 @@ Et le code JS vient de https://rosettacode.org/wiki/Function_composition#Simple_
 ** La JVM commence à héberger d'https://vmlanguages.is-research.de/[autres langages]/d'autres paradigmes
 * Javascript ... ne bouge pas (même si Chrome existe déja)
 
-=== En 2019
+=== En 2020
 
 [%step]
 * Tous les langages incluent un nouveau paradigme
@@ -486,6 +485,11 @@ Par exemple, le fait qu'un développeur soit considéré comme senior dès 5 ans
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 +++
+
+[NOTE.speaker]
+--
+N'oubliez pas l'exemple de GWT.
+--
 
 === Méfiez-vous des silver bullets !
 
