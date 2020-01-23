@@ -29,6 +29,11 @@
 					<version>1.0.6</version>
 				</plugin>
 				<plugin>
+					<groupId>com.googlecode.maven-download-plugin</groupId>
+					<artifactId>download-maven-plugin</artifactId>
+					<version>1.2.1</version>
+				</plugin>
+				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.6.1</version>
@@ -251,11 +256,17 @@
 				</dependency>
 			</dependencies>
 			<build>
+				<resources>
+					<resource>
+						<directory>src/revealjs/plugins</directory>
+						<filtering>true</filtering>
+						<targetPath>${asciidoc.target.slides.directory}/plugins</targetPath>
+					</resource>
+				</resources>
 				<plugins>
 					<plugin>
 						<groupId>com.googlecode.maven-download-plugin</groupId>
 						<artifactId>download-maven-plugin</artifactId>
-						<version>1.2.1</version>
 						<executions>
 							<execution>
 								<id>install-revealjs</id>
@@ -357,6 +368,7 @@
 											date -->
 										<revnumber>${project.version}</revnumber>
 										<revdate>${maven.build.timestamp}</revdate>
+										<slidesdir>${asciidoc.target.slides.directory}</slidesdir>
 										<stylesheet />
 									</attributes>
 								</configuration>
@@ -380,6 +392,131 @@
 										<goal>prepare-package</goal>
 										<goal>org.asciidoctor:asciidoctor-maven-plugin:process-asciidoc@generate-slides</goal>
 									</goals>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>Merge revealjs configuration files</id>
+			<activation>
+				<file>
+					<exists>${asciidoc.target.slides.directory}/plugins</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.bekioui.maven.plugin</groupId>
+						<artifactId>merge-maven-plugin</artifactId>
+						<version>1.2.0</version>
+						<executions>
+							<execution>
+								<id>merge-plugins-loaders</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>merge</goal>
+								</goals>
+								<configuration>
+									<merges>
+										<merge>
+											<target>${asciidoc.target.slides.directory}/plugins.js</target>
+											<searchDir>${asciidoc.target.slides.directory}/plugins</searchDir>
+											<pattern>.*-loader.js</pattern>
+											<override>true</override>
+										</merge>
+									</merges>
+								</configuration>
+							</execution>
+							<execution>
+								<id>merge-plugins-configs</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>merge</goal>
+								</goals>
+								<configuration>
+									<merges>
+										<merge>
+											<target>${asciidoc.target.slides.directory}/configs.js</target>
+											<searchDir>${asciidoc.target.slides.directory}/plugins</searchDir>
+											<pattern>.*-config.js</pattern>
+											<override>true</override>
+										</merge>
+									</merges>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<!-- Beware! This menu simply downloads the dependency, you still have 
+				to include the fragment in Asciidoc and configure it by yourself -->
+			<id>enable_revealjs_menu_plugin</id>
+			<activation>
+				<file>
+					<exists>${basedir}/src/revealjs/plugins/menu-loader.js</exists>
+				</file>
+			</activation>
+			<properties>
+				<revealjs.menu.version>1.2.0</revealjs.menu.version>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.googlecode.maven-download-plugin</groupId>
+						<artifactId>download-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>install-revealjs-menu</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>wget</goal>
+								</goals>
+								<configuration>
+									<url>https://github.com/denehyg/reveal.js-menu/archive/${revealjs.menu.version}.zip</url>
+									<unpack>true</unpack>
+									<outputFileName>reveal.js-menu-${revealjs.menu.version}.zip</outputFileName>
+									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${revealjs.version}/plugin</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<!-- Beware! This menu simply downloads the dependency, you still have 
+				to include the fragment in Asciidoc and configure it by yourself -->
+			<id>enable_revealjs_notes_pointer_plugin</id>
+			<activation>
+				<file>
+					<exists>${basedir}/src/revealjs/plugins/notes-pointer-loader.js</exists>
+				</file>
+			</activation>
+			<properties>
+				<revealjs.notes.pointer.version>0.1.4</revealjs.notes.pointer.version>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.googlecode.maven-download-plugin</groupId>
+						<artifactId>download-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>install-revealjs-notes-pointer</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>wget</goal>
+								</goals>
+								<configuration>
+									<url>https://github.com/dougalsutherland/reveal.js-notes-pointer/archive/${revealjs.notes.pointer.version}.zip</url>
+									<unpack>true</unpack>
+									<outputFileName>reveal.js-notes-pointer-${revealjs.notes.pointer.version}.zip</outputFileName>
+									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${revealjs.version}/plugin</outputDirectory>
 								</configuration>
 							</execution>
 						</executions>
