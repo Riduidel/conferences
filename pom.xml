@@ -18,6 +18,7 @@
 		<asciidoc.target.docs.directory>${project.build.directory}/asciidoc/docs</asciidoc.target.docs.directory>
 		<asciidoc.source.slides.directory>src/slides/asciidoc</asciidoc.source.slides.directory>
 		<asciidoc.target.slides.directory>${project.build.directory}/asciidoc/slides</asciidoc.target.slides.directory>
+		<revealjs.plugins.directory>${basedir}/src/revealjs/plugins</revealjs.plugins.directory>
 	</properties>
 
 	<build>
@@ -403,7 +404,7 @@
 			<id>Merge revealjs configuration files</id>
 			<activation>
 				<file>
-					<exists>${asciidoc.target.slides.directory}/plugins</exists>
+					<exists>${revealjs.plugins.directory}</exists>
 				</file>
 			</activation>
 			<build>
@@ -458,7 +459,7 @@
 			<id>enable_revealjs_menu_plugin</id>
 			<activation>
 				<file>
-					<exists>${basedir}/src/revealjs/plugins/menu-loader.js</exists>
+					<exists>${revealjs.plugins.directory}/menu-loader.js</exists>
 				</file>
 			</activation>
 			<properties>
@@ -494,7 +495,7 @@
 			<id>enable_revealjs_notes_pointer_plugin</id>
 			<activation>
 				<file>
-					<exists>${basedir}/src/revealjs/plugins/notes-pointer-loader.js</exists>
+					<exists>${revealjs.plugins.directory}/notes-pointer-loader.js</exists>
 				</file>
 			</activation>
 			<properties>
