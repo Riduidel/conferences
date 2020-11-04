@@ -1,0 +1,11 @@
+:icons: font
+
+# conferences
+
+Ce repository GitHub contient l'ensemble des supports des conférences que j'ai pu donner.
+
+## Diffusions
+
+Les conférences suivantes ont été filmées, et sont disponibles
+
+* https://github.com/Riduidel/conferences/blob/master/histoire-des-modes/src/slides/asciidoc/index.adoc[L'histoire des modes en informatique/Le diable s'habille en Java]. Filmé à https://www.youtube.com/watch?v=TqFFqTKjHAA[Snowcamp 2020]
