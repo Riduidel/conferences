@@ -1,0 +1,312 @@
+:icons: font
+:revealjs_progress: true
+:revealjs_previewLinks: true
+:revealjs_mouseWheel: true
+:revealjs_history: true
+////
+:revealjs_plugins: {slidesdir}/plugins.js
+:revealjs_plugins_configuration: {slidesdir}/configs.js
+////
+:customcss: custom.css
+:source-highlighter: highlightjs
+
+= Comment travailler dans l'informatique pendant vingt ans sans pas devenir cinglé
+
+[%notitle]
+== De quoi va-t-on parler ?
+
+image::images/highlander_affiche.jpg[background, size=cover]
+
+[NOTE.speaker]
+--
+L'objectif de cette présentation, c'est de vous parler de quelques éléments de mon expérience 
+en espérant réussir à vous faire comprendre deux ou trois choses qui vont au-delà du code.
+
+Et pour ça, on va s'appuyer sur un chef d'oeuvre du cinéma ...
+Si vous ne l'avez pas vu, sachez juste qu'il y a Christophe 
+--
+
+== On fait quoi en vingt ans ?
+
+* 10 entreprises
+* 3 conventions collectives différentes
+* 2 licenciements économiques
+* 2 licenciements pour faute
+
+[NOTE.speaker]
+--
+Si on parle d'un point de vue contractuel, il y a eu quelques virages, pas toujours bien négociés.
+Et franchement, le détail n'est pas intéressant.
+
+En revanche, j'attire votre attention sur un poin de législation particulier.
+
+* Un licenciement pour faute concerne votre attitude personnelle, ou plus exactement votre relation avec votre employeur.
+* Un licenciement économique concerne **principalement** les fautes de l'employeur, c'est-à-dire sa capacité à anticiper votre charge de travail pour maintenir votre activité. C'est à peu près aussi contextuel qu'une épidémie ... 
+--
+
+== Un peu d'économie
+
+Mais pourquoi ?
+
+[NOTE.speaker]
+--
+Dans le fond, c'est quoi le but de l'expérience sociale spécifique à laquelle vous participez ?
+--
+
+[%notitle,background-iframe="https://fr.wikipedia.org/wiki/Histoire_de_l%27informatique"]
+=== Un peu d'histoire (mais vraiment peu)
+
+=== L'informatique existe dans un contexte économique
+
+[%step]
+* Produire un logiciel vendable
+* Produire un outil d'organisation d'une entreprise
+* Produire de l'open-source
+
+[NOTE.speaker]
+--
+Comme on l'a vu plus haut, l'informatique, historiquement, a permis aux entreprises de communiquer des informations.
+Et du coup, l'histoire de l'informatique est fondamentalement liée à l'économie capitaliste.
+D'une manière assez particulière, d'ailleurs, puisqu'étant apparue comme un centre de coût, 
+elle a entraîné la mise en place de pratiques d'optimisation économique comme l'open-source.
+
+A ce sujet, la fondation Apache a des speakers de talent qui vous expliquent 
+comment l'open-source est apparu pour séparer correctement les hackers du week-end de leurs utilisateurs industriels 
+(qui font en s'en servant une sacrément bonne affaire économique).
+
+**NOTE** je mets volontairement de côté les applications militaires de l'informatique, 
+parce qu'elles ne concernent que peu de gens 
+et qu'elles n'influent en fait pas sur l'évolution des métiers informatiques.
+--
+
+=== On fait quoi en vingt ans ?
+
+* 4 ESN
+* 2 start-ups
+* 4 éditeurs de progiciels
+
+[NOTE.speaker]
+--
+Il y a là une vraie différence, qui mérite qu'on s'y arrête.
+
+* Dans une ESN, les consultants sont les porteurs des services offerts. 
+C'est-à-dire que le chiffre d'affaire d'une entreprise de ce type dépend directement, ou presque, 
+du nombre et de la qualité des consultants.
+* A contrario, chez un éditeur de logiciel, le développeur produit le logiciel qui sera vendu.
+Mais ce logiciel ne peut exister que grâce aux commerciaux et aux services au client qui ont un rôle très différent : 
+il ne s'agit plus de fournir une prestation intellectuelle, mais de livrer un produit fini, qui fonctionne.
+* Enfin, la startup vise un effet de bascule encore plus important, puisqu'il ne s'agit même plus de livrer un logiciel,
+mais un service informatique.
+Du coup, plus besoin de services de personnalisation : 
+tout le monde utilise le même logiciel et on peut donc voir les développeurs se consacrer uniquement au développement du coeur du produit.
+
+Bon, en fait, les catégories sont loin d'être aussi étanches.
+Aujourd'hui, les éditeurs de progiciels sont passés au modèle *-as-a-service, qui les transforme.
+Et les ESN tendent à s'orienter vers les forfaits, en théorie plus rentables, mais on y reviendra.
+--
+
+[%notitle]
+=== Ca a un effet négatif
+
+image::images/kurgan_1.jpg[background, size=cover]
+
+[NOTE.speaker]
+--
+Il est déja temps de parler du grand méchant de l'histoire : la structure de l'emploi informatique en France.
+Parce que si on y réfléchit bien, hors exception (comme Zenika), 
+les ESN n'existent que pour une raison : fournir aux clients de la fluidité dans la gestion d'un centre de coûts historique.
+
+Prenez le temps d'y réfléchir : vos choix de carrière sont orientés par des considérations comptables des années 80.
+A l'échelle de notre métier, c'est la préhistoire.
+Pourtant, tout autour de vous est forgé par ces considérations.
+--
+
+
+=== Quelle est la valeur produite ?
+
+[quote, http://manifesteagile.fr/index.html]
+____
+Des solutions opérationnelles, de préférence à une documentation exhaustive
+____
+
+[NOTE.speaker]
+--
+Autrement dit, la valeur que vous produisez n'est liée qu'à la solution opérationnelle, et pas
+
+* à l'organisation mise en place.
+* à la pratique de méthodes d'artisanat logiciel
+* à la mise en place d'usines de code sophistiquées
+--
+
+=== Comment ?
+
+[%step]
+* Choisissez toujours la plus grosse valeur **métier** en premier
+* Utilisez votre expérience pour la choisir, et pas la communication qu'on vous fait
+
+[NOTE.speaker]
+--
+Ces considérations ne tiennent évidement qu'à l'aspect économique des choses.
+Vous pouvez bien évidement avoir envie de créer des clusters K8s chez vous le soir,
+ou de contribuer à des drivers Cassandra pour Spring.
+Mais, d'un point de vue purement professionnel, vous devez viser l'efficacité.
+Et l'efficacité, c'est parfois de ne pas travailler sur l'usine logicielle qui rame pour changer plutôt la couleur d'un bouton.
+C'est frustrant ? Non.
+C'est votre outil dans le jeu de pouvoir au sein de l'entreprise.
+
+Autrement dit, vous devez d'abord démontrer la valeur que vous pouvez produire avant de prétendre influencer l'environnement dans laquel vous travaillez.
+
+Pour une bonne raison ... vous travaillez avec des gens.
+--
+
+[%notitle,background-iframe="https://lemire.me/blog/2020/11/19/programming-is-social/"]
+== Un peu de sociologie
+
+[NOTE.speaker]
+--
+Sur ces vingt dernières années, j'ai dû travailler seul en-dehors d'équipes ... moins de deux ans.
+
+* Un an en début de carrière sur un prototype (c'est une vieille histoire).
+* Un an chez Adeo (et maintenant Decathlon).
+
+Qu'est-ce que ça implique ?
+--
+
+=== Les relations humains, c'est compliqué
+
+[quote, Bernard Werber]
+____
+Entre ce que je pense, ce que je veux dire, ce que je crois dire, ce que je dis, ce que vous voulez entendre, ce que vous entendez, ce que vous croyez comprendre, ce que vous voulez comprendre, et ce que vous comprenez, Il y a au moins dix possibilités (mais en réflexion pour la dizième…) de ne pas se comprendre.
+
+Mais, essayons quand même.
+____
+
+
+[NOTE.speaker]
+--
+Vous  entendrez parler plus en détail de tout ça avec les accords toltèques.
+Mais je voudrais juste souligner ce point : les relations sociales sont des relations interpersonnelles.
+
+Donc une fois que vous êtes au clair avec ce que vous voulez être, 
+vous pouvez commencer à vous intéresser à ce que les autres vous présentent.
+Et pour ça, il faut les écouter.
+--
+
+[%notitle,background-iframe="https://fr.wikipedia.org/wiki/Tolt%C3%A8ques#Les_accords_tolt%C3%A8ques"]
+=== Les relations humaines, c'est compliqué
+
+=== Les relations humaines, c'est compliqué
+
+[quote, http://manifesteagile.fr/index.html]
+____
+Les individus et leurs interactions, de préférence aux processus et aux outils
+____
+
+[NOTE.speaker]
+--
+J'aurais pu écrire aussi "l'enfer, c'est les autres".
+Parce que c'est parfois le cas. Vous travaillez dans des équipes.
+Comment faire pour que ces équipes ne vous dévorent pas ?
+--
+
+=== Comment ?
+
+[%step]
+* Vous pouvez apprendre de tout le monde, alors faites-le !
+* Aucune opinion ne vaut mieux qu'une autre
+* L'équipe dans laquelle vous travaillez est temporaire
+
+=== Les relations humaines, c'est compliqué
+
+[quote, Emerich Acton]
+____
+Le pouvoir corrompt, le pouvoir absolu corrompt absolument. [...]
+____
+
+[NOTE.speaker]
+--
+Que ce soit avec votre responsable hiérarchique.
+Que ce soit avec votre client.
+
+Alors forcément, c'est risqué.
+C'est risqué, mais c'est aussi terriblement instructif.
+Alors n'hésitez pas. 
+Parlez-leur, vous apprendrez des choses.
+
+Et surtout, vous aurez l'occasion de conformer votre environnement à vos souhaits.
+
+Encore faut-il que vous sachiez ce que vous voulez.
+--
+
+== Un peu de psychologie ...
+
+Personne n'est normal
+
+[NOTE.speaker]
+--
+Entendons-nous bien, chacun d'entre nous a un mode de fonctionnement psychologique particuler.
+Et il n'y a pas de fonctionnement normal, il y a juste des attentes qui sont normales où anomales.
+En revanche, il y a des choses que vous devez apprendre sur vous-même.
+--
+
+=== Connais-toi toi-même
+
+* Quelles forces ?
+* Quelles faiblesses ?
+
+[NOTE.speaker]
+--
+**Ce ne sont pas des questions d'entretien d'embauche.**
+Et d'ailleurs, je vous déconseille fortement de répondre franchement à ces questions lors d'éventuels entretiens.
+Mais ce sont des questions auxquelles vous devez trouver les réponses.
+Parce que vous pouvez vous mentir à vous-même, et bien des gens le font.
+
+**Mais** si vous vous mentez, vous souffrirez lorsque vous découvrirez la vérité.
+--
+
+=== Comment ?
+
+[%step]
+* L'apprentissage continu, ça marche aussi pour soi-même
+* Par exemple, est-ce que je peux me permettre de me moquer de certains de mes collègues ?
+
+[NOTE.speaker]
+--
+Comme vous participez aux rétrospectives de vos équipes, créez vous des rituels d'amélioration.
+Prenez le temps de réfléchir (à un autre moment que pendant les insomnies ou les fins de soirées)
+à vos émotions et à la façon dont elles ont pu ou pas vous aider.
+
+Par exemple, est-ce que je peux me moquer des collègues qui travaillent plus avec des post-its qu'avec un IDE ? 
+Ou avec un autre langage ?
+
+Autrement dit, qu'est-ce que cet humour dit de moi ?
+--
+
+== Et la passion alors ?
+
+[NOTE.speaker]
+--
+Vous êtes vraiment sûrs que la passion soit une chose positive ?
+Laissez-moi vous parler de mon mois de septembre de cette année, où, pour la première fois, 
+j'ai bossé un samedi parce qu'après six mois de confinement, j'avais enfin quelque chose à faire (et un peu de pression).
+--
+
+=== Comment ?
+
+[%step]
+* Ne faites rien
+* Ouvrez-vous à d'autres domaines
+** L'art (peinture, scultpure, cinéma, littérature, ...)
+** Le sport
+* Tentez des trucs sans pression (voire même des trucs ridicules)
+
+[NOTE.speaker]
+--
+Vous n'êtes pas obligé de passer votre temps à être des consultants.
+Vous pouvez aussi être juste des gens.
+Parce que la vie est longue, et vous devez prendre le temps de la vivre dans son ensemble.
+--
+
+== Merci !
+
+image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
