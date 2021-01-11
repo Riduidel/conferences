@@ -633,5 +633,6 @@
 		<module>histoire-des-modes</module>
 		<module>nomic-agile</module>
 		<module>informatique-20-ans</module>
+		<module>parlons-experience</module>
 	</modules>
 </project>

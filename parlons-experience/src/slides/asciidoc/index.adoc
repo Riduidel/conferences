@@ -1,0 +1,51 @@
+:icons: font
+:revealjs_progress: true
+:revealjs_previewLinks: true
+:revealjs_mouseWheel: true
+:revealjs_history: true
+////
+:revealjs_plugins: {slidesdir}/plugins.js
+:revealjs_plugins_configuration: {slidesdir}/configs.js
+////
+:customcss: custom.css
+:source-highlighter: highlightjs
+
+= Parlons expérience
+
+
+== Est-ce que je peux rester développeur toute ma vie ?
+
+* Demande à Don Knuth
+
+=== Est-ce que je vais aimer être développeur toute ma vie ?
+
+* Est-ce qu'il y a eu des moments où tu n'aimais pas ton boulot ?
+
+=== Est-ce que l'on va me forcer à prendre des personnes en responsabilité pour gagner plus ?
+
+Rien n'est moins sûr
+
+=== Vers quel âge on va commencer à me pointer du doigt en me disant que je suis un vieux développeur ?
+
+En France, on est
+
+* Senior à 2 ans d'expérience
+* Expert à 5 ans
+
+Comment ça peut tenir sur une carrière qui dure 40 ans ?
+
+== Est-ce que tu peux encore apprendre des choses ?
+
+A une condition : accepter l'inconnu
+
+=== Est-ce qu'on te laisse encore redevenir junior sur un sujet et te donner le temps d’apprendre tranquillement ?
+
+Il va falloir préciser ce que veut dire junior
+
+=== Est-ce qu'il faut absolument changer de boîte pour se faire une bonne expérience ?
+
+Je ne suis pas un bon exemple
+
+== Merci !
+
+image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
