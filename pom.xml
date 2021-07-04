@@ -1,25 +1,69 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.zenika.ndx</groupId>
 	<artifactId>conferences</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<asciidoctor.maven.plugin.version>1.6.0</asciidoctor.maven.plugin.version>
-		<asciidoctorj.pdf.version>1.5.0-beta.6</asciidoctorj.pdf.version>
-		<asciidoctorj.version>1.6.2</asciidoctorj.version>
-		<asciidoctorj.diagram.version>1.5.18</asciidoctorj.diagram.version>
-		<jruby.version>9.2.8.0</jruby.version>
-		<revealjs.version>3.8.0</revealjs.version>
+		<kroki.server.url>https://kroki.io</kroki.server.url>
 		<asciidoctor.highlighter>highlightjs</asciidoctor.highlighter>
-		<asciidoctor-revealjs.version>2.0.0</asciidoctor-revealjs.version>
 		<asciidoc.source.docs.directory>src/docs/asciidoc</asciidoc.source.docs.directory>
 		<asciidoc.target.docs.directory>${project.build.directory}/asciidoc/docs</asciidoc.target.docs.directory>
 		<asciidoc.source.slides.directory>src/slides/asciidoc</asciidoc.source.slides.directory>
 		<asciidoc.target.slides.directory>${project.build.directory}/asciidoc/slides</asciidoc.target.slides.directory>
+		<asciidoctor.highlighter>highlightjs</asciidoctor.highlighter>
 		<revealjs.plugins.directory>${basedir}/src/revealjs/plugins</revealjs.plugins.directory>
+
+		<!-- See latest version here: https://mvnrepository.com/artifact/org.asciidoctor/asciidoctor-maven-plugin -->
+		<version.asciidoctor.maven.plugin>2.1.0</version.asciidoctor.maven.plugin>
+		<!-- See latest version here: https://mvnrepository.com/artifact/org.asciidoctor/asciidoctorj-pdf -->
+		<version.asciidoctorj.pdf>1.5.4</version.asciidoctorj.pdf>
+		<!-- See latest version here: https://mvnrepository.com/artifact/org.asciidoctor/asciidoctorj -->
+		<version.asciidoctorj>2.4.3</version.asciidoctorj>
+		<!-- See latest version here: https://mvnrepository.com/artifact/org.asciidoctor/asciidoctorj-revealjs -->
+		<version.asciidoctor.revealjs>4.1.0</version.asciidoctor.revealjs>
+		<!-- See latest version here: https://mvnrepository.com/artifact/org.asciidoctor/asciidoctorj-diagram -->
+		<version.asciidoctor.kroki>0.4.0</version.asciidoctor.kroki>
+		<!-- See latest version here https://mvnrepository.com/artifact/org.jruby/jruby -->
+		<version.jruby>9.2.9.0</version.jruby>
+		<!-- See latest version here: https://github.com/hakimel/reveal.js/releases -->
+		<version.revealjs>3.9.2</version.revealjs>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>rubygems-releases</id>
+			<url>http://rubygems-proxy.torquebox.org/releases</url>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+		<!-- asciidoctor-kroki is added as POM dependency to make sure gem maven 
+			plugin downloads it -->
+		<dependency>
+			<groupId>rubygems</groupId>
+			<artifactId>asciidoctor-kroki</artifactId>
+			<version>${version.asciidoctor.kroki}</version>
+			<type>gem</type>
+			<!-- Avoid downloading gems included in AsciidoctorJ -->
+			<exclusions>
+				<exclusion>
+					<groupId>rubygems</groupId>
+					<artifactId>asciidoctor</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>rubygems</groupId>
+					<artifactId>thread_safe</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>rubygems</groupId>
+					<artifactId>concurrent-ruby</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+	
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -29,193 +73,90 @@
 					<version>1.0.6</version>
 				</plugin>
 				<plugin>
-					<groupId>com.googlecode.maven-download-plugin</groupId>
-					<artifactId>download-maven-plugin</artifactId>
-					<version>1.2.1</version>
-				</plugin>
-				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.6.1</version>
 					<configuration>
-						<source>${maven.compiler.source}</source>
-						<target>${maven.compiler.target}</target>
+						<release>${maven.compiler.release}</release>
 					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.asciidoctor</groupId>
 					<artifactId>asciidoctor-maven-plugin</artifactId>
-					<version>${asciidoctor.maven.plugin.version}</version>
+					<version>${version.asciidoctor.maven.plugin}</version>
 					<inherited>true</inherited>
 					<dependencies>
 						<dependency>
 							<groupId>org.asciidoctor</groupId>
 							<artifactId>asciidoctorj-pdf</artifactId>
-							<version>${asciidoctorj.pdf.version}</version>
+							<version>${version.asciidoctorj.pdf}</version>
 						</dependency>
-						<!-- Comment this section to use the default jruby 
-																												artifact provided by the plugin -->
+						<!-- Comment this section to use the default jruby artifact provided 
+							by the plugin -->
 						<dependency>
 							<groupId>org.jruby</groupId>
 							<artifactId>jruby-complete</artifactId>
-							<version>${jruby.version}</version>
+							<version>${version.jruby}</version>
 						</dependency>
-						<!-- Comment this section to use the default AsciidoctorJ 
-																												artifact provided by the plugin -->
+						<!-- Comment this section to use the default AsciidoctorJ artifact 
+							provided by the plugin -->
 						<dependency>
 							<groupId>org.asciidoctor</groupId>
 							<artifactId>asciidoctorj</artifactId>
-							<version>${asciidoctorj.version}</version>
-						</dependency>
-						<dependency>
-							<groupId>org.asciidoctor</groupId>
-							<artifactId>asciidoctorj-diagram</artifactId>
-							<version>${asciidoctorj.diagram.version}</version>
+							<version>${version.asciidoctorj}</version>
 						</dependency>
 					</dependencies>
+					<configuration>
+						<gemPath>${project.build.directory}/gems</gemPath>
+						<attributes>
+							<allow-uri-read />
+							<kroki-server-url>${kroki.server.url}</kroki-server-url>
+						</attributes>
+						<logHandler>
+							<outputToConsole>true</outputToConsole>
+							<failIf>
+								<severity>ERROR</severity>
+							</failIf>
+						</logHandler>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>3.0.0-M1</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<localCheckout>true</localCheckout>
+						<arguments>-Dasciidoc.documents.hide.bug.report=true</arguments>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>de.saumya.mojo</groupId>
+				<artifactId>gem-maven-plugin</artifactId>
+				<version>1.1.8</version>
+				<configuration>
+					<jrubyVersion>${version.jruby}</jrubyVersion>
+					<gemHome>${project.build.directory}/gems</gemHome>
+					<gemPath>${project.build.directory}/gems</gemPath>
+				</configuration>
+				<executions>
+					<!-- Install required gems in target directory -->
+					<execution>
+						<id>install-gems</id>
+						<goals>
+							<goal>initialize</goal>
+						</goals>
+						<phase>initialize</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 
 	<profiles>
-		<profile>
-			<id>generate-docs</id>
-			<activation>
-				<file>
-					<exists>${asciidoc.source.docs.directory}</exists>
-				</file>
-			</activation>
-			<properties>
-				<asciidoc.target.docs.directory>${project.build.directory}/asciidoc/docs</asciidoc.target.docs.directory>
-			</properties>
-
-			<build>
-				<defaultGoal>package</defaultGoal>
-				<plugins>
-					<plugin>
-						<groupId>org.asciidoctor</groupId>
-						<artifactId>asciidoctor-maven-plugin</artifactId>
-						<version>${asciidoctor.maven.plugin.version}</version>
-						<dependencies>
-							<dependency>
-								<groupId>org.asciidoctor</groupId>
-								<artifactId>asciidoctorj-pdf</artifactId>
-								<version>${asciidoctorj.pdf.version}</version>
-							</dependency>
-							<!-- Comment this section to use the default 
-																																jruby artifact provided by the plugin -->
-							<dependency>
-								<groupId>org.jruby</groupId>
-								<artifactId>jruby-complete</artifactId>
-								<version>${jruby.version}</version>
-							</dependency>
-							<!-- Comment this section to use the default 
-																																AsciidoctorJ artifact provided by the plugin -->
-							<dependency>
-								<groupId>org.asciidoctor</groupId>
-								<artifactId>asciidoctorj</artifactId>
-								<version>${asciidoctorj.version}</version>
-							</dependency>
-							<dependency>
-								<groupId>org.asciidoctor</groupId>
-								<artifactId>asciidoctorj-diagram</artifactId>
-								<version>${asciidoctorj.diagram.version}</version>
-							</dependency>
-						</dependencies>
-						<configuration>
-							<sourceHighlighter>${asciidoctor.highlighter}</sourceHighlighter>
-							<preserveDirectories>true</preserveDirectories>
-							<relativeBaseDir>true</relativeBaseDir>
-							<requires>
-								<require>asciidoctor-diagram</require>
-							</requires>
-							<attributes>
-								<!-- Example below shows how to specify in 
-																																				this pom instead of System's PATH, the location of dot command of Graphviz, 
-																																				required by PlantUML libraries -->
-								<!-- Windows: <graphvizdot>C:\Program Files 
-																																				(x86)\Graphviz2.38\bin\dot.exe</graphvizdot> -->
-								<!-- *nix : <graphvizdot>/usr/local/bin/dot</graphvizdot> -->
-								<sectnums>true</sectnums>
-								<project-group-id>${project.groupId}</project-group-id>
-								<project-artifact-id>${project.artifactId}</project-artifact-id>
-								<project-name>${project.name}</project-name>
-								<project-version>${project.version}</project-version>
-								<project-build-timestamp>${maven.build.timestamp}</project-build-timestamp>
-								<!-- These properties generate a footer with 
-																																				revision number and date -->
-								<revnumber>${project.version}</revnumber>
-								<revdate>${maven.build.timestamp}</revdate>
-								<organization>${project.organization.name}</organization>
-							</attributes>
-						</configuration>
-						<executions>
-							<execution>
-								<id>generate-html-doc</id>
-								<phase>package</phase>
-								<goals>
-									<goal>process-asciidoc</goal>
-								</goals>
-								<configuration>
-									<sourceHighlighter>${asciidoctor.highlighter}</sourceHighlighter>
-									<sourceDirectory>${asciidoc.source.docs.directory}</sourceDirectory>
-									<backend>html5</backend>
-									<outputDirectory>${asciidoc.target.docs.directory}/html</outputDirectory>
-									<attributes>
-										<plantumldir />
-										<imagesdir>./images</imagesdir>
-										<toc>left</toc>
-										<icons>font</icons>
-										<sectanchors>true</sectanchors>
-										<idprefix />
-										<idseparator>-</idseparator>
-									</attributes>
-								</configuration>
-							</execution>
-							<!-- doesn't work in docker !!! -->
-							<execution>
-								<id>generate-pdf-doc</id>
-								<phase>package</phase>
-								<goals>
-									<goal>process-asciidoc</goal>
-								</goals>
-								<configuration>
-									<sourceDirectory>${asciidoc.source.docs.directory}</sourceDirectory>
-									<backend>pdf</backend>
-									<outputDirectory>${asciidoc.target.docs.directory}/pdf</outputDirectory>
-									<sourceHighlighter>${asciidoctor.highlighter}</sourceHighlighter>
-									<attributes>
-										<plantumldir>${asciidoc.target.docs.directory}</plantumldir>
-										<icons>font</icons>
-										<pagenums />
-										<toc />
-										<idprefix />
-										<idseparator>-</idseparator>
-									</attributes>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>com.fizzed</groupId>
-						<artifactId>fizzed-watcher-maven-plugin</artifactId>
-						<configuration>
-							<touchFile>target/watcher.docs.touchfile</touchFile>
-							<watches>
-								<watch>
-									<directory>${asciidoc.source.docs.directory}</directory>
-								</watch>
-							</watches>
-							<goals>
-								<goal>prepare-package</goal>
-								<goal>org.asciidoctor:asciidoctor-maven-plugin:process-asciidoc@generate-html-doc</goal>
-							</goals>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
 		<profile>
 			<id>generate-slides</id>
 			<activation>
@@ -223,17 +164,11 @@
 					<exists>${asciidoc.source.slides.directory}</exists>
 				</file>
 			</activation>
-			<repositories>
-				<repository>
-					<id>rubygems-releases</id>
-					<url>http://rubygems-proxy.torquebox.org/releases</url>
-				</repository>
-			</repositories>
 			<dependencies>
 				<dependency>
 					<groupId>rubygems</groupId>
 					<artifactId>asciidoctor-revealjs</artifactId>
-					<version>${asciidoctor-revealjs.version}</version>
+					<version>${version.asciidoctor.revealjs}</version>
 					<type>gem</type>
 					<!-- Avoid downloading gems included in AsciidoctorJ -->
 					<exclusions>
@@ -272,57 +207,32 @@
 									<goal>wget</goal>
 								</goals>
 								<configuration>
-									<url>https://github.com/hakimel/reveal.js/archive/${revealjs.version}.zip</url>
+									<url>https://github.com/hakimel/reveal.js/archive/${version.revealjs}.zip</url>
 									<unpack>true</unpack>
-									<outputFileName>reveal.js-${revealjs.version}.zip</outputFileName>
+									<outputFileName>reveal.js-${version.revealjs}.zip</outputFileName>
 									<outputDirectory>${asciidoc.target.slides.directory}</outputDirectory>
 								</configuration>
 							</execution>
 						</executions>
 					</plugin>
 					<plugin>
-						<groupId>de.saumya.mojo</groupId>
-						<artifactId>gem-maven-plugin</artifactId>
-						<version>1.1.5</version>
-						<configuration>
-							<jrubyVersion>${jruby.version}</jrubyVersion>
-							<gemHome>${project.build.directory}/gems</gemHome>
-							<gemPath>${project.build.directory}/gems</gemPath>
-						</configuration>
-						<executions>
-							<!-- Install required gems in target directory -->
-							<execution>
-								<id>install-gems</id>
-								<goals>
-									<goal>initialize</goal>
-								</goals>
-								<phase>initialize</phase>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
 						<groupId>org.asciidoctor</groupId>
 						<artifactId>asciidoctor-maven-plugin</artifactId>
-						<version>${asciidoctor.maven.plugin.version}</version>
+						<version>${version.asciidoctor.maven.plugin}</version>
 						<dependencies>
-							<!-- Comment this section to use the default 
-																																jruby artifact provided by the plugin -->
+							<!-- Comment this section to use the default jruby artifact provided 
+								by the plugin -->
 							<dependency>
 								<groupId>org.jruby</groupId>
 								<artifactId>jruby-complete</artifactId>
-								<version>${jruby.version}</version>
+								<version>${version.jruby}</version>
 							</dependency>
-							<!-- Comment this section to use the default 
-																																AsciidoctorJ artifact provided by the plugin -->
+							<!-- Comment this section to use the default AsciidoctorJ artifact 
+								provided by the plugin -->
 							<dependency>
 								<groupId>org.asciidoctor</groupId>
 								<artifactId>asciidoctorj</artifactId>
-								<version>${asciidoctorj.version}</version>
-							</dependency>
-							<dependency>
-								<groupId>org.asciidoctor</groupId>
-								<artifactId>asciidoctorj-diagram</artifactId>
-								<version>${asciidoctorj.diagram.version}</version>
+								<version>${version.asciidoctorj}</version>
 							</dependency>
 						</dependencies>
 						<configuration>
@@ -339,22 +249,22 @@
 								<configuration>
 									<gemPath>${project.build.directory}/gems</gemPath>
 									<requires>
-										<require>asciidoctor-diagram</require>
+										<require>asciidoctor-kroki</require>
 										<require>asciidoctor-revealjs</require>
 									</requires>
 									<sourceDirectory>${asciidoc.source.slides.directory}</sourceDirectory>
 									<outputDirectory>${asciidoc.target.slides.directory}</outputDirectory>
 									<backend>revealjs</backend>
-									<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates/slim</templateDir>
+									<templateDir>${project.build.directory}/asciidoctor-reveal.js-${version.revealjs}/templates/slim</templateDir>
 									<sourceHighlighter>${asciidoctor.highlighter}</sourceHighlighter>
 									<attributes>
 										<plantumldir>images/</plantumldir>
 										<imagesdir>.</imagesdir>
 										<!-- As we are downloading reveal.js 
-																																												in runtime, it sits in a nonstandard folder `reveal.js-${revealjs.version}` -->
-										<revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
+														in runtime, it sits in a nonstandard folder `reveal.js-${version.revealjs}` -->
+										<revealjsdir>reveal.js-${version.revealjs}</revealjsdir>
 										<!-- put here the reveal.js specific 
-																																												attributes -->
+														attributes -->
 										<sourcedir>${basedir}/src/main/java</sourcedir>
 										<revealjs_theme>solarized</revealjs_theme>
 										<project-group-id>${project.groupId}</project-group-id>
@@ -363,7 +273,7 @@
 										<project-version>${project.version}</project-version>
 										<project-build-timestamp>${maven.build.timestamp}</project-build-timestamp>
 										<!-- These properties generate a 
-																																												footer with revision number and date -->
+														footer with revision number and date -->
 										<revnumber>${project.version}</revnumber>
 										<revdate>${maven.build.timestamp}</revdate>
 										<slidesdir>${asciidoc.target.slides.directory}</slidesdir>
@@ -447,7 +357,7 @@
 		</profile>
 		<profile>
 			<!-- Beware! This menu simply downloads the dependency, you still 
-																have to include the fragment in Asciidoc and configure it by yourself -->
+						have to include the fragment in Asciidoc and configure it by yourself -->
 			<id>enable_revealjs_menu_plugin</id>
 			<activation>
 				<file>
@@ -473,7 +383,7 @@
 									<url>https://github.com/denehyg/reveal.js-menu/archive/${revealjs.menu.version}.zip</url>
 									<unpack>true</unpack>
 									<outputFileName>reveal.js-menu-${revealjs.menu.version}.zip</outputFileName>
-									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${revealjs.version}/plugin</outputDirectory>
+									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${version.revealjs}/plugin</outputDirectory>
 								</configuration>
 							</execution>
 						</executions>
@@ -482,8 +392,8 @@
 			</build>
 		</profile>
 		<profile>
-			<!-- Beware! This menu simply downloads the dependency, you still 
-																have to include the fragment in Asciidoc and configure it by yourself -->
+				<!-- Beware! This menu simply downloads the dependency, you still 
+							have to include the fragment in Asciidoc and configure it by yourself -->
 			<id>enable_revealjs_notes_pointer_plugin</id>
 			<activation>
 				<file>
@@ -509,7 +419,7 @@
 									<url>https://github.com/dougalsutherland/reveal.js-notes-pointer/archive/${revealjs.notes.pointer.version}.zip</url>
 									<unpack>true</unpack>
 									<outputFileName>reveal.js-notes-pointer-${revealjs.notes.pointer.version}.zip</outputFileName>
-									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${revealjs.version}/plugin</outputDirectory>
+									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${version.revealjs}/plugin</outputDirectory>
 								</configuration>
 							</execution>
 						</executions>
@@ -519,7 +429,7 @@
 		</profile>
 		<profile>
 			<!-- Beware! This menu simply downloads the dependency, you still 
-																have to include the fragment in Asciidoc and configure it by yourself -->
+							have to include the fragment in Asciidoc and configure it by yourself -->
 			<id>enable_revealjs_run_in_terminal</id>
 			<activation>
 				<file>
@@ -545,7 +455,7 @@
 									<url>https://github.com/dougalsutherland/reveal.js-notes-pointer/archive/${revealjs.notes.pointer.version}.zip</url>
 									<unpack>true</unpack>
 									<outputFileName>reveal.js-notes-pointer-${revealjs.notes.pointer.version}.zip</outputFileName>
-									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${revealjs.version}/plugin</outputDirectory>
+									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${version.revealjs}/plugin</outputDirectory>
 								</configuration>
 							</execution>
 						</executions>
@@ -555,7 +465,7 @@
 		</profile>
 		<profile>
 			<!-- This profile should be invoked at the process-resources 
-																phase to correctly trigger the remaining ones ! -->
+							phase to correctly trigger the remaining ones ! -->
 			<id>livereload</id>
 			<dependencies>
 				<dependency>
@@ -579,10 +489,10 @@
 								</goals>
 								<configuration>
 									<!-- Livereload is launched as an exec 
-																																								job to allow it to run in background -->
+													job to allow it to run in background -->
 									<executable>java</executable>
 									<!-- See https://github.com/davidB/livereload-jvm/blob/0.2.0/src/main/java/net_alchim31_livereload/Main.java 
-																																								for details -->
+													for details -->
 									<arguments>
 										<argument>-classpath</argument>
 										<classpath>
@@ -633,5 +543,7 @@
 		<module>histoire-des-modes</module>
 		<module>nomic-agile</module>
 		<module>informatique-20-ans</module>
+		<module>parlons-experience</module>
+		<module>structure-du-marche-informatique</module>
 	</modules>
 </project>
