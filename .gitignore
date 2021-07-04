@@ -90,6 +90,6 @@ local.properties
 
 # End of https://www.gitignore.io/api/eclipse
 */test/*
-*/target/*
 */.vscode/settings.json
 .vscode/settings.json
+**/target/
