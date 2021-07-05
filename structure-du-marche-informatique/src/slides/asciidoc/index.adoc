@@ -46,34 +46,80 @@ image::images/CIGREF-infographie-histoire-informatique-entreprises-partie-1.jpg[
 Cette image vient tout droit du site du CIGREF, https://www.cigref.fr/organisations-membres-du-cigref[un club d'entreprises utilisatrices de l'informatique]. Et elle donne une vision orientée de l'histoire de l'informatique en France.
 --
 
+[%notitle, background-iframe="https://www.museeinformatique.fr/comment-sest-elle-developpe-linformatique-en-france/"]
+=== Un peu d'histoire - Une vision muséographique
+
+[%notitle, background-iframe="http://www.lexweb.fr/la-petite-histoire-linformatique-france/"]
+=== Un peu d'histoire - Un autre axe économique
+
+////
 [%notitle, background-iframe="https://www.unilim.fr/interfaces-numeriques/2546#article_toc"]
 === Un peu d'histoire - pour aller plus loin
+////
 
 == Quelques chiffres
 
-[vegalite, my-diagram, svg]
+=== "Palmarès" des plus grosses entreprises
+
+////
+[vegalite, ca-palmares, png]
 ....
 {
-"$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-"width": 500,
-"data": {
-"values": [
-{"Customer": "Customer1", "Bandwidth": 250},
-{"Customer": "Customer2", "Bandwidth": 50}
-]
-},
-"mark": "bar",
-"encoding": {
-"color": {"field": "Customer", "type": "nominal"},
-"x": {
-"field": "Bandwidth",
-"scale": {"domain": [0, 500]},
-"type": "quantitative",
-"axis": {"title": "Circuit Bandwidth Guarantee (Mbps)"}
-}
-}
-}
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":400,
+    "data": {
+        "values": [
+            {"type": "ESN", "percent": 61},
+            {"type": "Editeur", "percent": 21},
+            {"type": "Conseil en technologie", "percent": 17}
+        ]
+    },
+    "mark": "arc",
+    "encoding": {
+        "theta": {"field": "percent", "type": "quantitative"},
+        "color": {"field": "type", "type": "nominal"}
+    },
+    "view": {"stroke": null}
+}   
 ....
+////
+
+
+[NOTE.speaker]
+----
+Les chiffres proviennent de https://www.verif.com/Hit-parade/01-CA/03-Par-activite/62-Programmation-conseil-et-autres-activites-informatiques#verif_meslistes_thead[BFM Verif]
+----
+
+=== Répartition du CA par type d'entreprise SYNTEC
+
+image::images/ca-percentage.png[]
+////
+[vegalite, ca-percentage, png]
+....
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":400,
+    "data": {
+        "values": [
+            {"type": "ESN", "percent": 61},
+            {"type": "Editeur", "percent": 21},
+            {"type": "Conseil en technologie", "percent": 17}
+        ]
+    },
+    "mark": "arc",
+    "encoding": {
+        "theta": {"field": "percent", "type": "quantitative"},
+        "color": {"field": "type", "type": "nominal"}
+    },
+    "view": {"stroke": null}
+}   
+....
+////
+
+[NOTE.speaker]
+--
+Les chiffres proviennent de https://www.zdnet.fr/actualites/chiffres-cles-les-services-it-et-l-edition-logicielle-en-france-39790401.htm[ZDNet] et du SYNTEC.
+--
 
 == TODO
 
