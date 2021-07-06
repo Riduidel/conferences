@@ -6,7 +6,7 @@
 	<artifactId>conferences</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<kroki.server.url>https://kroki.io</kroki.server.url>
+		<kroki.server.url>http://localhost:29000</kroki.server.url>
 		<asciidoctor.highlighter>highlightjs</asciidoctor.highlighter>
 		<asciidoc.source.docs.directory>src/docs/asciidoc</asciidoc.source.docs.directory>
 		<asciidoc.target.docs.directory>${project.build.directory}/asciidoc/docs</asciidoc.target.docs.directory>
