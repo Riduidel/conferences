@@ -543,7 +543,7 @@
 		<module>histoire-des-modes</module>
 		<module>nomic-agile</module>
 		<module>informatique-20-ans</module>
-		<module>parlons-experience</module>
 		<module>structure-du-marche-informatique</module>
+		<module>c4_et_au_dela</module>
 	</modules>
 </project>

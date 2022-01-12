@@ -1,0 +1,12 @@
+= C4 et au-dela
+
+Présentation donnée au Snowcamp 2022.
+
+== Checklist de présentation
+
+. Démarrer Five Server dans VSCode (pour éditer le fichier `workspace.dsl`)
+. Démarrer Structurizr-lite (et accepter la licence d'utilisation)
+
+----
+docker run --rm --name structurizr-lite -d -p 18080:8080 -v %CD%/c4_et_au_dela/example/architecture:/usr/local/structurizr structurizr/lite
+----

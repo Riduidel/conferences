@@ -1,0 +1,1 @@
+{ src: 'reveal.js-${revealjs.version}/plugin/reveal.js-notes-pointer-${revealjs.notes.pointer.version}/notes-pointer.js', async: true  },
