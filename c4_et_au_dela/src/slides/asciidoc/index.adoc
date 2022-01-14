@@ -10,9 +10,13 @@
 :customcss: custom.css
 :source-highlighter: highlightjs
 
-:notitle:
-= C4 et au-delà, documenter agilement une architecture
+[%notitle]
+== Sponsors
 :sectnums!:
+
+image::images/snowcamp-sponsors.png[background, size=cover]
+
+== C4 et au-delà, documenter agilement une architecture
 
 [%notitle, background-iframe="https://manifesteagile.fr/#valeurs"]
 == Ca ne sert à rien, on est agiles
@@ -121,9 +125,10 @@ Le concepte de C4 est très simple, et c'est la raison pour laquelle il est auss
 On part du contexte du système pour arriver au code en passant par deux étages intermédiaires.
 --
 
-[%notitle, background-iframe="https://github.com/spring-projects/spring-petclinic#readme"]
+[%notitle, background-color="white"]
 === Un exemple rapide ?
 
+image::images/spring-pet-clinic-github.png[size=cover]
 
 [NOTE.speaker]
 --
@@ -136,9 +141,7 @@ C'est un exemple d'application Spring assez simple qui leur permet d'exposer les
 [cols="2", width="100%", frame=none, grid=none]
 |===
 |
-+++
-<iframe id="carte-france" data-src="https://www.openstreetmap.org/export/embed.html?bbox=-13.359375000000002%2C41.44251933256445%2C14.897460937500002%2C51.72685707572224&amp;layer=mapnik" width="800" height="600" ></iframe>
-+++
+image:images/openstreetmap-carte-france.png[width="600", height="600"]
 |
 +++
 <iframe id="pet-clinic-context" data-src="https://structurizr.com/static/assets/structurizr-1-diagrams.html#context" width="800" height="600"  ></iframe>
@@ -158,9 +161,7 @@ Présente l’application dans son contexte
 [cols="2", width="100%", frame=none, grid=none]
 |===
 |
-+++
-<iframe id="carte-savoie" data-src="https://www.openstreetmap.org/export/embed.html?bbox=3.8973999023437504%2C44.44572026382355%2C7.429504394531251%2C45.77152495860763&amp;layer=mapnik" width="800" height="600" ></iframe>
-+++
+image:images/openstreetmap-carte-savoie.png[width="600", height="600"]
 |
 +++
 <iframe id="pet-clinic-containers" data-src="https://structurizr.com/static/assets/structurizr-1-diagrams.html#containers" width="800" height="600"  ></iframe>
@@ -181,9 +182,7 @@ Présente l’application dans son contexte
 [cols="2", width="100%", frame=none, grid=none]
 |===
 |
-+++
-<iframe id="carte-grenolbe-quartier" data-src="https://www.openstreetmap.org/export/embed.html?bbox=5.687398910522461%2C45.17559619486325%2C5.7425880432128915%2C45.19628520475844&amp;layer=mapnik" width="800" height="600" ></iframe>
-+++
+image:images/openstreetmap-carte-grenoble.png[width="600", height="600"]
 |
 +++
 <iframe id="pet-clinic-components" data-src="https://structurizr.com/static/assets/structurizr-1-diagrams.html#components" width="800" height="600"  ></iframe>
@@ -202,14 +201,13 @@ image:images/reactjs.png[height=50]
 image:images/angular.png[height=50]
 
 
+[%notitle]
 === Code
 
 [cols="2", width="100%", frame=none, grid=none]
 |===
 |
-+++
-<iframe id="carte-grenoble-gare" data-src="https://www.openstreetmap.org/export/embed.html?bbox=5.711109638214111%2C45.18996935062475%2C5.714558959007264%2C45.191262307563726&amp;layer=mapnik" width="800" height="600" ></iframe>
-+++
+image:images/openstreetmap-carte-gare.png[width="600", height="600"]
 |
 
 image:images/spring-OwnerController.png[]
@@ -247,18 +245,10 @@ image::images/structurizr_dsl.png[[canvas,size=contain]
 
 [%notitle]
 === Démo de Structurizr Lite
-[cols="2", width="100%", frame=none, grid=none]
-|===
-|
-+++
-<iframe id="workspace.dsl" data-src="http://127.0.0.1:5555/c4_et_au_dela/example/architecture/workspace.dsl.preview" width="600" height="800" ></iframe>
-+++
-|
-+++
-<iframe "structurizr-lite" data-src="http://localhost:18080" width="800" height="800"  ></iframe>
-+++
-|===
 
++++
+<marquee>Ajouter le flux vidéo !</marquee>
++++
 
 [%notitle]
 === C'est bien, mais

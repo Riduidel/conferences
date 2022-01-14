@@ -429,6 +429,42 @@
 		</profile>
 		<profile>
 			<!-- Beware! This menu simply downloads the dependency, you still 
+						have to include the fragment in Asciidoc and configure it by yourself -->
+			<id>enable_revealjs_local_video_plugin</id>
+			<activation>
+				<file>
+					<exists>${revealjs.plugins.directory}/video-loader.js</exists>
+				</file>
+			</activation>
+			<properties>
+				<revealjs.menu.version>1.2.0</revealjs.menu.version>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.googlecode.maven-download-plugin</groupId>
+						<artifactId>download-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>install-revealjs-video</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>wget</goal>
+								</goals>
+								<configuration>
+									<url>https://github.com/ThomasWeinert/reveal-embed-video/archive/refs/tags//${revealjs.video.version}.zip</url>
+									<unpack>true</unpack>
+									<outputFileName>reveal.js-video-${revealjs.video.version}.zip</outputFileName>
+									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${version.revealjs}/plugin</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<!-- Beware! This menu simply downloads the dependency, you still 
 							have to include the fragment in Asciidoc and configure it by yourself -->
 			<id>enable_revealjs_run_in_terminal</id>
 			<activation>
@@ -455,6 +491,42 @@
 									<url>https://github.com/dougalsutherland/reveal.js-notes-pointer/archive/${revealjs.notes.pointer.version}.zip</url>
 									<unpack>true</unpack>
 									<outputFileName>reveal.js-notes-pointer-${revealjs.notes.pointer.version}.zip</outputFileName>
+									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${version.revealjs}/plugin</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<!-- Beware! This menu simply downloads the dependency, you still 
+							have to include the fragment in Asciidoc and configure it by yourself -->
+			<id>enable_revealjs_live_video</id>
+			<activation>
+				<file>
+					<exists>${revealjs.plugins.directory}/live-video-loader.js</exists>
+				</file>
+			</activation>
+			<properties>
+				<revealjs.live.video.version>1.1.0</revealjs.live.video.version>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.googlecode.maven-download-plugin</groupId>
+						<artifactId>download-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>install-revealjs-notes-pointer</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>wget</goal>
+								</goals>
+								<configuration>
+									<url>https://github.com/ThomasWeinert/reveal-embed-video/archive/refs/tags/${revealjs.live.video.version}.zip</url>
+									<unpack>true</unpack>
+									<outputFileName>reveal.js-live-video-${revealjs.live.video.version}.zip</outputFileName>
 									<outputDirectory>${asciidoc.target.slides.directory}/reveal.js-${version.revealjs}/plugin</outputDirectory>
 								</configuration>
 							</execution>
