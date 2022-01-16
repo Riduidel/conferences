@@ -1,0 +1,152 @@
+{
+    "init": {
+        "prefix": "01_init_workspace",
+        "body": [
+            "workspace {",
+            "    model {",
+            "       // TODO Add Software System",
+            "    }",
+            "    views {",
+            "       styles {",
+            "       }",
+            "",
+            "       // TODO add views",
+            "",
+            "       theme default",
+            "       branding {",
+            "           logo https://snowcamp.io/img/alpes-snow-full-illustration.webp",
+            "       }",
+            "    }",
+            "}"
+        ]
+    },
+    "system_model": {
+        "prefix": "02_system_model",
+        "body": [
+            "owner = person \"Owner\" \"Pet Owner\"",
+            "vet = person \"Veterinary\" \"Veterinary working at pet clinic\"",
+            "petclinic = softwareSystem \"Pet Clinic\" \"Allows employees to view and manage information regarding the veterinarians, the clients, and their pets.\" {",
+            "   // TODO Add containers",
+            "}",
+            "",
+            "owner -> petclinic \"Book an apointment\"",
+            "vet -> petclinic \"Check apointments\""
+        
+        ]
+    },
+    "system_view": {
+        "prefix": "03_system_view",
+        "body": [
+            "systemLandscape landscape {",
+            "    include *",
+            "    autoLayout",
+            "}"
+        ]
+    },
+    "containers_model": {
+        "prefix": "04_containers_model",
+        "body": [
+            "db = container \"Database\" \"Stores informations regarding the veterinarians, the clients, and their pets.\" \"RDBMS\"",
+            "webapp = container \"Web Application\" \"Allows employees to view and manage information regarding the veterinarians, the clients, and their pets." "Java, Spring\" {",
+            "   // TODO add components"
+            "}",
+            "webapp -> db \"Read and writes informations\"",
+            "owner -> webapp",
+            "vet -> webapp"
+
+        ]
+    },
+    "containers_view": {
+        "prefix": "05_containers_view",
+        "body": [
+            "container petClinic {",
+            "    include *",
+            "    autoLayout",
+            "}"
+        ]
+    },
+    "deployment_model": {
+        "prefix": "06_deployment_model",
+        "body": [
+"dev = deploymentEnvironment \"dev\" {",
+"    deploymentNode \"Developer laptop\" {",
+"        deploymentNode \"Docker container - web server\" {",
+"            deploymentNode \"Tomcat\" {",
+"                containerInstance webapp",
+"            }",
+"        }",
+"        deploymentNode \"Docker container - DB\" {",
+"            deploymentNode \"Database server\" {",
+"                containerInstance db",
+"            }",
+"        }",
+"    }",
+"}"
+    
+        ]
+    },
+    "deployment_view" : {
+        "prefix": "07_deployment_view",
+        "body": [
+            "deployment * dev \"Dev_machine\" \"Deployment of pet clinic on dev machine\" {",
+            "    include *",
+            "    autoLayout",
+            "}"
+        ]
+    },
+
+    "components_model": {
+        "prefix": "08_components_model",
+        "body": [
+"vetController = component \"VetController\" \"\" \"Spring MVC Controller\"",
+"visitController = component \"VisitController\" \"\" \"Spring MVC Controller\"",
+"petController = component \"PetController\" \"\" \"Spring MVC Controller\"",
+"ownerController = component \"OwnerController\" \"\" \"Spring MVC Controller\"",
+"crashController = component \"CrashController\" \"Controller used to showcase what happens when an exception is thrown\" \"Spring MVC Controller\"",
+"",
+"vet -> vetController",
+"vet -> visitController",
+"vet -> petController",
+"owner -> visitController",
+"owner -> petController",
+"owner -> ownerController",
+"",
+"clinicService = component \"ClinicService\" \"Mostly used as a facade so all controllers have a single point of entry\" \"Spring Service\"",
+"",
+"vetController -> clinicService",
+"visitController -> clinicService",
+"petController -> clinicService",
+"ownerController -> clinicService",
+"crashController -> clinicService",
+"",
+"vetRepo = component \"VetRepository\" \"Repository class for Vet domain objects. All method names are compliant with Spring Data naming conventions so this interface can easily be extended\" \"Spring Repository\"",
+"visitRepo = component \"VisitRepository\" \"Repository class for Visit domain objects. All method names are compliant with Spring Data naming conventions so this interface can easily be extended\" \"Spring Repository\"",
+"petRepo = component \"PetRepository\" \"Repository class for Pet domain objects. All method names are compliant with Spring Data naming conventions so this interface can easily be extended\" \"Spring Repository\"",
+"ownerRepo = component \"OwnerRepository\" \"Repository class for Owner domain objects. All method names are compliant with Spring Data naming conventions so this interface can easily be extended\" \"Spring Repository\"",
+"",
+"vetRepo -> db",
+"visitRepo -> db",
+"petRepo -> db",
+"ownerRepo -> db",
+"",
+"clinicService -> vetRepo",
+"clinicService -> visitRepo",
+"clinicService -> petRepo",
+"clinicService -> ownerRepo",
+"",
+"petRepo -> visitRepo",
+"petRepo -> ownerRepo",
+
+        ]
+    },
+    "components_view": {
+        "prefix": "09_components_view",
+        "body": [
+"component webapp {",
+"    include *",
+"    autoLayout",
+"}"
+    
+        ]
+    }
+}
