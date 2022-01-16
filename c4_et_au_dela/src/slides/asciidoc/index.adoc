@@ -18,7 +18,7 @@
 --
 Checklist avant conférence
 
-. Démarrer VSCode
+. Ouvrir le dossier `C:\Users\nicolas-delsaux\Documents\Zenika\conferences\c4_et_au_dela\example\architecture` dans VSCode (il contient les snippets)
 . Démarrer structurizr-lite `docker run --rm --name structurizr-lite -d -p 18080:8080 -v %CD%/c4_et_au_dela/example/architecture:/usr/local/structurizr structurizr/lite`
 . Démarrer OBS Studio et ouvrir la scènee **snowcamp-structurizr**
 --
