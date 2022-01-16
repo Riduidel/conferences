@@ -11,8 +11,22 @@
 :source-highlighter: highlightjs
 
 [%notitle]
-== Sponsors
+= C4 et au-delà, documenter agilement une architecture
 :sectnums!:
+
+[NOTE.speaker]
+--
+Checklist avant conférence
+
+. Démarrer VSCode
+. Démarrer structurizr-lite `docker run --rm --name structurizr-lite -d -p 18080:8080 -v %CD%/c4_et_au_dela/example/architecture:/usr/local/structurizr structurizr/lite`
+. Démarrer OBS Studio et ouvrir la scènee **snowcamp-structurizr**
+--
+
+
+
+[%notitle]
+== Sponsors
 
 image::images/snowcamp-sponsors.png[background, size=cover]
 
@@ -238,20 +252,41 @@ On va d'abord se concentrer sur le premier point (sinon je ne l'aurais pas mis e
 [%step]
 En les basant sur un modèle !
 
-[%notitle]
+[%notitle, background-iframe="https://structurizr.com/"]
 === Structurizr
+
+[NOTE.speaker]
+--
+Le fait que C4 ne soit qu'un dessin est un inconvénient connu de son créateur, Simon Brown, qui a développé une suite d'outils, collectivement appelés Structurizr.
+On a donc 
+* Un DSL basé sur Kotlin (qu'on va tout de suite tester)
+* Un outil d'affichage des diagrammes en local (structurizr-lite) et en SaaS (Structurizr)
+* Des librairies permettant de créer des modèles d'architecture dans un certain nombre de langages
+--
+
+[%notitle]
+=== Structurizr DSL
 
 image::images/structurizr_dsl.png[[canvas,size=contain]
 
-[%notitle]
-=== Démo de Structurizr Lite
-
 +++
-<marquee>Ajouter le flux vidéo !</marquee>
+<section data-video="big">
+<!-- Démo de Structurizr-lite déclenchée à travers OBS -->
+</section>
 +++
 
+[NOTE.speaker]
+--
+Dans cette démo, on va créer un fichier `structurizr.dsl` et y décrire un modèle d'architecture incluant des conteneurs, des composants et des vues diverses.
+--
+
 [%notitle]
-=== C'est bien, mais
+=== Début de la démo
+
+image::https://media.giphy.com/media/Y1XrxoBKZHTHeky1Wy/giphy.gif[]
+
+[%notitle]
+== C'est bien, mais
 
 image::https://media.giphy.com/media/YoWYbUDeJK6Telrvzs/giphy.gif[]
 
@@ -267,8 +302,10 @@ Parce qu'une carte explique la géographie, et pas l'histoire (et les deux se m�
 
 == Comment raconter l'histoire ?
 
-[%notitle, background-iframe="http://www.codingthearchitecture.com/2016/05/31/agile_software_architecture_documentation.html"]
+[%notitle]
 === Avec un bon plan
+
+image::images/agile-architecture-documentation.png[background, size=cover]
 
 [NOTE.speaker]
 --
@@ -284,7 +321,7 @@ image::https://media.giphy.com/media/fatcd1PnHPTDW/giphy.gif[]
 
 [%step]
 * On utilisait le principe DRY
-* Et le fait que le modèle Structurizrr soit exprimé par du code
+* Et le fait que le modèle Structurizr soit exprimé par du code
 
 === Nous avons déja les infos
 
