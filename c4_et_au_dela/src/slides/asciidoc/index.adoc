@@ -350,3 +350,15 @@ image::https://media.giphy.com/media/fatcd1PnHPTDW/giphy.gif[]
 == Merci !
 
 image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
+
+[.columns]
+== Références
+
+[.column]
+image::images/qr_code_slides.png[]
+
+[.column]
+* https://www.c4model.com[C4Model]
+* https://www.structurizr.com[Structurizr]
+* https://github.com/structurizr/java-extensions/blob/master/docs/spring-petclinic.md[Structurizr appliqué à Spring Pet Clinic]
+* Slides disponibles sur https://github.com/Riduidel/conferences/c4_et_au-dela/src/slides/asciidoc
