@@ -4,13 +4,20 @@
         "body": [
             "workspace {",
             "    model {",
-            "       // TODO Add Software System",
+            "       // TODO Add Software System with 02_system_model",
             "    }",
+            "",
             "    views {",
             "       styles {",
             "       }",
             "",
-            "       // TODO add views",
+            "       // TODO add System views with 03_system_view",
+            "",
+            "       // TODO add Container views with 05_container_view",
+            "",
+            "       // TODO add Component view with 09_components_view",
+            "",
+            "       // TODO add Deployment view with 07_deployment_view",
             "",
             "       theme default",
             "       branding {",
@@ -26,11 +33,13 @@
             "owner = person \"Owner\" \"Pet Owner\"",
             "vet = person \"Veterinary\" \"Veterinary working at pet clinic\"",
             "petclinic = softwareSystem \"Pet Clinic\" \"Allows employees to view and manage information regarding the veterinarians, the clients, and their pets.\" {",
-            "   // TODO Add containers",
+            "   // TODO Add containers with 04_container_model",
             "}",
             "",
             "owner -> petclinic \"Book an apointment\"",
-            "vet -> petclinic \"Check apointments\""
+            "vet -> petclinic \"Check apointments\"",
+            "",
+            "// TODO Add deployment model with 06_deployment_model"
         
         ]
     },
@@ -47,8 +56,8 @@
         "prefix": "04_containers_model",
         "body": [
             "db = container \"Database\" \"Stores informations regarding the veterinarians, the clients, and their pets.\" \"RDBMS\"",
-            "webapp = container \"Web Application\" \"Allows employees to view and manage information regarding the veterinarians, the clients, and their pets." "Java, Spring\" {",
-            "   // TODO add components"
+            "webapp = container \"Web Application\" \"Allows employees to view and manage information regarding the veterinarians, the clients, and their pets.\" \"Java, Spring\" {",
+            "   // TODO add components with 08_components_model",
             "}",
             "webapp -> db \"Read and writes informations\"",
             "owner -> webapp",
