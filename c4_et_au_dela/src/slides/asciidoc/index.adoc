@@ -279,6 +279,16 @@ On va d'abord se concentrer sur le premier point (sinon je ne l'aurais pas mis e
 [%step]
 En les basant sur un modèle !
 
+[%notitle, background-iframe="https://c4model.com/#Tooling"]
+=== Heureusement, il y a de l'outillage !
+
+
+[NOTE.speaker]
+--
+Sur le site de https://c4model.com/#Tooling[C4Model], on trouve tout un tas d'outils permettant de baser nos diagrammes sur un modèle, et donc d'apporter de la consistance.
+On va évidement parler de Structurizr
+--
+
 [%notitle, background-iframe="https://structurizr.com/"]
 === Structurizr
 
@@ -364,21 +374,28 @@ On sait qu'on peut mettre de la génération de documentation et de diagramme da
 Alors pourquoi ne pas faire de la documentation d'architecture un module de l'application ?
 --
 
+=== Les développeurs sont aussi des architectes !
+
+++++
+<div align=center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I believe in storing developer-oriented docs in the repo.<br><br>1. No discovery issues. It’s in the repo. 🔎<br>2. Easily navigate between the docs and the code it’s describing. 🧭<br>3. No access concerns. Repo access = doc access. ⛔️<br>4. The docs are version controlled 💪</p>&mdash; Cory House (@housecor) <a href="https://twitter.com/housecor/status/1487095280763817990?ref_src=twsrc%5Etfw">January 28, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+</div>
+++++
+
+[.columns]
 === Nous avons déja les infos
 
+[.column]
+[%step]
 * Où sont nos conteneurs ?
-** Dans maven ? On peut les trouver
-** Dans Kubernetes ? On peut les trouver
+** Dans le https://maven.apache.org/ref/3.6.3/maven-model/[maven-model] ? Ou dans un SCM (https://github-api.kohsuke.org/[github-api] ou https://github.com/gitlab4j/gitlab4j-api[gitlab4j-api])
 * Où sont nos composants ?
-** Dans maven ? On peut les trouver
+** Dans maven ? Structurizr
 
-=== Nous savons déja produire du code complexe
-
-* Nous utilisons la CI/CD pour do cude bien plus complexe que la documentation
-* Nous disposons déja d'outils d'industrialisation de code sophistiqués
-
-[%notitle,background-iframe="https://riduidel.github.io/agile-architecture-documentation-system/"]
-=== architecture-as-code
+[.column]
+[%step]
+* Comment est configuré notre déploiement ?
+** Dans Kubernetes (avec  https://github.com/fabric8io/kubernetes-client[fabric8 Kubernetes Client]) ? Ou dans Vault (avec https://bettercloud.github.io/vault-java-driver/[Vault Java Driver])
 
 === Avec ça, tout est possible !
 
@@ -387,13 +404,6 @@ Alors pourquoi ne pas faire de la documentation d'architecture un module de l'ap
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">As an example, I&#39;ve already used Hashicorp Vault Java client, GitHub client API and Kubernetes client to populate my model from informations already existing, so I guess it&#39;s possible to get users/containers/components from a reference system ...</p>&mdash; Nicolas Delsaux (@riduidel) <a href="https://twitter.com/riduidel/status/1280395424654901248?ref_src=twsrc%5Etfw">July 7, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 </div>
 ++++
-
-=== Et c'est même assez simple
-
-[%step]
-* Récupérer le déploiement grâce à https://github.com/fabric8io/kubernetes-client[fabric8 Kubernetes Client]
-** Récupérer les URLs de base de données avec https://bettercloud.github.io/vault-java-driver/[Vault Java Driver]
-* Récupérer les README des conteneurs de microservices avec https://github-api.kohsuke.org/[github-api]
 
 == Merci !
 
