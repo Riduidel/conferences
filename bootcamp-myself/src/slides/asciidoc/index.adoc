@@ -110,6 +110,15 @@ image:https://upload.wikimedia.org/wikipedia/fr/thumb/5/5a/Logo_Adeo.svg/langfr-
 image:https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Decathlon_Logo.svg/langfr-420px-Decathlon_Logo.svg.png[height=100]
 image:https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/ManoMano_2018.png/420px-ManoMano_2018.png[height=120]
 
+[.columns]
+=== Et récement
+
+[.column]
+image::images/roller-hockey.jpg[height=500]
+
+[.column]
+image::https://cdn.rachis.paris/wp-content/uploads/2019/04/chirurgie-d-une-hernie-discale-lombaire-symptomes-hernie-discale-lombaire-operation-chirurgie-du-rachis-espace-francilien-du-rachis-clinique-du-rachis-versailles-paris-5.jpeg[height=500]
+
 === Zenika, comme DT
 
 Mais ça fait quoi un DT ?
