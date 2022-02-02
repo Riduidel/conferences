@@ -20,15 +20,16 @@ Checklist avant conférence
 
 . Ouvrir le dossier `C:\Users\nicolas-delsaux\Documents\Zenika\conferences\c4_et_au_dela\example\architecture` dans VSCode (il contient les snippets)
 . Démarrer structurizr-lite `docker run --rm --name structurizr-lite -d -p 18080:8080 -v %CD%/c4_et_au_dela/example/architecture:/usr/local/structurizr structurizr/lite`
-. Démarrer OBS Studio et ouvrir la scènee **snowcamp-structurizr**
+. Démarrer OBS Studio et ouvrir la scène **snowcamp-structurizr**
+. Parcourir la présentation une fois en warmup pour tout démarrer correctement
+. Configurer le workspace VSCode d'exemple pour avoir les retours à la ligne
 --
-
-
 
 [%notitle]
 == Sponsors
 
 image::images/snowcamp-sponsors.png[background, size=cover]
+
 
 == C4 et au-delà, documenter agilement une architecture
 
@@ -53,7 +54,14 @@ Nicolas Delsaux / @riduidel on https://twitter.com/riduidel[icon:twitter[]] / ht
 
 Développeur Java depuis l'an 2000
 
+Architecte de solutions/systèmes depuis 2015
+
 image::images/zenika.png[height=100]
+
+[NOTE.speaker]
+--
+En tant que développeur et architecte, je me suis beaucoup intéressé à la question de la documentation d'architecture.
+--
 
 == Pourquoi documenter l'architecture ?
 
@@ -69,9 +77,6 @@ On pourrait parler de politique dans les entreprises,
 de systèmes socio-techniques, etc...
 Mais en fait, c'est tellement plus simple de dire que si le code explique correctement le "comment" d'un logiciel,
 il ne répond pas à quelques autres questions
-There will be here a good bunch of discussion to have about socio-technical systems,
-politics of the work place, and so on.
-Sufice to say that that if the code correctly explains the "how" of a software product, it falls short to answer other questions.
 --
 
 === A quelles questions répondre ?
@@ -98,25 +103,21 @@ image::https://media.giphy.com/media/j3cIiYP90ci1QgyWAk/giphy.gif[]
 Bien sûr qu'il faut communiquer, mais via quels moyens ?
 --
 
-
+[.columns]
 [%notitle]
 === Some poor solutions (we all use)
 
-|===
-| | Tableau blanc | | Outil dédié
+[.column]
+* **Outil dédié**
+** Complet icon:check-circle[role=green]
+** Difficile à exporter icon:times-circle[role=red]
+** Difficile de monter en compétence icon:times-circle[role=red]
 
-| Avantages
-| Facile à utiliser
-|
-| Complet
-
-| Inconvénients
-| Aucune cohérence
-Durée de vie inconnue
-|
-| Difficile à exporter
-| Difficile de monter en compétence
-|===
+[.column]
+* **Tableau blanc** (physique ou virtuel)
+** Facile à utiliser icon:check-circle[role=green]
+** Aucune cohérence icon:times-circle[role=red]
+** Durée de vie inconnue icon:times-circle[role=red]
 
 [NOTE.speaker]
 --
@@ -126,17 +127,23 @@ Sans doute parce qu'ils s'adressent à des publics *très* différents, dans des
 Et quand on regarde, il semble évident qu'il puisse exister un outillage entre ces deux extrêmes, disposant de qualités différentes, pour fournir un outil utile aux différents membres de l'équipe.
 --
 
-
+[.columns]
 == C4
 
+[.column]
+image::images/simon_brown.png[height=400]
+
+[.column]
 * Context, Containers, Components, Code
 * La métaphore classique de la carte
-* Imaginé par Simon Brown
+* Imaginé par Simon Brown (https://twitter.com/riduidel[icon:twitter[] @simonbrown])
 
 [NOTE.speaker]
 --
 Le concepte de C4 est très simple, et c'est la raison pour laquelle il est aussi utile dans une période de simplification.
 On part du contexte du système pour arriver au code en passant par deux étages intermédiaires.
+Simon Brown habite Jersey, et du coup il fait d'habitude une présentation qui emmène les gens jusque sur son île.
+Aujourd'hui, on est à Grenoble, on va donc plutôt vous emmener jusqu'ici ...
 --
 
 [%notitle, background-color="white"]
@@ -146,6 +153,8 @@ image::images/spring-pet-clinic-github.png[size=cover]
 
 [NOTE.speaker]
 --
+**Demander qui connaît PetClinic
+
 Histoire de se fixer les idées, on va partir d'un projet plutôt connu dans le monde Java : icon:github[set=fab] https://github.com/spring-projects/spring-petclinic#readme[spring pet clinic].
 C'est un exemple d'application Spring assez simple qui leur permet d'exposer les différentes fonctionnalités
 --
@@ -167,6 +176,11 @@ image:images/openstreetmap-carte-france.png[width="600", height="600"]
 Présente l’application dans son contexte
 * Liste des utilisateurs (ça n’est pas un hasard si ça ressemble aux user stories)
 * Liste des systèmes interconnectés (Même à travers un API Manager ou  Kafka, n'oubliez pas d'indiquer le type d'interconnexion)
+
+En revanche, on ne s'intéresse pas aux technologies, ni aux protocoles de communication.
+
+Au passage, notez que si dans le diagramme on s'intéresse aux interconnexions, 
+c'est également vrai sur la carte : on voit déja les autoroutes, et on verra très vite les lignes de chemin de fer.
 --
 
 
@@ -189,6 +203,16 @@ image:images/openstreetmap-carte-savoie.png[width="600", height="600"]
 
 * Les conteneurs sont des éléments signifiants de l'architecture. Et **ça dépend fortement de l'architecture**
 
+[NOTE.speaker]
+--
+Dans la définition, Simon brown indique
+
+[quote, Simon Brown]
+>  Essentially, a container is a separately runnable/deployable unit (e.g. a separate process space) that executes code or stores data.
+
+En vérité, ça se discute, et il peut être parfois intéressant 
+de séparer plusieurs conteneurs tournant dans le même process (typiquement dans un monolithe significatif)
+--
 
 
 [%notitle]
@@ -230,6 +254,9 @@ image:images/spring-OwnerController.png[]
 
 [NOTE.speaker]
 --
+J'ai mis ici un lien direct vers le code.
+Mais il peut être intéressant de documenter plus précisément 
+les interactions entre les différents éléments qui forment le composant (dans un framework MVC, par exemple).
 --
 
 [%notitle]
@@ -309,6 +336,9 @@ image::images/agile-architecture-documentation.png[background, size=cover]
 
 [NOTE.speaker]
 --
+C'est un plan très complet, et utilisable quelquesoit votre mode de documentation
+(Word/Google Docs, Wiki, Site généré depuis Markdown/Asciidoc).
+Et c'est cool, parce que ça permet de rapprocher la documentation du code.
 --
 
 === C'est bien, mais
@@ -317,11 +347,22 @@ image::https://media.giphy.com/media/fatcd1PnHPTDW/giphy.gif[]
 
 * Les diagrammes peuvent ne pas être à jour
 
+[.columns]
 == Et si ...
 
+[.column]
+image::images/et_si_exemple.png[]
+
+[.column]
 [%step]
 * On utilisait le principe DRY
 * Et le fait que le modèle Structurizr soit exprimé par du code
+
+[NOTE.speaker]
+--
+On sait qu'on peut mettre de la génération de documentation et de diagramme dans du code.
+Alors pourquoi ne pas faire de la documentation d'architecture un module de l'application ?
+--
 
 === Nous avons déja les infos
 
@@ -347,6 +388,13 @@ image::https://media.giphy.com/media/fatcd1PnHPTDW/giphy.gif[]
 </div>
 ++++
 
+=== Et c'est même assez simple
+
+[%step]
+* Récupérer le déploiement grâce à https://github.com/fabric8io/kubernetes-client[fabric8 Kubernetes Client]
+** Récupérer les URLs de base de données avec https://bettercloud.github.io/vault-java-driver/[Vault Java Driver]
+* Récupérer les README des conteneurs de microservices avec https://github-api.kohsuke.org/[github-api]
+
 == Merci !
 
 image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
@@ -355,10 +403,16 @@ image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
 == Références
 
 [.column]
-image::images/qr_code_slides.png[]
+Donnez votre avis sur roti.express !
+image::images/url_roti.express.png[]
 
 [.column]
 * https://www.c4model.com[C4Model]
 * https://www.structurizr.com[Structurizr]
 * https://github.com/structurizr/java-extensions/blob/master/docs/spring-petclinic.md[Structurizr appliqué à Spring Pet Clinic]
 * Slides disponibles sur https://github.com/Riduidel/conferences/c4_et_au-dela/src/slides/asciidoc
+
+=== Si vous voulez les slides
+
+image::images/qr_code_slides.png[]
+
