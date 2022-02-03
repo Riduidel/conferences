@@ -414,7 +414,7 @@ image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
 
 [.column]
 Donnez votre avis sur roti.express !
-image::images/url_roti.express.png[]
+image:images/url_roti.express.png[width=300]
 
 [.column]
 * https://www.c4model.com[C4Model]
