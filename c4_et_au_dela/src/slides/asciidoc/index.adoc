@@ -20,7 +20,6 @@ Checklist avant conférence
 
 . Ouvrir le dossier `C:\Users\nicolas-delsaux\Documents\Zenika\conferences\c4_et_au_dela\example\architecture` dans VSCode (il contient les snippets)
 . Démarrer structurizr-lite `docker run --rm --name structurizr-lite -d -p 18080:8080 -v %CD%/c4_et_au_dela/example/architecture:/usr/local/structurizr structurizr/lite`
-. Démarrer OBS Studio et ouvrir la scène **snowcamp-structurizr**
 . Parcourir la présentation une fois en warmup pour tout démarrer correctement
 . Configurer le workspace VSCode d'exemple pour avoir les retours à la ligne
 --
@@ -140,7 +139,7 @@ image::images/simon_brown.png[height=400]
 
 [NOTE.speaker]
 --
-Le concepte de C4 est très simple, et c'est la raison pour laquelle il est aussi utile dans une période de simplification.
+Le concept de C4 est très simple, et c'est la raison pour laquelle il est aussi utile dans une période de simplification.
 On part du contexte du système pour arriver au code en passant par deux étages intermédiaires.
 Simon Brown habite Jersey, et du coup il fait d'habitude une présentation qui emmène les gens jusque sur son île.
 Aujourd'hui, on est à Grenoble, on va donc plutôt vous emmener jusqu'ici ...
@@ -153,7 +152,7 @@ image::images/spring-pet-clinic-github.png[size=cover]
 
 [NOTE.speaker]
 --
-**Demander qui connaît PetClinic
+**Demander qui connaît PetClinic**
 
 Histoire de se fixer les idées, on va partir d'un projet plutôt connu dans le monde Java : icon:github[set=fab] https://github.com/spring-projects/spring-petclinic#readme[spring pet clinic].
 C'est un exemple d'application Spring assez simple qui leur permet d'exposer les différentes fonctionnalités
@@ -174,6 +173,7 @@ image:images/openstreetmap-carte-france.png[width="600", height="600"]
 [NOTE.speaker]
 --
 Présente l’application dans son contexte
+
 * Liste des utilisateurs (ça n’est pas un hasard si ça ressemble aux user stories)
 * Liste des systèmes interconnectés (Même à travers un API Manager ou  Kafka, n'oubliez pas d'indiquer le type d'interconnexion)
 
@@ -205,10 +205,10 @@ image:images/openstreetmap-carte-savoie.png[width="600", height="600"]
 
 [NOTE.speaker]
 --
-Dans la définition, Simon brown indique
+Dans la définition, Simon Brown indique
 
 [quote, Simon Brown]
->  Essentially, a container is a separately runnable/deployable unit (e.g. a separate process space) that executes code or stores data.
+Essentially, a container is a separately runnable/deployable unit (e.g. a separate process space) that executes code or stores data.
 
 En vérité, ça se discute, et il peut être parfois intéressant 
 de séparer plusieurs conteneurs tournant dans le même process (typiquement dans un monolithe significatif)
@@ -306,21 +306,15 @@ On a donc
 
 image::images/structurizr_dsl.png[[canvas,size=contain]
 
-+++
-<section data-video="big">
-<!-- Démo de Structurizr-lite déclenchée à travers OBS -->
-</section>
-+++
+[%notitle]
+=== Début de la démo
+
+image::https://media.giphy.com/media/Y1XrxoBKZHTHeky1Wy/giphy.gif[]
 
 [NOTE.speaker]
 --
 Dans cette démo, on va créer un fichier `structurizr.dsl` et y décrire un modèle d'architecture incluant des conteneurs, des composants et des vues diverses.
 --
-
-[%notitle]
-=== Début de la démo
-
-image::https://media.giphy.com/media/Y1XrxoBKZHTHeky1Wy/giphy.gif[]
 
 [%notitle]
 == C'est bien, mais
