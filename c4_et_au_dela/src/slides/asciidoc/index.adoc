@@ -24,14 +24,6 @@ Checklist avant conférence
 . Configurer le workspace VSCode d'exemple pour avoir les retours à la ligne
 --
 
-[%notitle]
-== Sponsors
-
-image::images/snowcamp-sponsors.png[background, size=cover]
-
-
-== C4 et au-delà, documenter agilement une architecture
-
 [%notitle, background-iframe="https://manifesteagile.fr/#valeurs"]
 == Ca ne sert à rien, on est agiles
 
