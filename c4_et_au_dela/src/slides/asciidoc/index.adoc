@@ -308,6 +308,221 @@ image::https://media.giphy.com/media/Y1XrxoBKZHTHeky1Wy/giphy.gif[]
 Dans cette démo, on va créer un fichier `structurizr.dsl` et y décrire un modèle d'architecture incluant des conteneurs, des composants et des vues diverses.
 --
 
+ifndef::environment-reveal[]
+
+=== Initialisation
+
+Avant tout, démarrer structurizr-lite dans un dossier dans lequel se trouve un fichier `workspace.dsl`
+
+[source]
+----
+docker run --rm --name structurizr-lite -d -p 18080:8080 -v %CD%/c4_et_au_dela/example/architecture:/usr/local/structurizr structurizr/lite
+----
+
+=== Création du workspace
+
+[source]
+----
+workspace {
+    model {
+    }
+
+    views {
+       styles {
+       }
+
+       theme default
+       branding {
+           logo https://snowcamp.io/img/alpes-snow-full-illustration.webp
+       }
+    }
+}
+----
+
+Ici, on crée le workspace, et on lui ajoute immédiatement les deux grandes parties : le modèle et les vues.
+Notez que le tag branding permet d'ajouter facilement un logo d'entreprise aux diagrammes.
+
+==== Ajout du contexte
+
+[source]
+----
+    model {
+        owner = person "Owner" "Pet Owner"
+        vet = person "Veterinary" "Veterinary working at pet clinic"
+        petclinic = softwareSystem "Pet Clinic" "Allows employees to view and manage information regarding the veterinarians, the clients, and their pets." {
+        }
+
+        owner -> petclinic "Book an apointment"
+        vet -> petclinic "Check apointments"
+
+        // TODO Add deployment model with 06_deployment_mode
+    }
+----
+
+Sans contexte système, on ne va pas faire grand chose.
+On ajoute donc un système, et des éléments connectés.
+On a ici que des personnes, mais on pourrait aussi avoir d'autres systèmes.
+
+==== Et d'une première vue
+
+Et évidement, pour voir notre contexte, on crée une vue de ce contexte.
+
+[source]
+----
+    views {
+       styles {
+            systemLandscape landscape {
+                include *
+                autoLayout
+            }
+       }
+
+       theme default
+    }
+----
+
+La vue est très facile à décrire puisqu'on se contente de référencer les éléments du modèle et d'indiquer qu'on fait un layout automatique.
+structurizr permet dans l'interface web des layouts manuels, qu'on ne verra pas dans cette présentation.
+
+==== Ajout des conteneurs
+
+[source]
+----
+        petclinic = softwareSystem "Pet Clinic" "Allows employees to view and manage information regarding the veterinarians, the clients, and their pets." {
+            db = container "Database" "Stores informations regarding the veterinarians, the clients, and their pets." "RDBMS"
+            webapp = container "Web Application" "Allows employees to view and manage information regarding the veterinarians, the clients, and their pets." "Java, Spring" {
+               // TODO add components with 08_components_model",
+            }
+            webapp -> db "Read and writes informations"
+            owner -> webapp
+            vet -> webapp
+        }
+----
+
+Maintenant qu'on a un système, on peut détailler son contenu.
+Et comme pour le système, on voit qu'il est assez simple de déclarer les différents conteneurs et leurs interactions.
+
+==== Et de leur vue
+
+[source]
+----
+    views {
+        styles {
+             systemLandscape landscape {
+                 include *
+                 autoLayout
+             }
+        }
+        container petClinic {
+            include *
+            autoLayout
+        }
+
+       theme default
+    }
+----
+
+Comme pour le système, la déclaration de la vue est assez simple
+
+==== Petit détour par le déploiement
+Avant de plonger dans les composants de notre application, faisons un petit détour par les déploiements.
+Parce que maintenant qu'on connaît les conteneurs, il est utile de voir comment ces conteneurs sont déployés dans les différents environnements.
+
+[source]
+----
+model {
+    // Déclaration des systèmes
+    dev = deploymentEnvironment "dev" {
+        deploymentNode "Developer laptop" {
+            deploymentNode "Docker container - web server" {
+                deploymentNode "Tomcat" {
+                    containerInstance webapp
+                }
+            }
+            deploymentNode "Docker container - DB" {
+                deploymentNode "Database server" {
+                    containerInstance db
+                }
+            }
+        }
+    }
+}
+----
+Concernant le déploiement, il faut noter qu'on utilise un tage générique `deploymentNode` pour toutes les étapes du déploiement.
+C'est moins précis, mais bien plus adaptable à des contextes variables.
+Et le dépoiement est variable : 
+on peut avoir plus ou  moins d'instances,
+on peut vouloir plus ou moins de précision dans la description des machines et systèmes de conteneurs,
+bref, c'est un domaine complexe et riche qui impose plus d'adaptabilité.
+
+==== Vue du déploiement
+
+[source]
+----
+    views {
+        // ...
+        container petClinic {
+            include *
+            autoLayout
+        }
+        deployment * dev "Dev_machine" "Deployment of pet clinic on dev machine" {
+            include *
+            autoLayout
+        }
+
+       theme default
+    }
+----
+
+==== Passons aux composants
+
+Déclarer l'ensemble des composants est franchement fastidieux :
+il faut instancier chacun d'entre eux et les relier à toutes leurs dépendances.
+Plutôt que de le faire via un dsl, on va le faire en utilisant un composant additionnel de structurizr : structurizr-spring.
+
+En fait, avec Structurizr, on peut marrier les approches, 
+c'est-à-dire commencer avec le DSL avant de basculer, pour des usages plus techniques, sur du code.
+
+===== Charger le JSON
+En fait, le fichier workplace.dsl est transformé en fichier JSON avant d'être chargé dans structurizr-lite.
+On peut donc charger ce JSON avec le lecteur approprié avant de le manipuler
+
+[source;java]
+----
+include::../../../example/architecture/src/main/java/com/zenika/conference/c4/Structurizr.java[lines=67..72]
+----
+
+Cette méthode nous permet de lire le fichier JSON pour en tirer un objet `Worspace` offrant en Java les mêmes possibilités que celui disponible dans le `workspace.dsl`.
+
+==== Etendre le modèle avec de l'analyse de code
+Et maintenant vient la partie où on scanne les classes disponibles dans Spring PetClinic
+
+[source;java]
+----
+include::../../../example/architecture/src/main/java/com/zenika/conference/c4/Structurizr.java[lines=34..47]
+----
+
+==== Ajouter une vue en Java
+
+Il faut maintenant créer la vue des composants
+
+[source;java]
+----
+include::../../../example/architecture/src/main/java/com/zenika/conference/c4/Structurizr.java[lines=49..51]
+----
+
+==== Ecrire les vues
+
+Et plutôt que d'écrire les vues dans structurizr, pourquoi ne pas générer des diagrammes grâce à PlantUML ?
+
+[source;java]
+----
+include::../../../example/architecture/src/main/java/com/zenika/conference/c4/Structurizr.java[lines=53..57]
+----
+
+
+endif::[]
+
 [%notitle]
 == C'est bien, mais
 

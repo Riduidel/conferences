@@ -258,6 +258,7 @@
 									<templateDir>${project.build.directory}/asciidoctor-reveal.js-${version.revealjs}/templates/slim</templateDir>
 									<sourceHighlighter>${asciidoctor.highlighter}</sourceHighlighter>
 									<attributes>
+										<environment-reveal>${version.revealjs}</environment-reveal>
 										<plantumldir>images/</plantumldir>
 										<imagesdir>.</imagesdir>
 										<!-- As we are downloading reveal.js 
