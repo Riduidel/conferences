@@ -546,5 +546,6 @@
 		<module>informatique-20-ans</module>
 		<module>structure-du-marche-informatique</module>
 		<module>c4_et_au_dela</module>
+		<module>accelerate</module>
 	</modules>
 </project>

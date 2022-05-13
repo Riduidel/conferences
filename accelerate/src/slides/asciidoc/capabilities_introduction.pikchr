@@ -1,0 +1,105 @@
+boxwid = 0; boxht = 0; boxrad=5px;
+TEXT_LEADERSHIP: ["Leadership transformationnel" bold width 4cm; down
+"Vision" width 4cm fill lightgray
+"Stimulation intellectuelle" width 4cm fill lightgray
+"Communication inspirante" width 4cm fill lightgray
+"Leadership de soutien" width 4cm fill lightgray
+"Reconnaissance personnelle" width 4cm fill lightgray
+]
+CAPABILITIES_LEADERSHIP: box width 4cm height TEXT_LEADERSHIP.height+0cm at TEXT_LEADERSHIP.center
+up; move; right; move 8cm;
+TEXT_PRODUCT: ["Lean product" bold fit width 75%; down
+"Travail découpé en petits éléments"
+"Collecte des retours utilisateurs"
+"Flux de travail visible"
+"Expérimentation en équipe"]
+CAPABILITIES_PRODUCT: box width 4.5cm height TEXT_PRODUCT.height+0cm at TEXT_PRODUCT.center
+down; move;
+TEXT_MANAGEMENT: ["Lean management" bold fit width 75%; down
+"Limiter les travaux en cours"
+"Management visuel"
+"Collecte des retours de la production"
+"Simplification de l'approbation des changements"]
+CAPABILITIES_MANAGEMENT: box width 6cm height TEXT_MANAGEMENT.height+0cm at TEXT_MANAGEMENT.center
+move;
+TEXT_TECHNIQUE: ["Technique & architecture" bold fit width 75%; down
+"Automatisation des tests"
+"Automatisation des déploiements"
+"Trunk based development"
+"Intégration continue"
+"Système de gestion de version"
+"Gestion des données de test"
+"Sécurité intégrée en amont"
+"Observabilité/Supervision"
+"Notification proactives"
+"Architecture faiblement couplée"
+"Equipes responsables et autonomes"]
+CAPABILITIES_TECHNIQUE: box width 4.5cm height TEXT_TECHNIQUE.height+0cm at TEXT_TECHNIQUE.center
+right; move
+// Ensure box widths are consistent
+boxwid=2.5cm
+GOAL_CD: box "Déploiement" "continu"
+down; move; right; move 200%;
+GOAL_REWORK: box "Moins" "de travail" "à refaire"
+up; move;
+GOAL_DEPLOY: box "Moins" "de douleur" "à déployer"
+move
+GOAL_BURNOUT: box "Moins" "de burn-out"
+move
+GOAL_IDENTIFICATION: box "Identification" "à l'entreprise"
+move
+GOAL_PERF_TECH: box "Performance" "en déploiement" "logiciel"
+move 200%
+GOAL_WESTRUM: box "Culture" "organisationnelle" "de Westrum"
+right; move 300%; down; move
+GOAL_SATISFACTION: box "Satisfaction" "au travail"
+right; move 300%; down; move
+GOAL_PERF_ORGA: box "Performance" "organisationnelle"
+move
+GOAL_PERF_IMAGE: box "Performance" "non commerciale"
+// Leadership to capabilities
+arrow from CAPABILITIES_LEADERSHIP.e right 1cm then up until even with CAPABILITIES_PRODUCT.w then to CAPABILITIES_PRODUCT.w
+// arrow from CAPABILITIES_LEADERSHIP.e right 1cm then down until even with CAPABILITIES_MANAGEMENT.w then to CAPABILITIES_MANAGEMENT.w
+arrow from CAPABILITIES_LEADERSHIP.e right 1cm then down until even with CAPABILITIES_TECHNIQUE.w then to CAPABILITIES_TECHNIQUE.w
+
+// Tech to CD
+arrow from CAPABILITIES_TECHNIQUE.e to GOAL_CD.w
+
+// CD to rework
+arrow from GOAL_CD.e to GOAL_REWORK.w
+// CD to deploy pain
+arrow from GOAL_CD.e to GOAL_DEPLOY.w
+
+// Burn-out
+arrow from CAPABILITIES_PRODUCT.e to GOAL_BURNOUT.w
+arrow from CAPABILITIES_MANAGEMENT.e to GOAL_BURNOUT.w
+arrow from GOAL_CD.e to GOAL_BURNOUT.w
+
+// Identification
+arrow from CAPABILITIES_PRODUCT.e to GOAL_IDENTIFICATION.w
+arrow from GOAL_CD.e to GOAL_IDENTIFICATION.w
+
+// Metrics!
+arrow from CAPABILITIES_PRODUCT.e to GOAL_PERF_TECH.w
+arrow from CAPABILITIES_PRODUCT.e to GOAL_PERF_TECH.w
+arrow from GOAL_CD.e to GOAL_PERF_TECH.w
+arrow from GOAL_WESTRUM.s to GOAL_SATISFACTION.n
+
+// Westrum
+arrow from CAPABILITIES_PRODUCT.e to GOAL_WESTRUM.w
+arrow from CAPABILITIES_MANAGEMENT.e to GOAL_WESTRUM.w
+
+// Satisfaction
+arrow from CAPABILITIES_PRODUCT.e to GOAL_SATISFACTION.w
+arrow from CAPABILITIES_MANAGEMENT.e to GOAL_SATISFACTION.w
+arrow from GOAL_WESTRUM.e to GOAL_SATISFACTION.w
+
+// Performance
+arrow from GOAL_IDENTIFICATION.e to GOAL_PERF_ORGA.w
+arrow from GOAL_PERF_TECH.e to GOAL_PERF_ORGA.w
+arrow from GOAL_WESTRUM.e to GOAL_PERF_ORGA.w
+arrow from GOAL_SATISFACTION.e to GOAL_PERF_ORGA.w
+arrow from CAPABILITIES_PRODUCT.e to GOAL_PERF_ORGA.w
+
+// Marketing
+arrow from GOAL_PERF_TECH.e to GOAL_PERF_IMAGE.w

@@ -1,0 +1,58 @@
+@startuml
+rectangle "<b>Leadership transformationnel</b>\nVision\nStimulation intellectuelle\nCommunication inspirante\nSoutien du leader\nReconnaissance personnelle" as leadership
+rectangle "<b>Lean product management</b>\nTravailler en petits lots\nCollecter les retours clients\nRendre le flux de travail visible\nExpérimenter en équipe" as lean_product_development
+rectangle "<b>Lean management</b>\nLimiter les travaux en cours\nManagement visuel\nFeedbacks de la production\nSimplification de l'approbation des changements" as lean_management
+rectangle "<b>Technique & architecture</b>\nAutomatisation des tests\nAutomatisation des déploiements\nTrunk based development\nIntégration continue\nSystème de gestion de version\nGestion des données de test\nSécurité traitée en amont\nObservabilité/Supervision\nNotifications proactives\nArchitecture faiblement couplée\nEquipes responsables et autonomes" as technical
+rectangle "<b>Livraison continue</b>" as CD
+rectangle "<b>Moins de burnout" as burnout
+rectangle "<b>Moins de douleur à déployer" as deploy_pain
+rectangle "<b>Moins de travail à refaire" as rework
+rectangle "<b>Identification à l'entreprise" as identification
+rectangle "<b>Performance en déploiement logiciel" as metrics
+rectangle "<b>Culture organisationnelle de Westrum" as westrum
+rectangle "<b>Satisfaction au travail" as satisfaction
+rectangle "<b>Performance organisationnelle" as performance
+rectangle "<b>Performance non commerciale" as image
+
+leadership -> lean_product_development
+leadership -> lean_management
+leadership -> technical
+technical -> CD
+
+lean_product_development->westrum
+lean_management->westrum
+CD->westrum
+lean_product_development->satisfaction
+lean_management->satisfaction
+westrum->satisfaction
+lean_product_development->performance
+satisfaction->performance
+westrum->performance
+metrics->performance
+metrics->image
+lean_product_development->metrics
+lean_management->metrics
+CD->metrics
+lean_product_development->identification
+lean_management->identification
+CD->identification
+lean_product_development->burnout
+lean_management->burnout
+CD->burnout
+CD->rework
+CD->deploy_pain
+
+burnout-[hidden]-deploy_pain
+deploy_pain-[hidden]-rework
+
+lean_product_development-[hidden]-lean_management
+lean_management-[hidden]-technical
+westrum-[hidden]-metrics
+westrum-[hidden]satisfaction
+performance-[hidden]-image
+metrics-[hidden]-identification
+identification-[hidden]-burnout
+burnout-[hidden]-deploy_pain
+deploy_pain-[hidden]-rework
+
+@enduml
