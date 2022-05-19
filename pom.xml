@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.zenika.ndx</groupId>
 	<artifactId>conferences</artifactId>
@@ -23,21 +21,21 @@
 		<version.asciidoctorj>2.4.3</version.asciidoctorj>
 		<!-- See latest version here: https://mvnrepository.com/artifact/org.asciidoctor/asciidoctorj-revealjs -->
 		<version.asciidoctor.revealjs>4.1.0</version.asciidoctor.revealjs>
-		<!-- See latest version here: https://mvnrepository.com/artifact/org.asciidoctor/asciidoctorj-diagram -->
-		<version.asciidoctor.kroki>0.4.0</version.asciidoctor.kroki>
+		<!-- See latest version here: https://rubygems.org/gems/asciidoctor-kroki -->
+		<version.asciidoctor.kroki>0.5.0</version.asciidoctor.kroki>
 		<!-- See latest version here https://mvnrepository.com/artifact/org.jruby/jruby -->
-		<version.jruby>9.2.9.0</version.jruby>
+		<version.jruby>9.2.12.0</version.jruby>
 		<!-- See latest version here: https://github.com/hakimel/reveal.js/releases -->
 		<version.revealjs>3.9.2</version.revealjs>
 	</properties>
 
 	<repositories>
 		<repository>
-			<id>rubygems-releases</id>
-			<url>http://rubygems-proxy.torquebox.org/releases</url>
+			<id>mavengems</id>
+			<url>mavengem:https://rubygems.org</url>
 		</repository>
 	</repositories>
-	
+
 	<dependencies>
 		<!-- asciidoctor-kroki is added as POM dependency to make sure gem maven 
 			plugin downloads it -->
@@ -63,10 +61,15 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>com.googlecode.maven-download-plugin</groupId>
+					<artifactId>download-maven-plugin</artifactId>
+					<version>1.6.8</version>
+				</plugin>
 				<plugin>
 					<groupId>com.fizzed</groupId>
 					<artifactId>fizzed-watcher-maven-plugin</artifactId>
@@ -136,7 +139,7 @@
 			<plugin>
 				<groupId>de.saumya.mojo</groupId>
 				<artifactId>gem-maven-plugin</artifactId>
-				<version>1.1.8</version>
+				<version>2.0.1</version>
 				<configuration>
 					<jrubyVersion>${version.jruby}</jrubyVersion>
 					<gemHome>${project.build.directory}/gems</gemHome>
@@ -154,6 +157,14 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<!-- this allows us to download gems -->
+				<groupId>org.torquebox.mojo</groupId>
+				<artifactId>mavengem-wagon</artifactId>
+				<version>1.0.3</version>
+			</extension>
+		</extensions>
 	</build>
 
 	<profiles>
@@ -393,7 +404,7 @@
 			</build>
 		</profile>
 		<profile>
-				<!-- Beware! This menu simply downloads the dependency, you still 
+			<!-- Beware! This menu simply downloads the dependency, you still 
 							have to include the fragment in Asciidoc and configure it by yourself -->
 			<id>enable_revealjs_notes_pointer_plugin</id>
 			<activation>

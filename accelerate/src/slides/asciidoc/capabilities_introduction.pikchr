@@ -22,7 +22,7 @@ TEXT_MANAGEMENT: ["Lean management" bold fit width 75%; down
 "Simplification de l'approbation des changements"]
 CAPABILITIES_MANAGEMENT: box width 6cm height TEXT_MANAGEMENT.height+0cm at TEXT_MANAGEMENT.center
 move;
-TEXT_TECHNIQUE: ["Technique & architecture" bold fit width 75%; down
+TEXT_TECHNIQUE: ["Technique et architecture" bold fit width 75%; down
 "Automatisation des tests"
 "Automatisation des déploiements"
 "Trunk based development"
