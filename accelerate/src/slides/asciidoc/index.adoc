@@ -81,7 +81,7 @@ Et quelles sont les capacités dont on parle ?
 [%notitle]
 == Sous une autre forme
 
-[pikchr, capabilities_introduction, svg, opts=interactive]
+[pikchr, capabilities_introduction, svg, opts=inline]
 ----
 include::capabilities_introduction.pikchr[]
 ----
