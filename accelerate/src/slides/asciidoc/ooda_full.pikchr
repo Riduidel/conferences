@@ -1,0 +1,59 @@
+LABEL_OBSERVE: "Observe"
+LABEL_ORIENT: "Orient" at 1.5 right of LABEL_OBSERVE
+LABEL_DECIDE: "Decide" at 1.5 right of LABEL_ORIENT
+LABEL_ACT: "Act" at 1.5 right of LABEL_DECIDE
+
+OBSERVE: ellipse "Observations" at 1.5 below LABEL_OBSERVE
+ORIENT: box "Experience" "Tradition" "Culture, Vision" at 1.5 below LABEL_ORIENT
+DECIDE: box invisible fit width 125% fit height 150% "Decision" "(hypothesis)" at 1.5 below LABEL_DECIDE
+line from DECIDE.n to DECIDE.w
+line from DECIDE.w to DECIDE.s
+line from DECIDE.s to DECIDE.e
+line from DECIDE.e to DECIDE.n
+
+ACT: box invisible fit width 1cm "Action" "(test)" at 1.5 below LABEL_ACT
+ACT_WIDER: box fill none width ACT.width+0.5cm height ACT.height at ACT.center
+
+UNFOLDING_CIRCUMSTANCES: "Unfolding" "cicumstances" with bottom at 1 left of OBSERVE.n
+OUTSIDE_INFO: "Outside" "informations" at 1 left of OBSERVE
+UNFOLDING_INTERACTION: "Unfolding" "interaction" "with" "environment" with top at 1 left of OBSERVE.s
+
+arrow from UNFOLDING_CIRCUMSTANCES to OBSERVE chop
+arrow from OUTSIDE_INFO to OBSERVE chop
+arrow from UNFOLDING_INTERACTION to OBSERVE chop
+
+arrow from OBSERVE.e to ORIENT.w "Feed" "forward"
+arrow from ORIENT.e to DECIDE.w "Feed" "forward"
+arrow from DECIDE.e to ACT_WIDER.w "Feed" "forward"
+
+arrow from DECIDE.s \
+    down 2cm \
+    then left until even with OBSERVE.se \
+    then to OBSERVE.s
+line invis from 3rd vertex of last arrow to 2nd vertex of last arrow \
+   "Feedback" above
+
+arrow from ACT.sw \
+    down 3cm \
+    then left until even with OBSERVE.se \
+    then to OBSERVE.s
+line invis from 3rd vertex of last arrow to 2nd vertex of last arrow \
+    "Feedback" above
+
+arrow from ACT.se \
+    down 4cm \
+    then left until even with OBSERVE.se \
+    then to OBSERVE.s
+line invis from 3rd vertex of last arrow to 2nd vertex of last arrow \
+    "Feedback" above
+line invis from 2nd vertex of last arrow to 1st vertex of last arrow \
+    "Unfolding" "interaction" "with" "environment"
+
+arrow <-> from OBSERVE up 1.1 \
+    then right until even with ACT \
+    then down to ACT chop
+
+line invis from 1st vertex of last arrow to 2nd vertex of last arrow
+    "Implicit" "guidance" "and" "control"
+line invis from 4th vertex of last arrow to 3rd vertex of last arrow
+    "Implicit" "guidance" "and" "control"

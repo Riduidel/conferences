@@ -1,0 +1,114 @@
+boxwid = 4cm; boxht = 0; boxrad=5px;
+down; move 8cm;
+TEXT_LEADERSHIP: [box invisible "Leadership transformationnel" bold; down
+box invisible "Vision"
+box invisible "Stimulation intellectuelle"
+box invisible "Communication inspirante"
+box invisible "Leadership de soutien"
+box invisible "Reconnaissance personnelle"
+]
+CAPABILITIES_LEADERSHIP: box height TEXT_LEADERSHIP.height+0cm at TEXT_LEADERSHIP.center
+up; move; right; move 8cm;
+boxwid=4.5cm
+TEXT_PRODUCT: [
+CAPABILITY_PRODUCT: box invisible "Lean product" bold fit width 75%; down
+CAPABILITY_PRODUCT_SMALL_BATCH: box invisible "Travail découpé en petits éléments"
+CAPABILITY_PRODUCT_FEEDBACK: box invisible "Collecte des retours utilisateurs"
+CAPABILITY_PRODUCT_VISIBLE: box invisible "Flux de travail visible"
+CAPABILITY_PRODUCT_EXPERIMENT: box invisible "Expérimentation en équipe"]
+CAPABILITIES_PRODUCT: box height TEXT_PRODUCT.height+0cm at TEXT_PRODUCT.center
+down; move;
+boxwid=6cm
+TEXT_MANAGEMENT: [
+CAPABILITY_MANAGEMENT: box invisible "Lean management" bold fit width 75%; down
+CAPABILITY_MANAGEMENT_LIMIT: box invisible "Limiter les travaux en cours"
+CAPABILITY_MANAGEMENT_VISIBLE: box invisible "Management visuel"
+CAPABILITY_MANAGEMENT_FEEDBACK: box invisible "Collecte des retours de la production"
+CAPABILITY_MANAGEMENT_SIMPLE: box invisible "Simplification de l'approbation des changements"]
+CAPABILITIES_MANAGEMENT: box height TEXT_MANAGEMENT.height+0cm at TEXT_MANAGEMENT.center
+move;
+boxwid=4.5cm
+TEXT_TECHNIQUE: [
+CAPABILITY_TECH: box invisible "Technique et architecture" bold fit width 75%; down
+CAPABILITY_TECH_TDD: box invisible "Automatisation des tests"
+CAPABILITY_TECH_AUTOMATE_DEPLOYMENT: box invisible "Automatisation des déploiements"
+CAPABILITY_TECH_TRUNK: box invisible "Trunk based development"
+CAPABILITY_TECH_CI: box invisible "Intégration continue"
+CAPABILITY_TECH_SCM: box invisible "Système de gestion de version"
+CAPABILITY_TECH_TEST_DATA: box invisible "Gestion des données de test"
+CAPABILITY_TECH_SECURITY: box invisible "Sécurité intégrée en amont"
+CAPABILITY_TECH_OBSERVABILITY: box invisible "Observabilité/Supervision"
+CAPABILITY_TECH_NOTIFICATION: box invisible "Notification proactives"
+CAPABILITY_TECH_ARCHITECTURE: box invisible "Architecture faiblement couplée"
+CAPABILITY_TECH_RESPONSIBLE_TEAM: box invisible "Equipes responsables et autonomes"]
+CAPABILITIES_TECHNIQUE: box height TEXT_TECHNIQUE.height+0cm at TEXT_TECHNIQUE.center
+right; move 300%
+// Ensure box widths are consistent
+boxwid=2.5cm
+GOAL_CD: box "Déploiement" "continu" fill 0xcb4b16
+down; move 200%; right; move 400%;
+GOAL_REWORK: box "Moins" "de travail" "à refaire" fill 0xcb4b16
+up; move;
+GOAL_DEPLOY: box "Moins" "de douleur" "à déployer" fill 0xcb4b16
+move
+GOAL_BURNOUT: box "Moins" "de burn-out" fill 0xcb4b16
+move
+GOAL_IDENTIFICATION: box "Identification" "à l'entreprise" fill 0xdc322f
+move
+GOAL_PERF_TECH: box "Performance" "en déploiement" "logiciel" fill 0xcb4b16
+move 300%
+GOAL_WESTRUM: box "Culture" "organisationnelle" "de Westrum"
+right; move 300%; down; move
+GOAL_SATISFACTION: box "Satisfaction" "au travail"
+right; move 300%; down; move
+GOAL_PERF_ORGA: box "Performance" "organisationnelle" fill 0xcb4b16
+move
+GOAL_PERF_IMAGE: box "Performance" "non commerciale"
+// Leadership to capabilities
+arrow from CAPABILITIES_LEADERSHIP.e right 1cm then up until even with CAPABILITIES_PRODUCT.w then to CAPABILITIES_PRODUCT.w
+
+arrow from CAPABILITIES_LEADERSHIP.e right 1cm then down until even with CAPABILITIES_TECHNIQUE.w then to CAPABILITIES_TECHNIQUE.w
+
+// Tech to CD
+arrow from CAPABILITIES_TECHNIQUE.e to GOAL_CD.w
+
+// CD to rework
+arrow from GOAL_CD.e to GOAL_REWORK.w
+// CD to deploy pain
+arrow from GOAL_CD.e to GOAL_DEPLOY.w
+
+// Burn-out
+arrow from CAPABILITIES_PRODUCT.e to GOAL_BURNOUT.w
+arrow from CAPABILITIES_MANAGEMENT.e to GOAL_BURNOUT.w
+arrow from GOAL_CD.e to GOAL_BURNOUT.w
+
+// Identification
+arrow from CAPABILITIES_PRODUCT.e to GOAL_IDENTIFICATION.w
+arrow from GOAL_CD.e to GOAL_IDENTIFICATION.w
+
+// Metrics!
+arrow from CAPABILITIES_PRODUCT.e to GOAL_PERF_TECH.w
+arrow from CAPABILITIES_PRODUCT.e to GOAL_PERF_TECH.w
+arrow from GOAL_CD.e to GOAL_PERF_TECH.w
+
+// Westrum
+arrow from CAPABILITIES_PRODUCT.e to GOAL_WESTRUM.w
+arrow from CAPABILITIES_MANAGEMENT.e to GOAL_WESTRUM.w
+arrow from GOAL_CD.n to GOAL_WESTRUM.s
+arrow from GOAL_WESTRUM.s to GOAL_PERF_TECH.n
+
+// Satisfaction
+arrow from CAPABILITIES_PRODUCT.e to GOAL_SATISFACTION.w
+arrow from CAPABILITIES_MANAGEMENT.e to GOAL_SATISFACTION.w
+arrow from GOAL_WESTRUM.e to GOAL_SATISFACTION.w
+arc from GOAL_SATISFACTION.w to GOAL_CD.n
+
+// Performance
+arrow from GOAL_IDENTIFICATION.e to GOAL_PERF_ORGA.w
+arrow from GOAL_PERF_TECH.e to GOAL_PERF_ORGA.w
+arc from GOAL_PERF_ORGA.w to GOAL_WESTRUM.e
+arrow from GOAL_SATISFACTION.e to GOAL_PERF_ORGA.w
+arrow from CAPABILITIES_PRODUCT.e to GOAL_PERF_ORGA.w
+
+// Marketing
+arrow from GOAL_PERF_TECH.e to GOAL_PERF_IMAGE.w
