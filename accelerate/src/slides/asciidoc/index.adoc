@@ -219,6 +219,9 @@ Qu'est-ce qui permet donc de passer de ce petit dériveur à la coupe de l'ameri
 Un autre apprentissage de la voile est que, pour passer devant quelqu'un d'autre, il faut forcément prendre un autre chemin ...
 --
 
+[%notitle, background-iframe="https://fr.wikipedia.org/wiki/Roue_de_Deming"]
+=== Parenthèse qualité - roue de Deming
+
 [%notitle, background-iframe="https://fr.wikipedia.org/wiki/Boucle_OODA"]
 === Parenthèse OODA - Version simple
 
@@ -234,7 +237,7 @@ Un autre apprentissage de la voile est que, pour passer devant quelqu'un d'autre
 include::ooda_full.pikchr[]
 ----
 
-=== https://cloud.google.com/architecture/devops/devops-culture-transformational-leadership[Direction transformationnelle]
+=== https://cloud.google.com/architecture/devops/devops-culture-transformational-leadership[Implicit guidance and control]
 
 * Vision
 * Communication inspirante
@@ -243,39 +246,48 @@ include::ooda_full.pikchr[]
 
 === Observe
 
-* https://cloud.google.com/architecture/devops/devops-process-team-experimentation[Expérimentation en équipe]
+[unstyled]
+* icon:users[] https://cloud.google.com/architecture/devops/devops-process-customer-feedback[Collecte des retours utilisateurs]
+* icon:desktop[] https://cloud.google.com/architecture/devops/devops-measurement-monitoring-systems[Collecte des retours de la production]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-measurement-monitoring-and-observability[Monitoring/observabilité]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-measurement-proactive-failure-notification[Notifications proactives]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-shifting-left-on-security[Sécurité intégrée en amont]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-test-data-management[Gestion des données de test]
 
+[.columns]
 === Orient
 
-* https://cloud.google.com/architecture/devops/devops-measurement-wip-limits[Limiter les travaux en cours]
-* https://cloud.google.com/architecture/devops/devops-process-working-in-small-batches[Travailler par petits lots]
-* https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development[Développement à branche unique]
-* https://cloud.google.com/architecture/devops/devops-process-work-visibility-in-value-stream[Flux de travail visible]
-* https://cloud.google.com/architecture/devops/devops-tech-architecture[Architecture faiblement couplée]
-* https://cloud.google.com/architecture/devops/devops-tech-teams-empowered-to-choose-tools[Equipes responsables et autonomes]
+[.column]
+[unstyled]
+* icon:users[] https://cloud.google.com/architecture/devops/devops-process-team-experimentation[Expérimentation en équipe]
+
+[.column]
+[unstyled]
+* icon:desktop[] https://cloud.google.com/architecture/devops/devops-measurement-wip-limits[Limiter les travaux en cours]
+* icon:users[] https://cloud.google.com/architecture/devops/devops-process-working-in-small-batches[Travailler par petits lots]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development[Développement à branche unique]
+
+[.column]
+[unstyled]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-architecture[Architecture faiblement couplée]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-teams-empowered-to-choose-tools[Equipes responsables et autonomes]
 
 === Decide
 
-* https://cloud.google.com/architecture/devops/devops-process-streamlining-change-approval[Simplification de l'approbation des changements]
+[unstyled]
+* icon:users[] https://cloud.google.com/architecture/devops/devops-process-work-visibility-in-value-stream[Flux de travail visible]
+* icon:desktop[] https://cloud.google.com/architecture/devops/devops-measurement-visual-management[Management visuel]
+* icon:desktop[] https://cloud.google.com/architecture/devops/devops-process-streamlining-change-approval[Simplification de l'approbation des changements]
 
+[.columns]
 === Act
 
-* https://cloud.google.com/architecture/devops/devops-tech-version-control[Contrôle de version]
-* https://cloud.google.com/architecture/devops/devops-tech-continuous-integration[Intégration continue]
-* https://cloud.google.com/architecture/devops/devops-tech-test-automation[Tests continus]
-* https://cloud.google.com/architecture/devops/devops-tech-deployment-automation[Automatisation des déploiements]
-* https://cloud.google.com/architecture/devops/devops-measurement-visual-management[Management visuel]
-
-=== Feedback
-
-* https://cloud.google.com/architecture/devops/devops-tech-test-data-management[Gestion des données de test]
-* https://cloud.google.com/architecture/devops/devops-process-customer-feedback[Collecte des retours utilisateurs]
-* https://cloud.google.com/architecture/devops/devops-measurement-monitoring-systems[Collecte des retours de la production]
-* https://cloud.google.com/architecture/devops/devops-measurement-monitoring-and-observability[Monitoring/observabilité]
-* https://cloud.google.com/architecture/devops/devops-measurement-proactive-failure-notification[Notifications proactives]
-* https://cloud.google.com/architecture/devops/devops-tech-shifting-left-on-security[Sécurité intégrée en amont]
-
-=== A trier
+[.column]
+[unstyled]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-version-control[Contrôle de version]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-continuous-integration[Intégration continue]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-test-automation[Tests continus]
+* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-deployment-automation[Automatisation des déploiements]
 
 [%notitle]
 == Quels bénéfices ?
