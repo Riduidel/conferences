@@ -5,8 +5,6 @@
 :revealjs_history: true
 :revealjs_preloadIframes: true
 :revealjs_plugin_notes: disabled
-:revealjs_plugins: {slidesdir}/plugins.js
-:revealjs_plugins_configuration: {slidesdir}/configs.js
 :customcss: custom.css
 :source-highlighter: highlightjs
 

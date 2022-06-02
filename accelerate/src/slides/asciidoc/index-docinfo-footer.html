@@ -1,0 +1,23 @@
+<script>
+function replaceSVGImagesTags() {
+	// We add the svg role in asciidoc document to SVG images.
+	// This is in fact added to container div.
+	// So we locate those container div contained images to replace them
+	// Hopefully modern JS has a pseudo-CSS syntax for that
+	const svgImages = document.querySelectorAll("div.svg img")
+	// Now let's browse those images and change their content
+	svgImages.forEach(img => {
+		const src = img.getAttribute("src")
+		console.info("replacing image having source ", src)
+		const parent = img.parentElement
+		parent.removeChild(img)
+		// Now create an object which data is the given src
+		fetch(src)
+	        .then(response => response.text())
+	        .then(responseText => new window.DOMParser().parseFromString(responseText, "text/xml"))
+	        .then(responseXML => parent.appendChild(responseXML.rootElement));
+	})
+}
+
+replaceSVGImagesTags()
+</script>

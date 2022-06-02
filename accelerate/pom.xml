@@ -8,7 +8,4 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>accelerate</artifactId>
-	<properties>
-		<revealjs.menu>active</revealjs.menu>
-	</properties>
 </project>

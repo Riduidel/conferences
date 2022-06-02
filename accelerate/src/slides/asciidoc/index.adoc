@@ -5,12 +5,13 @@
 :revealjs_mouseWheel: true
 :revealjs_history: true
 :revealjs_preloadIframes: true
-:revealjs_plugin_notes: disabled
-:revealjs_plugins: {slidesdir}/plugins.js
-:revealjs_plugins_configuration: {slidesdir}/configs.js
+:revealjs_previewLinks: true
+:revealjs_showNotes: false
 :customcss: custom.css
 :source-highlighter: highlightjs
 :kroki-default-format: svg
+
+:docinfo:
 
 [%notitle]
 = Accelerate
@@ -32,6 +33,9 @@ rugissante, qui a l'air de courir sur de la mitraille, est plus belle que la Vic
 --
 Voir notament https://pierre-lamble2.eu/resources/Expos%C3%A9s_BTS/Manifeste%20du%20Futurisme.pdf[l'article du Figaro]
 --
+
+[%notitle, background-iframe="https://monzo.com/blog/2022/05/16/how-we-deploy-to-production-over-100-times-a-day"]
+== Un exemple d'exploitation des résultats d'Accelerate
 
 [%notitle]
 == Qui suis-je ?
@@ -90,7 +94,7 @@ C'est un atelier qui est un peu long pour ce matin - il prendrait tout le reste 
 [%notitle]
 == Sous une autre forme
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts="inline", role=svg]
 ----
 include::capabilities_introduction.pikchr[]
 ----
@@ -105,7 +109,7 @@ Qu'est-ce qui est le plus important pour une organisation ?
 [%notitle]
 == C'est quoi la performance organisationnelle ?
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_perf_orga.pikchr[]
 ----
@@ -131,7 +135,7 @@ En fait, une entreprise fait circuler de l'argent afin d'atteindre la mission qu
 [%notitle]
 === C'est quoi la performance organisationnelle ? - transition
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_perf_orga.pikchr[]
 ----
@@ -145,7 +149,7 @@ on va s'intéresser à la performance déclinée au domaine de la production de 
 [%notitle]
 === Comment ça se passe quand l'organisation produit du logiciel? Introduction
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_perf_technique.pikchr[]
 ----
@@ -180,7 +184,7 @@ Deux paires d emétriques relatives à deux aspects clé d'Accelerate
 [%notitle]
 === Comment ça se passe quand l'organisation produit du logiciel? Conclusion
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_perf_technique.pikchr[]
 ----
@@ -232,7 +236,7 @@ Un autre apprentissage de la voile est que, pour passer devant quelqu'un d'autre
 [%notitle]
 === Parenthèse OODA - Version complète
 
-[pikchr, ooda_full, svg, opts=inline]
+[pikchr, ooda_full, svg, opts=inline, role=svg]
 ----
 include::ooda_full.pikchr[]
 ----
@@ -292,7 +296,7 @@ include::ooda_full.pikchr[]
 [%notitle]
 == Quels bénéfices ?
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_cd.pikchr[]
 ----
@@ -300,7 +304,7 @@ include::capabilities_goal_cd.pikchr[]
 [%notitle]
 == Quels bénéfices additionnels ? Moins de travail à refaire
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_rework.pikchr[]
 ----
@@ -308,7 +312,7 @@ include::capabilities_goal_rework.pikchr[]
 [%notitle]
 == Quels bénéfices additionnels ? Moins de douleur à déployer
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_deploy.pikchr[]
 ----
@@ -316,7 +320,7 @@ include::capabilities_goal_deploy.pikchr[]
 [%notitle]
 == Quels bénéfices additionnels ? Moins de burn-out
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_burnout.pikchr[]
 ----
@@ -324,7 +328,7 @@ include::capabilities_goal_burnout.pikchr[]
 [%notitle]
 == Quels bénéfices additionnels ? Identification à l'entreprise
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_identification.pikchr[]
 ----
@@ -332,7 +336,7 @@ include::capabilities_goal_identification.pikchr[]
 [%notitle]
 == Quels bénéfices additionnels ? Culture organisationnelle de Westrum
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_westrum.pikchr[]
 ----
@@ -340,7 +344,7 @@ include::capabilities_goal_westrum.pikchr[]
 [%notitle]
 == Quels bénéfices additionnels ? Satisfaction au travail
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_satisfaction.pikchr[]
 ----
@@ -348,7 +352,7 @@ include::capabilities_goal_satisfaction.pikchr[]
 [%notitle]
 == Quels bénéfices additionnels ? Performance non-commerciale
 
-[pikchr, capabilities_introduction, svg, opts=inline]
+[pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
 include::capabilities_goal_image.pikchr[]
 ----

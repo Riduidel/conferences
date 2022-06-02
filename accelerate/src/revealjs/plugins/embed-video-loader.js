@@ -1,2 +1,0 @@
-{ src: 'reveal.js-${version.revealjs}/plugin/reveal-embed-video-${version.revealjs.embed.video}/reveal-embed-video.js', async: true  },
-{ src: 'reveal.js-${version.revealjs}/plugin/reveal-embed-video-${version.revealjs.embed.video}/reveal-embed-video.css', async: true  },
