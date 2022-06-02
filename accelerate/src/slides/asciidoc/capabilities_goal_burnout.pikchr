@@ -11,7 +11,7 @@ CAPABILITIES_LEADERSHIP: box height TEXT_LEADERSHIP.height+0cm at TEXT_LEADERSHI
 up; move; right; move 8cm;
 boxwid=4.5cm
 TEXT_PRODUCT: [
-CAPABILITY_PRODUCT: box invisible "Lean product" bold fit width 75%; down
+CAPABILITY_PRODUCT: box invisible "📝 Lean product" bold fit width 75%; down
 CAPABILITY_PRODUCT_SMALL_BATCH: box invisible "Travail découpé en petits éléments"
 CAPABILITY_PRODUCT_FEEDBACK: box invisible "Collecte des retours utilisateurs"
 CAPABILITY_PRODUCT_VISIBLE: box invisible "Flux de travail visible"
@@ -20,7 +20,7 @@ CAPABILITIES_PRODUCT: box height TEXT_PRODUCT.height+0cm at TEXT_PRODUCT.center
 down; move;
 boxwid=6cm
 TEXT_MANAGEMENT: [
-CAPABILITY_MANAGEMENT: box invisible "Lean management" bold fit width 75%; down
+CAPABILITY_MANAGEMENT: box invisible "🖥️ Lean management" bold fit width 75%; down
 CAPABILITY_MANAGEMENT_LIMIT: box invisible "Limiter les travaux en cours"
 CAPABILITY_MANAGEMENT_VISIBLE: box invisible "Management visuel"
 CAPABILITY_MANAGEMENT_FEEDBACK: box invisible "Collecte des retours de la production"
@@ -29,7 +29,7 @@ CAPABILITIES_MANAGEMENT: box height TEXT_MANAGEMENT.height+0cm at TEXT_MANAGEMEN
 move;
 boxwid=4.5cm
 TEXT_TECHNIQUE: [
-CAPABILITY_TECH: box invisible "Technique et architecture" bold fit width 75%; down
+CAPABILITY_TECH: box invisible "⚒️ Technique et architecture" bold fit width 75%; down
 CAPABILITY_TECH_TDD: box invisible "Automatisation des tests"
 CAPABILITY_TECH_AUTOMATE_DEPLOYMENT: box invisible "Automatisation des déploiements"
 CAPABILITY_TECH_TRUNK: box invisible "Trunk based development"

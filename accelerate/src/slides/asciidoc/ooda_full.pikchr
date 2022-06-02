@@ -1,7 +1,7 @@
-LABEL_OBSERVE: "Observe"
-LABEL_ORIENT: "Orient" at 1.5 right of LABEL_OBSERVE
-LABEL_DECIDE: "Decide" at 1.5 right of LABEL_ORIENT
-LABEL_ACT: "Act" at 1.5 right of LABEL_DECIDE
+LABEL_OBSERVE: "👀 Observe"
+LABEL_ORIENT: "🧭 Orient" at 1.5 right of LABEL_OBSERVE
+LABEL_DECIDE: "🧑‍⚖️ Decide" at 1.5 right of LABEL_ORIENT
+LABEL_ACT: "🦾 Act" at 1.5 right of LABEL_DECIDE
 
 OBSERVE: ellipse "Observations" at 1.5 below LABEL_OBSERVE
 ORIENT: box "Experience" "Tradition" "Culture, Vision" at 1.5 below LABEL_ORIENT

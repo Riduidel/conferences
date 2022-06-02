@@ -248,50 +248,50 @@ include::ooda_full.pikchr[]
 * Stimulation intellectuelle
 * Leadership de soutien
 
-=== Observe
+=== 👀 Observe
 
 [unstyled]
-* icon:users[] https://cloud.google.com/architecture/devops/devops-process-customer-feedback[Collecte des retours utilisateurs]
-* icon:desktop[] https://cloud.google.com/architecture/devops/devops-measurement-monitoring-systems[Collecte des retours de la production]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-measurement-monitoring-and-observability[Monitoring/observabilité]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-measurement-proactive-failure-notification[Notifications proactives]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-shifting-left-on-security[Sécurité intégrée en amont]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-test-data-management[Gestion des données de test]
+* 📝 https://cloud.google.com/architecture/devops/devops-process-customer-feedback[Collecte des retours utilisateurs]
+* 🖥️ https://cloud.google.com/architecture/devops/devops-measurement-monitoring-systems[Collecte des retours de la production]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-measurement-monitoring-and-observability[Monitoring/observabilité]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-measurement-proactive-failure-notification[Notifications proactives]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-tech-shifting-left-on-security[Sécurité intégrée en amont]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-tech-test-data-management[Gestion des données de test]
 
 [.columns]
-=== Orient
+=== 🧭 Orient
 
 [.column]
 [unstyled]
-* icon:users[] https://cloud.google.com/architecture/devops/devops-process-team-experimentation[Expérimentation en équipe]
+* 📝 https://cloud.google.com/architecture/devops/devops-process-team-experimentation[Expérimentation en équipe]
 
 [.column]
 [unstyled]
-* icon:desktop[] https://cloud.google.com/architecture/devops/devops-measurement-wip-limits[Limiter les travaux en cours]
-* icon:users[] https://cloud.google.com/architecture/devops/devops-process-working-in-small-batches[Travailler par petits lots]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development[Développement à branche unique]
+* 🖥️ https://cloud.google.com/architecture/devops/devops-measurement-wip-limits[Limiter les travaux en cours]
+* 📝 https://cloud.google.com/architecture/devops/devops-process-working-in-small-batches[Travailler par petits lots]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development[Développement à branche unique]
 
 [.column]
 [unstyled]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-architecture[Architecture faiblement couplée]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-teams-empowered-to-choose-tools[Equipes responsables et autonomes]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-tech-architecture[Architecture faiblement couplée]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-tech-teams-empowered-to-choose-tools[Equipes responsables et autonomes]
 
-=== Decide
+=== 🧑‍⚖️ Decide
 
 [unstyled]
-* icon:users[] https://cloud.google.com/architecture/devops/devops-process-work-visibility-in-value-stream[Flux de travail visible]
-* icon:desktop[] https://cloud.google.com/architecture/devops/devops-measurement-visual-management[Management visuel]
-* icon:desktop[] https://cloud.google.com/architecture/devops/devops-process-streamlining-change-approval[Simplification de l'approbation des changements]
+* 📝 https://cloud.google.com/architecture/devops/devops-process-work-visibility-in-value-stream[Flux de travail visible]
+* 🖥️ https://cloud.google.com/architecture/devops/devops-measurement-visual-management[Management visuel]
+* 🖥️ https://cloud.google.com/architecture/devops/devops-process-streamlining-change-approval[Simplification de l'approbation des changements]
 
 [.columns]
-=== Act
+=== 🦾 Act
 
 [.column]
 [unstyled]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-version-control[Contrôle de version]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-continuous-integration[Intégration continue]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-test-automation[Tests continus]
-* icon:wrench[] https://cloud.google.com/architecture/devops/devops-tech-deployment-automation[Automatisation des déploiements]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-tech-version-control[Contrôle de version]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-tech-continuous-integration[Intégration continue]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-tech-test-automation[Tests continus]
+* ⚒️ https://cloud.google.com/architecture/devops/devops-tech-deployment-automation[Automatisation des déploiements]
 
 [%notitle]
 == Quels bénéfices ?
@@ -340,6 +340,28 @@ include::capabilities_goal_identification.pikchr[]
 ----
 include::capabilities_goal_westrum.pikchr[]
 ----
+
+[%notitle]
+== Quels bénéfices additionnels ? Culture organisationnelle de Westrum - détails
+
+[options=header, frame=none, role=westrum]
+|===
+||*Pathologique* |*Bureaucratique* |*Générative*
+|Orientée|pouvoir|règlement|performance
+|Cooperation|faible|modeste|élevée
+|Messagers|abattus|négligés|entrainées
+|Responsabilités|évitées|restreintes|partagées
+|Efforts transverses|découragés|tolérés|encouragés
+|Echec|Chasse aux sorcières|Justice|Enquête
+|Innovation|annihilée|entraîne des problèmes|Implémentée
+|===
+
+
+[NOTE.speaker]
+--
+Ce tableau provient de https://qualitysafety.bmj.com/content/qhc/13/suppl_2/ii22.full.pdf[A typology of organisational cultures - R Westrum]
+--
+
 
 [%notitle]
 == Quels bénéfices additionnels ? Satisfaction au travail
