@@ -45,23 +45,23 @@ CAPABILITIES_TECHNIQUE: box height TEXT_TECHNIQUE.height+0cm at TEXT_TECHNIQUE.c
 right; move 300%
 // Ensure box widths are consistent
 boxwid=2.5cm
-GOAL_CD: box "Déploiement" "continu" fill 0xcb4b16
+GOAL_CD: box "Déploiement" "continu" fill 0x2fc6a8
 down; move 200%; right; move 400%;
-GOAL_REWORK: box "Moins" "de travail" "à refaire" fill 0xcb4b16
+GOAL_REWORK: box "Moins" "de travail" "à refaire" fill 0x2fc6a8
 up; move;
-GOAL_DEPLOY: box "Moins" "de douleur" "à déployer" fill 0xcb4b16
+GOAL_DEPLOY: box "Moins" "de douleur" "à déployer" fill 0x2fc6a8
 move
-GOAL_BURNOUT: box "Moins" "de burn-out" fill 0xdc322f
+GOAL_BURNOUT: box "Moins" "de burn-out" fill 0x268bd2
 move
 GOAL_IDENTIFICATION: box "Identification" "à l'entreprise"
 move
-GOAL_PERF_TECH: box "Performance" "en déploiement" "logiciel" fill 0xcb4b16
+GOAL_PERF_TECH: box "Performance" "en déploiement" "logiciel" fill 0x2fc6a8
 move 300%
 GOAL_WESTRUM: box "Culture" "organisationnelle" "de Westrum"
 right; move 300%; down; move
 GOAL_SATISFACTION: box "Satisfaction" "au travail"
 right; move 300%; down; move
-GOAL_PERF_ORGA: box "Performance" "organisationnelle" fill 0xcb4b16
+GOAL_PERF_ORGA: box "Performance" "organisationnelle" fill 0x2fc6a8
 move
 GOAL_PERF_IMAGE: box "Performance" "non commerciale"
 // Leadership to capabilities

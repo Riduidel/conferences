@@ -61,7 +61,7 @@ GOAL_WESTRUM: box "Culture" "organisationnelle" "de Westrum"
 right; move 300%; down; move
 GOAL_SATISFACTION: box "Satisfaction" "au travail"
 right; move 300%; down; move
-GOAL_PERF_ORGA: box "Performance" "organisationnelle" fill 0xdc322f
+GOAL_PERF_ORGA: box "Performance" "organisationnelle" fill 0x268bd2
 move
 GOAL_PERF_IMAGE: box "Performance" "non commerciale"
 // Leadership to capabilities
