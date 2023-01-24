@@ -125,7 +125,7 @@ image::images/simon_brown.png[height=400]
 [.column]
 * Context, Containers, Components, Code
 * La métaphore classique de la carte
-* Imaginé par Simon Brown (https://twitter.com/riduidel[icon:twitter[] @simonbrown])
+* Imaginé par Simon Brown (https://twitter.com/simonbrown[icon:twitter[] @simonbrown])
 
 [NOTE.speaker]
 --
