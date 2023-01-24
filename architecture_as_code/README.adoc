@@ -1,0 +1,11 @@
+= C4 et au-dela
+
+Atelier animé au Snowcamp 2022.
+
+== Checklist de présentation
+
+. Démarrer Structurizr-lite (et accepter la licence d'utilisation)
+
+----
+docker run --rm --name structurizr-lite -d -p 18080:8080 -v architecture_as_code/example/architecture:/usr/local/structurizr structurizr/lite
+----

@@ -1,0 +1,16 @@
+= Bingo des diagrammes
+
+IMPORTANT: Ce document est une traduction de https://c4model.com/bingo/[Diagram bingo 🇬🇧 par Simon Brown]
+
+[cols="1,1,1,1,1"]
+|====
+| Des acronymes                          | Un diagramme sans légende               | Un symbole d'horloge ⏱️              | Une boîte labellée "Erreur"  | Des couleurs non expliquées
+| Une boîte labellée "Sécurité"      | Une forme de nuage                   | Une boîte labellée "logique métier"  | Le texte "..."               | Des styles de bordure non expliqués
+| Des flèches à double-sens          | Des lignes qui se croisent           
+| *Modèle C4*
+
+pour visualiser l'architecture logicielle
+| Des nombres inexpliqués      | Pas de titre de diagramme
+| Des boîtes non labellées           | Une écriture manuscrite              | Un groupement de boîte inexpliqué    | Des flèches non labellées    | Des "couches" horizontales et verticales
+| Des boîtes/lignes qui se croisent  | Des couleurs de lignes inexpliquées  | Des lignes snas tête de flèche       | Des utilisateurs anonymes    | Des niveaux d'abstraction mélangés
+|====

@@ -1,0 +1,71 @@
+= Skiberté ⛷️
+
+== Contexte
+
+Skiberté veut créer l'équivalent des vélos en libre-service (façon V'Lille/V'Lib plutôt que Dott).
+Des loueurs achètent des casiers à skis automatiques opérés par Skiberté.
+
+== Uses cases
+
+=== En tant que skieur, je veux
+
+* Renseigner mon profil (taille, poids, pointure)
+* Réserver mon matériel près de moi depuis mon smartphone
+* Prendre mes chaussures dans un casier
+* Prendre mes skis dans un casier (réglés à ma taille/poids grâce à un robot régleur 🤖)
+* Payer avec mon smartphone
+* Rendre mes skis dans un casier disponible
+* Signaler du matériel déffectueux
+
+=== En tant que loueur, je veux
+
+* Savoir quels skis réparer (refarter, remettre les carres)
+* Savoir quel est l'état des stocks de skis/chaussures dans mes différents casiers à skis
+* Savoir combien je gagne chaque jour
+
+=== En tant que Skiberté, je veux
+
+* Commander des skis aux loueurs
+* Avoir des métriques d'utilisation (bénéfice en temps réel)
+
+== Besoins techniques
+
+Les skieurs disposent d'une application mobile Android/iOS "utilisable avec les gants".
+
+Les loueurs disposent d'une application mobile Android/IOS listant leurs casiers à skis
+
+=== Performance
+
+* L'application dédiée aux skieurs doit permettre les réservations de ski "instantannées". C'est-à-dire qu'il ne doit pas y avoir de temps d'attente dans l'application du skieur.
+* L'application dédiée aux loueurs doit fournir un état des stocks à la minute, et un chiffre d'affaire quotidien
+
+=== Scalabilité
+
+* On vise
+** un déploiement test à Chamrousse d'ici Noël 2023
+** Un déploiement dans les stations françaises des Alpes à Paques 2024
+** Un déploiement dans les stations des Alpes (Italie, Autriche, Suisse) à l'automne 2024
+* Ce déploiement ne devrait pas changer les composants serveur (mais éventuellement le nombre d'instances)
+
+=== Disponibilité
+
+* L'application doit fonctionner sans arrêt dans la journée en 2023
+* L'application doit fonctionner en continu en 2024
+* Aucun skieur ne doit dépenser d'argent sans avoir de ski. En cas d'erreur, le skieur doit être remboursé facilement
+* Les rapports de chiffre d'affaire quotidiens doivent toujours être émis, aussi bien pour les loueurs que pour Skiberté
+
+=== Sécurité
+
+* Les rapports de chiffre d'affaire sont confidentiels
+* Les informations personnelles (taille, poids, pointure) doivent être stockées dans le respect du RGDP
+* Les informations d'utilisation, si elles sont stockées, doivent l'être dans le respect du RGDP.
+
+=== Tolérance aux pannes
+
+* Si un casier n'est plus connecté au système, le loueur propriétaire doit être immédiatement notifié
+* Si un casier n'est plus connecté au système, les utilisateurs qui y avaient réservé des skis doivent en être informés, et leur location est annulée
+* L'ensemble des composants serveurs doivent être résilients à l'ensemble des pannes serveur connues (panne réseau, panne machine, plantage, ...)
+
+=== Internationalisation et localisation
+
+* En 2024, l'ensemble des interfaces doivent être utilisables dans n'importe quelle langue

@@ -6,9 +6,9 @@
 	<properties>
 		<kroki.server.url>http://localhost:29000</kroki.server.url>
 		<asciidoctor.highlighter>highlightjs</asciidoctor.highlighter>
-		<asciidoc.source.docs.directory>src/docs/asciidoc</asciidoc.source.docs.directory>
+		<asciidoc.source.docs.directory>${basedir}/src/docs/asciidoc</asciidoc.source.docs.directory>
 		<asciidoc.target.docs.directory>${project.build.directory}/asciidoc/docs</asciidoc.target.docs.directory>
-		<asciidoc.source.slides.directory>src/slides/asciidoc</asciidoc.source.slides.directory>
+		<asciidoc.source.slides.directory>${basedir}/src/slides/asciidoc</asciidoc.source.slides.directory>
 		<asciidoc.target.slides.directory>${project.build.directory}/asciidoc/slides</asciidoc.target.slides.directory>
 		<asciidoctor.highlighter>highlightjs</asciidoctor.highlighter>
 		<revealjs.plugins.directory>${basedir}/src/revealjs/plugins</revealjs.plugins.directory>
@@ -176,6 +176,9 @@
 					<exists>${asciidoc.source.slides.directory}</exists>
 				</file>
 			</activation>
+			<properties>
+				<asciidoc.target.base.directory>${asciidoc.target.slides.directory}</asciidoc.target.base.directory>
+			</properties>
 			<build>
 				<resources>
 					<resource>
@@ -349,7 +352,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>another_one_bites_the_rust</module>
-		<module>Cyberpunk_or_Technology</module>
+		<module>cyberpunk_or_technology</module>
 		<module>bootcamp-myself</module>
 		<module>dtl-myself</module>
 		<module>architecte-logiciel</module>
@@ -359,5 +362,6 @@
 		<module>structure-du-marche-informatique</module>
 		<module>c4_et_au_dela</module>
 		<module>accelerate</module>
+		<module>architecture_as_code</module>
 	</modules>
 </project>
