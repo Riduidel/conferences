@@ -9,6 +9,9 @@ import com.structurizr.*;
 import com.structurizr.model.*;
 import com.structurizr.dsl.*;
 
+import groovy.cli.commons.*
+import groovy.cli.*
+
 class CustomFormatter extends SimpleFormatter {
     /**
     * @see https://stackoverflow.com/a/25547501/15619
@@ -102,5 +105,16 @@ class Linter {
     }
 }
 
-def listChoices = new Linter()
-listChoices.execute(new File("solution.workspace.dsl"))
+def cli = new CliBuilder(usage: 'groovy Greeter')  
+cli.h(type: boolean, longOpt: 'help', 'Show help')
+
+def options = cli.parse(args)             
+
+if(options.h) {
+    cli.usage()
+} else {
+    def listChoices = new Linter()
+    options.arguments().each {
+        listChoices.execute(new File(it))
+    }
+}
