@@ -101,7 +101,7 @@ Quel système ?
 
 Règle du jeu
 
-* 30’ Chaque équipe crée un (ou plusieurs) diagrammes décrivant le code dont elle s’occupe
+* 30’ Chaque équipe crée un (ou plusieurs) diagrammes décrivant le **système** Skiberté ⛷️
 ** Le facilitateur est là pour vous aider, n’hésitez pas à le solliciter
 
 * Chaque équipe fournit les différents éléments à l'équipe à sa gauche
@@ -132,6 +132,7 @@ Demander aux gens de restituer un diagramme qu'ils n'ont pas écrit me paraît u
 
 Est-ce que vos diagrammes étaient
 
+[%step]
 * légendés ? (on sait ce qu’est chaque patate 🥔 dans le diagramme)
 * consistants ? (représentant les mêmes niveaux de détails pour les différents éléments visibles)
 * cohérents ? (est-ce que tous les éléments présentés avaient du sens)
@@ -249,7 +250,7 @@ En revanche, on est capable de définir le contexte de ce code
 
 Règle du jeu
 
-* 30’ Chaque équipe crée les diagrammes C4 décrivant le code dont elle s’occupe
+* 30’ Chaque équipe crée les diagrammes C4 décrivant le **système** Skiberté ⛷️
 ** Le facilitateur est là pour vous aider, n’hésitez pas à le solliciter
 
 * Chaque équipe fournit les différents éléments à l'équipe à sa gauche
@@ -271,6 +272,7 @@ Règle du jeu
 
 Est-ce que vos diagrammes étaient
 
+[%step]
 * légendés ? (on sait ce qu’est chaque patate 🥔 dans le diagramme)
 * consistants ? (représentant les mêmes niveaux de détails pour les différents éléments visibles)
 * cohérents ? (est-ce que tous les éléments présentés avaient du sens)
@@ -345,7 +347,7 @@ Voir aussi l'article https://blog.icepanel.io/2022/09/21/modelling-vs-diagrammin
 === Voir aussi
 
 ++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UzFpFQgeEyc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="1280" height="800" src="https://www.youtube.com/embed/UzFpFQgeEyc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ++++
 
 === Quelques ressources
