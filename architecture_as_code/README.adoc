@@ -1,11 +1,18 @@
-= C4 et au-dela
+= Introduction à l'architecture as code
 
-Atelier animé au Snowcamp 2022.
+Atelier animé au Snowcamp 2023.
 
-== Checklist de présentation
+== Tips and tricks
 
-. Démarrer Structurizr-lite (et accepter la licence d'utilisation)
+== Démarrer Structurizr-lite (et accepter la licence d'utilisation)
 
 ----
-docker run --rm --name structurizr-lite -d -p 18080:8080 -v architecture_as_code/example/architecture:/usr/local/structurizr structurizr/lite
+structurizr-lite.sh
+----
+
+(merci Linux)
+
+== Surveiller le fichier workspace.dsl et le linter
+
+----
 ----
