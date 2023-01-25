@@ -291,9 +291,47 @@ image::images/structurizr_dsl.png[]
 
 === A nous de jouer 📝
 
-Démo time !
+=== Mais sur quel wifi ?
+
+image::images/wifi_snowcamp.png[width="1200"]
+
+=== Démarrer Structurizr
+
+Sous Windows
+
+----
+docker run -it --rm -p 8080:8080 -v %CD%:/usr/local/structurizr structurizr/lite
+----
+
+Sous Linux/MacOS
+
+----
+docker run -it --rm -p 8080:8080 -v $PWD:/usr/local/structurizr structurizr/lite
+----
+
+Astuce
+
+----
+echo "structurizr.autoRefreshInterval=2000" > structurizr.properties
+----
+
+[background-iframe="https://github.com/structurizr/dsl/blob/master/docs/language-reference.md"]
+[%notitle]
+=== Créer un modèle
+
+=== A nous de jouer 📝
 
 == Conclusion
+
+[%notitle]
+=== C'est cool d'avoir un modèle
+
+image::https://storage.googleapis.com/assets.icepanel.io/blog/modelling-vs-diagramming-software-architecture/infographic.png[height=740]
+
+[NOTE.speaker]
+--
+Voir aussi l'article https://blog.icepanel.io/2022/09/21/modelling-vs-diagramming-software-architecture/
+--
 
 === Qu'est-ce qu'on a gagné ?
 
@@ -323,3 +361,16 @@ Démo time !
 == Merci !
 
 image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
+
+[.columns]
+=== Deux liens pour finir
+
+[.column]
+Vous voulez donner votre avis ?
+
+image::images/url_openfeedback.io.png[width=400]
+
+[.column]
+Vous voulez qu'on en parle un peu plus ?
+
+image::images/url_calendar.google.com.png[width=400]
