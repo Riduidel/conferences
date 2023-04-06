@@ -1,0 +1,259 @@
+{
+  "id" : 1,
+  "name" : "Name",
+  "description" : "Description",
+  "lastModifiedDate" : "2023-04-03T17:08:01Z",
+  "lastModifiedAgent" : "structurizr-javascript",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlIHsKICAgIG1vZGVsIHsKICAgICAgICBzdXBlciA9IHBlcnNvbiAiU1VQZXIiICJVbiBhbWF0ZXVyIGRlIFNVUCB2b3VsYW50IGZhaXJlIHVuZSBwcm9tZW5hZGUgc3VyIGxhIHNjw6huZSIKICAgICAgICByZW50ZXIgPSBwZXJzb24gIkxvdWV1ciIgIlVuIGxvdWV1ciBkZSBza2lzIGRhbnMgdW5lIHN0YXRpb24iCiAgICAgICAgCiAgICAgICAgZW50ZXJwcmlzZSAiU1VQIExhIFNlaW5lIiB7CiAgICAgICAgICAgIHN1cFN5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICJTVVAgTGEgU2VpbmUgU3lzdGVtIiAiTGUgc3lzdMOobWUgbG9naWNpZWwgU1VQIExhIFNlaW5lIiB7CiAgICAgICAgICAgICAgICBzdXBlckFwcCA9IGNvbnRhaW5lciAiQXBwbGljYXRpb24gY2xpZW50IiAiQXBwbGljYXRpb24gbW9iaWxlIGTDqWRpw6llIGF1eCBwcmF0aXF1YW50cyIgIiIgIm1vYmlsZSIgewogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgc3VwTG9ja2VyID0gY29udGFpbmVyICJjYXNpZXIgU1VQIExhIFNlaW5lIiAiQ2FzaWVyIGNvbm5lY3TDqSBhdmVjIHJvYm90IGludMOpZ3LDqSIgIiIgInJvYm90IiB7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBsb2NrZXJCYWNrZW5kID0gY29udGFpbmVyICJCYWNrZW5kIGNhc2llcnMiICJBcHBsaWNhdGlvbiBjZW50cmFpbGlzYW50IGxlcyBpbmZvcm1hdGlvbnMgZGVzIGNhc2llcnMiICIiICIiIHsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGxvY2tlclN0b3JhZ2UgPSBjb250YWluZXIgIkJhc2UgZGUgZG9ubsOpZXMgY2FzaWVycyIgIlN0b2NrZSBsZXMgZG9ubsOpZXMgZGVzIGNhc2llcnMiICIiICJiZGQiIHsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIHJlbnRlckFwcCA9IGNvbnRhaW5lciAiQXBwbGljYXRpb24gbG91ZXVyIiAiQXBwbGljYXRpb24gbW9iaWxlIHBvdXIgbGVzIGxvdWV1cnMiICIiICJtb2JpbGUiIHsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIHN1cGVyQmFja2VuZCA9IGNvbnRhaW5lciAiQmFja2VuZCBwcmF0aXF1YW50IiAiQXBwbGljYXRpb24gY2VudHJhbGlzYW50IGxlcyBpbmZvcm1hdGlvbnMgZGVzIHByYXRpcXVhbnRzIiAiIiAiIiB7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBzdXBlclN0b3JhZ2UgPSBjb250YWluZXIgIkJhc2UgZGUgZG9ubsOpZXMgcHJhdGlxdWFudCIgIlN0b2NrZSBsZXMgZG9ubsOpZXMgZGVzIHByYXRpcXVhbnRzIiAiIiAiYmRkIiB7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgICAgIHBheW1lbnRTeXN0ZW0gPSBzb2Z0d2FyZVN5c3RlbSAiU3lzdMOobWUgZGUgcGF5ZW1lbnQiICJMZSBzeXN0w6htZSBkZSBwYXllbWVudCBjaG9pc2kgcGFyIFNVUCBMYSBTZWluZSIKICAgIH0KICAgIHZpZXdzIHsKICAgIH0KfQo="
+  },
+  "configuration" : { },
+  "model" : {
+    "enterprise" : {
+      "name" : "SUP La Seine"
+    },
+    "people" : [ {
+      "id" : "1",
+      "tags" : "Element,Person",
+      "properties" : {
+        "structurizr.dsl.identifier" : "super"
+      },
+      "name" : "SUPer",
+      "description" : "Un amateur de SUP voulant faire une promenade sur la scène",
+      "location" : "External"
+    }, {
+      "id" : "2",
+      "tags" : "Element,Person",
+      "properties" : {
+        "structurizr.dsl.identifier" : "renter"
+      },
+      "name" : "Loueur",
+      "description" : "Un loueur de skis dans une station",
+      "location" : "External"
+    } ],
+    "softwareSystems" : [ {
+      "id" : "11",
+      "tags" : "Element,Software System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "paymentsystem"
+      },
+      "name" : "Système de payement",
+      "description" : "Le système de payement choisi par SUP La Seine",
+      "location" : "External",
+      "documentation" : { }
+    }, {
+      "id" : "3",
+      "tags" : "Element,Software System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "supsystem"
+      },
+      "name" : "SUP La Seine System",
+      "description" : "Le système logiciel SUP La Seine",
+      "location" : "Internal",
+      "containers" : [ {
+        "id" : "6",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "lockerbackend"
+        },
+        "name" : "Backend casiers",
+        "description" : "Application centrailisant les informations des casiers",
+        "documentation" : { }
+      }, {
+        "id" : "4",
+        "tags" : "Element,Container,mobile",
+        "properties" : {
+          "structurizr.dsl.identifier" : "superapp"
+        },
+        "name" : "Application client",
+        "description" : "Application mobile dédiée aux pratiquants",
+        "documentation" : { }
+      }, {
+        "id" : "10",
+        "tags" : "Element,Container,bdd",
+        "properties" : {
+          "structurizr.dsl.identifier" : "superstorage"
+        },
+        "name" : "Base de données pratiquant",
+        "description" : "Stocke les données des pratiquants",
+        "documentation" : { }
+      }, {
+        "id" : "8",
+        "tags" : "Element,Container,mobile",
+        "properties" : {
+          "structurizr.dsl.identifier" : "renterapp"
+        },
+        "name" : "Application loueur",
+        "description" : "Application mobile pour les loueurs",
+        "documentation" : { }
+      }, {
+        "id" : "5",
+        "tags" : "Element,Container,robot",
+        "properties" : {
+          "structurizr.dsl.identifier" : "suplocker"
+        },
+        "name" : "casier SUP La Seine",
+        "description" : "Casier connecté avec robot intégré",
+        "documentation" : { }
+      }, {
+        "id" : "7",
+        "tags" : "Element,Container,bdd",
+        "properties" : {
+          "structurizr.dsl.identifier" : "lockerstorage"
+        },
+        "name" : "Base de données casiers",
+        "description" : "Stocke les données des casiers",
+        "documentation" : { }
+      }, {
+        "id" : "9",
+        "tags" : "Element,Container",
+        "properties" : {
+          "structurizr.dsl.identifier" : "superbackend"
+        },
+        "name" : "Backend pratiquant",
+        "description" : "Application centralisant les informations des pratiquants",
+        "documentation" : { }
+      } ],
+      "documentation" : { }
+    } ]
+  },
+  "documentation" : { },
+  "views" : {
+    "systemLandscapeViews" : [ {
+      "key" : "SystemLandscape",
+      "order" : 1,
+      "dimensions" : {
+        "width" : 3120,
+        "height" : 811
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "11",
+        "x" : 970,
+        "y" : 219
+      }, {
+        "id" : "1",
+        "x" : 1720,
+        "y" : 219
+      }, {
+        "id" : "2",
+        "x" : 2470,
+        "y" : 219
+      }, {
+        "id" : "3",
+        "x" : 220,
+        "y" : 219
+      } ]
+    } ],
+    "systemContextViews" : [ {
+      "key" : "SUPLaSeineSystem-SystemContext",
+      "order" : 2,
+      "softwareSystemId" : "3",
+      "paperSize" : "A6_Landscape",
+      "dimensions" : {
+        "width" : 1108,
+        "height" : 958
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "3",
+        "x" : 329,
+        "y" : 329
+      } ]
+    }, {
+      "key" : "Systmedepayement-SystemContext",
+      "order" : 4,
+      "softwareSystemId" : "11",
+      "paperSize" : "A6_Landscape",
+      "dimensions" : {
+        "width" : 866,
+        "height" : 716
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "enterpriseBoundaryVisible" : true,
+      "elements" : [ {
+        "id" : "11",
+        "x" : 208,
+        "y" : 208
+      } ]
+    } ],
+    "containerViews" : [ {
+      "key" : "SUPLaSeineSystem-Container",
+      "order" : 3,
+      "softwareSystemId" : "3",
+      "paperSize" : "A2_Landscape",
+      "dimensions" : {
+        "width" : 5608,
+        "height" : 958
+      },
+      "automaticLayout" : {
+        "implementation" : "Graphviz",
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "nodeSeparation" : 300,
+        "edgeSeparation" : 0,
+        "vertices" : false
+      },
+      "externalSoftwareSystemBoundariesVisible" : true,
+      "elements" : [ {
+        "id" : "4",
+        "x" : 4829,
+        "y" : 329
+      }, {
+        "id" : "5",
+        "x" : 4079,
+        "y" : 329
+      }, {
+        "id" : "6",
+        "x" : 3329,
+        "y" : 329
+      }, {
+        "id" : "7",
+        "x" : 2579,
+        "y" : 329
+      }, {
+        "id" : "8",
+        "x" : 1829,
+        "y" : 329
+      }, {
+        "id" : "9",
+        "x" : 1079,
+        "y" : 329
+      }, {
+        "id" : "10",
+        "x" : 329,
+        "y" : 329
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "styles" : { },
+      "terminology" : { },
+      "metadataSymbols" : "SquareBrackets",
+      "lastSavedView" : "SystemLandscape"
+    }
+  }
+}

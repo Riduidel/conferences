@@ -170,10 +170,94 @@
 
 	<profiles>
 		<profile>
+			<id>generate-docs</id>
+			<activation>
+				<file>
+					<exists>${basedir}/src/docs/asciidoc</exists>
+				</file>
+			</activation>
+			<properties>
+				<asciidoc.target.base.directory>${asciidoc.target.docs.directory}</asciidoc.target.base.directory>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.asciidoctor</groupId>
+						<artifactId>asciidoctor-maven-plugin</artifactId>
+						<version>${asciidoctor.maven.plugin.version}</version>
+						<configuration>
+							<sourceDirectory>${asciidoc.source.docs.directory}</sourceDirectory>
+							<preserveDirectories>true</preserveDirectories>
+							<relativeBaseDir>true</relativeBaseDir>
+							<requires>
+								<require>asciidoctor-kroki</require>
+							</requires>
+							<attributes>
+								<!-- Example below shows how to specify in this pom instead of System's 
+									PATH, the location of dot command of Graphviz, required by PlantUML libraries -->
+								<!-- Windows: <graphvizdot>C:\Program Files (x86)\Graphviz2.38\bin\dot.exe</graphvizdot> -->
+								<!-- *nix : <graphvizdot>/usr/local/bin/dot</graphvizdot> -->
+								<sectnums>true</sectnums>
+								<revnumber>${project.version}</revnumber>
+        						<revdate>${maven.build.timestamp}</revdate>
+						        <organization>${project.organization.name}</organization>
+							</attributes>
+						</configuration>
+						<executions>
+							<execution>
+								<id>generate-html-doc</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>process-asciidoc</goal>
+								</goals>
+								<configuration>
+									<backend>html5</backend>
+									<outputDirectory>${asciidoc.target.docs.directory}</outputDirectory>
+									<attributes>
+										<plantumldir></plantumldir>
+										<imagesdir>./images</imagesdir>
+										<toc>left</toc>
+										<icons>font</icons>
+										<sectanchors>true</sectanchors>
+										<idprefix />
+										<idseparator>-</idseparator>
+									</attributes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<!--
+					<plugin>
+						<groupId>com.fizzed</groupId>
+						<artifactId>fizzed-watcher-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>watch-docs</id>
+								<goals></goals>
+								<configuration>
+									<touchFile>target/watcher.docs.touchfile</touchFile>
+									<watches>
+										<watch>
+											<directory>${asciidoc.source.docs.directory}</directory>
+										</watch>
+									</watches>
+									<goals>
+										<goal>prepare-package</goal>
+										<goal>org.asciidoctor:asciidoctor-maven-plugin:process-asciidoc@generate-docs</goal>
+									</goals>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				-->
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>generate-slides</id>
 			<activation>
 				<file>
-					<exists>${asciidoc.source.slides.directory}</exists>
+					<exists>${basedir}/src/slides/asciidoc</exists>
 				</file>
 			</activation>
 			<properties>

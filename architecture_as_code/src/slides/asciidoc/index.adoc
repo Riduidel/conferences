@@ -16,10 +16,9 @@
 --
 --
 
-[%notitle]
 == Sponsors
 
-image::images/sponsors_snowcamp_2023.png[]
+
 
 [%notitle]
 == Qui suis-je ?
@@ -30,25 +29,10 @@ Développeur Java depuis l'an 2000
 
 Architecte de solutions/systèmes depuis 2015
 
-image:images/snowcamp-logo.png["Kubernetes, Kafka, Elastic et Jenkins-X", height=60]
-image:images/snowcamp-logo.png[Le diable s'habille en Java, height=60]
-image:images/snowcamp-logo.png[C4 et au-delà, height=60]
-image:images/snowcamp-logo.png[Architecture as code, height=60]
-Snowcamps
-
 image::images/zenika.png[height=100]
 
 [NOTE.speaker]
 --
-4ème Snowcamp
-
-Qui était à 
-
-* Kafka, kubernetes, ElasticSearch et Jenkins-X
-* Le diable s'habille en Java
-* *C4 et au-delà, documenter une architecture agilement*
-
-Cet atelier s'appuie sur celui sur C4, pour ceux qui y étaient, il y aura un peu de redite (mais pas trop)
 --
 
 
@@ -79,6 +63,9 @@ il ne répond pas à quelques autres questions
 
 [NOTE.speaker]
 --
+Les lignes barrées correspondent aux questions pour lesquelles la réponse est évidente.
+Les autres ont des réponses un peu moins évidentes.
+
 J'ignorais que https://fr.wikipedia.org/wiki/QQOQCCP[ces questions] provenaient de la méthode aristocélicienne.
 En revanche, je connais l'acronyme des 5W et son usage dans le journalisme.
 Et je trouve intéressant de se poser la même question à propos d'un système logiciel, précisément parce qu'il s'agit d'un artefact ayant une vie impliquant des personnes aux profils divers.
@@ -95,13 +82,14 @@ En l'occurence, vous allez définir et documenter l'architecture d'un système p
 Quel système ?
 --
 
-=== Skiberté ⛷️
+
+=== SUP La Seine image:images/stand-up-paddle_emoji.png[width=100px]
 
 === A vous de jouer 📝
 
 Règle du jeu
 
-* 30’ Chaque équipe crée un (ou plusieurs) diagrammes décrivant le **système** Skiberté ⛷️
+* 30’ Chaque équipe crée un (ou plusieurs) diagrammes décrivant le **système** SUP La Seine image:images/stand-up-paddle_emoji.png[width=40px]
 ** Le facilitateur est là pour vous aider, n’hésitez pas à le solliciter
 
 * Chaque équipe fournit les différents éléments à l'équipe à sa gauche
@@ -166,9 +154,9 @@ image::images/simon_brown.png[width=500]
 [cols="4*", frame=none, grid=none]
 |====
 .>| image:images/openstreetmap-carte-france.png[]
-.>| image:images/openstreetmap-carte-savoie.png[]
-.>| image:images/openstreetmap-carte-grenoble.png[]
-.>| image:images/openstreetmap-carte-gare.png[]
+.>| image:images/openstreetmap-carte-ile-de-france.png[]
+.>| image:images/openstreetmap-carte-paris.png[]
+.>| image:images/openstreetmap-carte-porte-maillot.png[]
 .<| image:images/c4_SystemContext.png[]
 .<| image:images/c4_Containers.png[]
 .<| image:images/c4_Components.png[]
@@ -200,7 +188,7 @@ image::images/simon_brown.png[width=500]
 [cols="25%, 25%, 50%", frame=none, grid=none]
 |====
 .2+|
-.>| image:images/openstreetmap-carte-france.png[]
+.>| image:images/openstreetmap-carte-ile-de-france.png[]
 .2+a| Les conteneurs sont les éléments signifiants de l’architecture
 
 * Ce ne sont pas forcément les conteneurs Docker de l’application
@@ -226,7 +214,7 @@ image::images/simon_brown.png[width=500]
 * React
 * Symphony
 
-.>| image:images/openstreetmap-carte-grenoble.png[]
+.>| image:images/openstreetmap-carte-paris.png[]
 .2+|
 .<| image:images/c4_Components.png[]
 
@@ -242,7 +230,7 @@ image::images/simon_brown.png[width=500]
 
 En revanche, on est capable de définir le contexte de ce code
 
-.>| image:images/openstreetmap-carte-gare.png[]
+.>| image:images/openstreetmap-carte-porte-maillot.png[]
 .<| image:images/c4_class-diagram.png[]
 |====
 
@@ -250,7 +238,7 @@ En revanche, on est capable de définir le contexte de ce code
 
 Règle du jeu
 
-* 30’ Chaque équipe crée les diagrammes C4 décrivant le **système** Skiberté ⛷️
+* 30’ Chaque équipe crée les diagrammes C4 décrivant le **système** SUP La Seine image:images/stand-up-paddle_emoji.png[width=40px]
 ** Le facilitateur est là pour vous aider, n’hésitez pas à le solliciter
 
 * Chaque équipe fournit les différents éléments à l'équipe à sa gauche
@@ -284,9 +272,10 @@ Est-ce que vos diagrammes étaient
 
 [.column]
 * On construit un modèle (et pas une simple “image”)
-* DSL pour les Composants (java, NET, TypeScript, PHP, python, GO)
 * Simple à écrire
+** Via le DSL spécifique
 * Lié au code
+** Grâce à des bibliothèques de détection
 
 [.column]
 image::images/structurizr_dsl.png[]
@@ -302,13 +291,13 @@ image::images/wifi_snowcamp.png[width="1200"]
 Sous Windows
 
 ----
-docker run -it --rm -p 8080:8080 -v %CD%:/usr/local/structurizr structurizr/lite
+docker run -it --rm -p 8080:8080 -v %CD%:/usr/local/structurizr structurizr/lite:3045
 ----
 
 Sous Linux/MacOS
 
 ----
-docker run -it --rm -p 8080:8080 -v $PWD:/usr/local/structurizr structurizr/lite
+docker run -it --rm -p 8080:8080 -v $PWD:/usr/local/structurizr structurizr/lite:3045
 ----
 
 Astuce
@@ -363,16 +352,3 @@ Voir aussi l'article https://blog.icepanel.io/2022/09/21/modelling-vs-diagrammin
 == Merci !
 
 image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
-
-[.columns]
-=== Deux liens pour finir
-
-[.column]
-Vous voulez donner votre avis ?
-
-image::images/url_openfeedback.io.png[width=400]
-
-[.column]
-Vous voulez qu'on en parle un peu plus ?
-
-image::images/url_calendar.google.com.png[width=400]

@@ -1,58 +1,58 @@
-= Skiberté ⛷️
+= SUP La Seine
 
 == Contexte
 
-Skiberté veut créer l'équivalent des vélos en libre-service (façon V'Lille/V'Lib plutôt que Dott).
-Des loueurs achètent des casiers à skis automatiques opérés par Skiberté.
+SUP La Seine veut créer l'équivalent des vélos en libre-service (façon V'Lille/V'Lib plutôt que Dott).
+Des loueurs achètent des racls à stand-up-paddle automatiques opérés par SUP La Seine.
 
 == Uses cases
 
-=== En tant que skieur, je veux
+=== En tant que client, je veux
 
-* Renseigner mon profil (taille, poids, pointure)
+* Renseigner mon profil (taille de combinaison)
 * Réserver mon matériel près de moi depuis mon smartphone
-* Prendre mes chaussures dans un casier
-* Prendre mes skis dans un casier (réglés à ma taille/poids grâce à un robot régleur 🤖)
+* Prendre la combinaison et le sac étanche à ma taille dans un vestiaire automatique
+* Prendre mon stand-up paddle et ma pagaie dans un rack
 * Payer avec mon smartphone
-* Rendre mes skis dans un casier disponible
+* Rendre mon stand-up paddle dans un casier disponible
 * Signaler du matériel déffectueux
 
 === En tant que loueur, je veux
 
-* Savoir quels skis réparer (refarter, remettre les carres)
-* Savoir quel est l'état des stocks de skis/chaussures dans mes différents casiers à skis
+* Savoir quels stand-up paddles réparer (boucher les trous)
+* Savoir quel est l'état des stocks de stand-up paddles/combinaisons dans mes différents racks à stand-up paddles
 * Savoir combien je gagne chaque jour
 
-=== En tant que Skiberté, je veux
+=== En tant que SUP La Seine, je veux
 
-* Commander des skis aux loueurs
+* Commander des stand-up paddles aux loueurs
 * Avoir des métriques d'utilisation (bénéfice en temps réel)
 
 == Besoins techniques
 
-Les skieurs disposent d'une application mobile Android/iOS "utilisable avec les gants".
+Les pratiquants disposent d'une application mobile Android/iOS "utilisable sur l'eau".
 
-Les loueurs disposent d'une application mobile Android/IOS listant leurs casiers à skis
+Les loueurs disposent d'une application mobile Android/IOS listant leurs racks à stand-up paddles
 
 === Performance
 
-* L'application dédiée aux skieurs doit permettre les réservations de ski "instantannées". C'est-à-dire qu'il ne doit pas y avoir de temps d'attente dans l'application du skieur.
+* L'application dédiée aux pratiquants doit permettre les réservations de stand-up paddle "instantannées". C'est-à-dire qu'il ne doit pas y avoir de temps d'attente dans l'application du pratiquant.
 * L'application dédiée aux loueurs doit fournir un état des stocks à la minute, et un chiffre d'affaire quotidien
 
 === Scalabilité
 
 * On vise
-** un déploiement test à Chamrousse d'ici Noël 2023
-** Un déploiement dans les stations françaises des Alpes à Paques 2024
-** Un déploiement dans les stations des Alpes (Italie, Autriche, Suisse) à l'automne 2024
+** un déploiement test quai de Grenelle d'ici Noël 2023
+** Un déploiement dans tout Paris à Pâques 2024
+** Un déploiement dans les villes d'eau Européennes (Pays-Bas, Italie, Danemark, Croatie, Grèce) à l'automne 2024
 * Ce déploiement ne devrait pas changer les composants serveur (mais éventuellement le nombre d'instances)
 
 === Disponibilité
 
 * L'application doit fonctionner sans arrêt dans la journée en 2023
 * L'application doit fonctionner en continu en 2024
-* Aucun skieur ne doit dépenser d'argent sans avoir de ski. En cas d'erreur, le skieur doit être remboursé facilement
-* Les rapports de chiffre d'affaire quotidiens doivent toujours être émis, aussi bien pour les loueurs que pour Skiberté
+* Aucun pratiquant ne doit dépenser d'argent sans avoir de stand-up paddle. En cas d'erreur, le pratiquant doit être remboursé facilement
+* Les rapports de chiffre d'affaire quotidiens doivent toujours être émis, aussi bien pour les loueurs que pour SUP La Seine
 
 === Sécurité
 
@@ -62,8 +62,8 @@ Les loueurs disposent d'une application mobile Android/IOS listant leurs casiers
 
 === Tolérance aux pannes
 
-* Si un casier n'est plus connecté au système, le loueur propriétaire doit être immédiatement notifié
-* Si un casier n'est plus connecté au système, les utilisateurs qui y avaient réservé des skis doivent en être informés, et leur location est annulée
+* Si un rack n'est plus connecté au système, le loueur propriétaire doit être immédiatement notifié
+* Si un rack n'est plus connecté au système, les utilisateurs qui y avaient réservé des stand-up paddles doivent en être informés, et leur location est annulée
 * L'ensemble des composants serveurs doivent être résilients à l'ensemble des pannes serveur connues (panne réseau, panne machine, plantage, ...)
 
 === Internationalisation et localisation
