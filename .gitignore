@@ -91,8 +91,6 @@ local.properties
 # End of https://www.gitignore.io/api/eclipse
 */test/*
 **/.structurizr/*
-**/.vscode/*
-.vscode/*
 **/target/
 c4_et_au_dela/example/architecture/.structurizr/images/Dev_machine-thumbnail.png
 c4_et_au_dela/example/architecture/workspace.json
