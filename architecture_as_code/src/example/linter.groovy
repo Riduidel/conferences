@@ -27,13 +27,14 @@ class CustomFormatter extends SimpleFormatter {
     public static final String ANSI_WHITE = "\u001B[37m";
 
     public String format(LogRecord record) {
-        def returned = switch(record.level) {
-            case Level.SEVERE -> ANSI_RED + "🚨 "
-            case Level.WARNING -> ANSI_YELLOW + "⚠ "
-            case Level.INFO -> ANSI_BLUE + "ℹ "
-            case Level.CONFIG -> ANSI_PURPLE + "🛠 "
-            case Level.FINE -> ANSI_GREEN + "✅ "
-            case Level.FINER -> ANSI_GREEN + "✅ "
+        def returned = ""
+        switch(record.level) {
+            case Level.SEVERE: returned += ANSI_RED + "🚨 "; break;
+            case Level.WARNING: returned += ANSI_YELLOW + "⚠ "; break;
+            case Level.INFO: returned += ANSI_BLUE + "ℹ "; break;
+            case Level.CONFIG: returned += ANSI_PURPLE + "🛠 "; break;
+            case Level.FINE: returned += ANSI_GREEN + "✅ "; break;
+            case Level.FINER: returned += ANSI_GREEN + "✅ "; break;
         }
         returned += "${record.message}"
         return returned+ANSI_RESET+"\n"
@@ -50,6 +51,7 @@ rootLogger.getHandlers()[0].setFormatter(new CustomFormatter())
 @Log
 class Linter {
     Workspace parse(File workspaceFile) throws Exception {
+        log.info "Parsing file "+workspaceFile.absolutePath
         StructurizrDslParser parser = new StructurizrDslParser();
 		parser.parse(workspaceFile)
 		return parser.getWorkspace()
@@ -101,11 +103,12 @@ class Linter {
     }
     def execute(File workspaceFile) throws Exception {
         Workspace parsed = parse workspaceFile
+        log.info "parsing workspace "+parsed.name
         lintModel(parsed.model)
     }
 }
 
-def cli = new CliBuilder(usage: 'groovy Greeter')  
+def cli = new CliBuilder(usage: 'groovy linter.groovy workspace.dsl')  
 cli.h(type: boolean, longOpt: 'help', 'Show help')
 
 def options = cli.parse(args)             

@@ -2,7 +2,7 @@
     @Grab(group='com.structurizr', module='structurizr-dsl', version='1.23.0'),
     @GrabExclude(group="com.fasterxml.jackson.core", module="jackson-annotations"),
     // https://mvnrepository.com/artifact/com.structurizr/structurizr-export
-    @Grab(group='com.structurizr', module='structurizr-export', version='1.8.3')
+    @Grab(group='com.structurizr', module='structurizr-export', version='1.13.0')
 ])
 import groovy.util.logging.Log
 
@@ -33,13 +33,14 @@ class CustomFormatter extends SimpleFormatter {
     public static final String ANSI_WHITE = "\u001B[37m";
 
     public String format(LogRecord record) {
-        def returned = switch(record.level) {
-            case Level.SEVERE -> ANSI_RED + "🚨 "
-            case Level.WARNING -> ANSI_YELLOW + "⚠ "
-            case Level.INFO -> ANSI_BLUE + "ℹ "
-            case Level.CONFIG -> ANSI_PURPLE + "🛠 "
-            case Level.FINE -> ANSI_GREEN + "✅ "
-            case Level.FINER -> ANSI_GREEN + "✅ "
+        def returned = ""
+        switch(record.level) {
+            case Level.SEVERE: returned += ANSI_RED + "🚨 "; break;
+            case Level.WARNING: returned += ANSI_YELLOW + "⚠ "; break;
+            case Level.INFO: returned += ANSI_BLUE + "ℹ "; break;
+            case Level.CONFIG: returned += ANSI_PURPLE + "🛠 "; break;
+            case Level.FINE: returned += ANSI_GREEN + "✅ "; break;
+            case Level.FINER: returned += ANSI_GREEN + "✅ "; break;
         }
         returned += "${record.message}"
         return returned+ANSI_RESET+"\n"
@@ -92,7 +93,7 @@ class ToPlantUML {
     }
 }
 
-def cli = new CliBuilder(usage: 'groovy Greeter')  
+def cli = new CliBuilder(usage: 'groovy to-plantuml.groovy workspace.dsl')  
 cli.h(type: boolean, longOpt: 'help', 'Show help')
 
 def options = cli.parse(args)             

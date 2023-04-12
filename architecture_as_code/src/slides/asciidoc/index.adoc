@@ -4,26 +4,24 @@
 :revealjs_mouseWheel: true
 :revealjs_history: true
 :revealjs_preloadIframes: true
-:revealjs_plugin_notes: disabled
+:revealjs_plugin_notes: enabled
 :customcss: custom.css
 :source-highlighter: highlightjs
 
 [%notitle]
 = Architecture as code
+
 :sectnums!:
 
 [NOTE.speaker]
 --
 --
 
-== Sponsors
-
-
 
 [%notitle]
 == Qui suis-je ?
 
-Nicolas Delsaux / @riduidel on https://twitter.com/riduidel[icon:twitter[]] / https://github.com/riduidel[icon:github[]] / https://stackexchange.com/users/8620[icon:stack-overflow[]]
+Nicolas Delsaux / @riduidel on https://framapiaf.org/users/riduidel[🐘] / https://twitter.com/riduidel[icon:twitter[]] / https://github.com/riduidel[icon:github[]] / https://stackexchange.com/users/8620[icon:stack-overflow[]]
 
 Développeur Java depuis l'an 2000
 
@@ -282,10 +280,6 @@ image::images/structurizr_dsl.png[]
 
 === A nous de jouer 📝
 
-=== Mais sur quel wifi ?
-
-image::images/wifi_snowcamp.png[width="1200"]
-
 === Démarrer Structurizr
 
 Sous Windows
@@ -322,9 +316,6 @@ image::https://storage.googleapis.com/assets.icepanel.io/blog/modelling-vs-diagr
 [NOTE.speaker]
 --
 Voir aussi l'article https://blog.icepanel.io/2022/09/21/modelling-vs-diagramming-software-architecture/
---
-
-=== Qu'est-ce qu'on a gagné ?
 
 * Un modèle de l’architecture de notre application *synchronisé* avec notre code
 * La capacité de produire les diagrammes standard à partir du code
@@ -332,6 +323,7 @@ Voir aussi l'article https://blog.icepanel.io/2022/09/21/modelling-vs-diagrammin
 * La capacité d'interroger facilement ce modèle d’architecture
 ** Produire la cartographie des flux
 ** Produire un inventaire des machines
+--
 
 === Voir aussi
 

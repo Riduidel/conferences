@@ -3,7 +3,7 @@
 :revealjs_previewLinks: true
 :revealjs_mouseWheel: true
 :revealjs_history: true
-:revealjs_plugin_notes: disabled
+:revealjs_plugin_notes: enabled
 :customcss: custom.css
 :source-highlighter: highlightjs
 
