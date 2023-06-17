@@ -447,5 +447,6 @@
 		<module>c4_et_au_dela</module>
 		<module>accelerate</module>
 		<module>architecture_as_code</module>
+		<module>non-functional-requirements</module>
 	</modules>
 </project>
