@@ -30,21 +30,6 @@ public class Structurizr {
 	
 	public static void main(String[] args) throws Throwable {
 		Workspace workspace = readFromJson();
-		Model model = workspace.getModel();
-		SoftwareSystem system = model.getSoftwareSystemWithName("Pet Clinic");
-		Container webapp = system.getContainerWithName("Web Application");
-		// Now it's time to read components from Spring code!
-		SpringComponentFinderStrategy springComponentFinderStrategy = new SpringComponentFinderStrategy(
-		        new ReferencedTypesSupportingTypesStrategy(false)
-		);
-		springComponentFinderStrategy.setIncludePublicTypesOnly(false);
-		ComponentFinder componentFinder = new ComponentFinder(
-			    webapp, "org.springframework.samples.petclinic",
-			    springComponentFinderStrategy);
-
-			componentFinder.findComponents();
-			
-		logger.info(String.format("Found %d components in webapp", webapp.getComponents().size()));
 		// Now we can add a component view
 		ViewSet views = workspace.getViews();
 		ComponentView components = views.createComponentView(webapp, "components", "components of webapp");

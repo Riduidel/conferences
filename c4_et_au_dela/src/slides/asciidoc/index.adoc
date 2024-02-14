@@ -7,6 +7,7 @@
 :revealjs_plugin_notes: enabled
 :customcss: custom.css
 :source-highlighter: highlightjs
+:city: lille
 
 [%notitle]
 = C4 et au-delà, documenter agilement une architecture
@@ -22,6 +23,7 @@ Checklist avant conférence
 . Configurer le workspace VSCode d'exemple pour avoir les retours à la ligne
 --
 
+////
 [%notitle, background-iframe="https://manifesteagile.fr/#valeurs"]
 == Ca ne sert à rien, on est agiles
 
@@ -35,6 +37,7 @@ Pourquoi documenter quand le manifeste agile dit clairement qu'il faut privilég
 Précisément parce que le manifeste parle de privilégier, et pas d'éliminer.
 Et dans cette présentation, on va précisément parler de moyens de produire plus de documentation avec moins de travail.
 --
+////
 
 [%notitle]
 == Qui suis-je ?
@@ -68,33 +71,9 @@ Mais en fait, c'est tellement plus simple de dire que si le code explique correc
 il ne répond pas à quelques autres questions
 --
 
-=== A quelles questions répondre ?
-
-* Qui ?
-* Quand ?
-* Quoi ?
-* [line-through]#Où ?#
-* Pourquoi ?
-* [line-through]#Comment ?#
-
-[NOTE.speaker]
---
-J'ignorais que https://fr.wikipedia.org/wiki/QQOQCCP[ces questions] provenaient de la méthode aristocélicienne.
-En revanche, je connais l'acronyme des 5W et son usage dans le journalisme.
-Et je trouve intéressant de se poser la même question à propos d'un système logiciel, précisément parce qu'il s'agit d'un artefact ayant une vie impliquant des personnes aux profils divers.
---
-=== Comment répondre à ces questions ?
-
-image::https://media.giphy.com/media/j3cIiYP90ci1QgyWAk/giphy.gif[]
-
-[NOTE.speaker]
---
-Bien sûr qu'il faut communiquer, mais via quels moyens ?
---
-
 [.columns]
 [%notitle]
-=== Some poor solutions (we all use)
+=== Quelques solutions inefficaces (que nous utilisons tous)
 
 [.column]
 * **Outil dédié**
@@ -153,10 +132,10 @@ C'est un exemple d'application Spring assez simple qui leur permet d'exposer les
 [cols="2", width="100%", frame=none, grid=none]
 |===
 |
-image:images/openstreetmap-carte-france.png[width="600", height="600"]
+image:images/{city}/context.png[width="600", height="600"]
 |
 +++
-<iframe id="pet-clinic-context" data-src="https://structurizr.com/static/assets/structurizr-1-diagrams.html#context" width="800" height="600"  ></iframe>
+<iframe id="pet-clinic-context" data-src="https://www.structurizr.com/share/1/diagrams#context" width="800" height="600"  ></iframe>
 +++
 |===
 
@@ -179,10 +158,10 @@ c'est également vrai sur la carte : on voit déja les autoroutes, et on verra t
 [cols="2", width="100%", frame=none, grid=none]
 |===
 |
-image:images/openstreetmap-carte-savoie.png[width="600", height="600"]
+image:images/{city}/containers.png[width="600", height="600"]
 |
 +++
-<iframe id="pet-clinic-containers" data-src="https://structurizr.com/static/assets/structurizr-1-diagrams.html#containers" width="800" height="600"  ></iframe>
+<iframe id="pet-clinic-containers" data-src="https://www.structurizr.com/share/1/diagrams#containers" width="800" height="600"  ></iframe>
 +++
 |===
 
@@ -210,10 +189,10 @@ de séparer plusieurs conteneurs tournant dans le même process (typiquement dan
 [cols="2", width="100%", frame=none, grid=none]
 |===
 |
-image:images/openstreetmap-carte-grenoble.png[width="600", height="600"]
+image:images/{city}/components.png[width="600", height="600"]
 |
 +++
-<iframe id="pet-clinic-components" data-src="https://structurizr.com/static/assets/structurizr-1-diagrams.html#components" width="800" height="600"  ></iframe>
+<iframe id="pet-clinic-components" data-src="https://www.structurizr.com/share/1/diagrams#components" width="800" height="600"  ></iframe>
 +++
 |===
 
@@ -235,7 +214,7 @@ image:images/angular.png[height=50]
 [cols="2", width="100%", frame=none, grid=none]
 |===
 |
-image:images/openstreetmap-carte-gare.png[width="600", height="600"]
+image:images/{city}/code.png[width="600", height="600"]
 |
 
 image:images/spring-OwnerController.png[]
@@ -269,12 +248,13 @@ On va d'abord se concentrer sur le premier point (sinon je ne l'aurais pas mis e
 [%step]
 En les basant sur un modèle !
 
-[%notitle, background-iframe="https://c4model.com/#Tooling"]
+[%notitle, background-iframe="https://c4model.com/"]
 === Heureusement, il y a de l'outillage !
-
 
 [NOTE.speaker]
 --
+**ATTENTION: PENSER à CLIQUER SUR LE LIEN "TOOLING" **
+
 Sur le site de https://c4model.com/#Tooling[C4Model], on trouve tout un tas d'outils permettant de baser nos diagrammes sur un modèle, et donc d'apporter de la consistance.
 On va évidement parler de Structurizr
 --
@@ -290,11 +270,6 @@ On a donc
 * Un outil d'affichage des diagrammes en local (structurizr-lite) et en SaaS (Structurizr)
 * Des librairies permettant de créer des modèles d'architecture dans un certain nombre de langages
 --
-
-[%notitle]
-=== Structurizr DSL
-
-image::images/structurizr_dsl.png[[canvas,size=contain]
 
 [%notitle]
 === Début de la démo
@@ -521,6 +496,8 @@ include::../../../example/architecture/src/main/java/com/zenika/conference/c4/St
 
 endif::[]
 
+////
+
 [%notitle]
 == C'est bien, mais
 
@@ -604,6 +581,16 @@ Alors pourquoi ne pas faire de la documentation d'architecture un module de l'ap
 </div>
 ++++
 
+////
+
+=== Quelques alternatives
+
+* https://carbide.dev/[💶 Carbide]
+* https://icepanel.io/c4-model[💶 IcePanel]
+* https://github.com/avisi-cloud/structurizr-site-generatr[icon:github[] structurizr-site-generatr]
+* https://owulveryck.github.io/cue4puml4c4/[icon:github[] cue4puml4c4] (Spécialement pour Olivier Wulveryck 😘)
+* https://riduidel.github.io/aadarchi/[icon:github[] aadarchi] (mon interprétation)
+
 == Merci !
 
 image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
@@ -611,11 +598,6 @@ image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
 [.columns]
 == Références
 
-[.column]
-Donnez votre avis sur roti.express !
-image:images/url_roti.express.png[width=300]
-
-[.column]
 * https://www.c4model.com[C4Model]
 * https://www.structurizr.com[Structurizr]
 * https://github.com/structurizr/java-extensions/blob/master/docs/spring-petclinic.md[Structurizr appliqué à Spring Pet Clinic]
