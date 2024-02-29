@@ -612,5 +612,5 @@ image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
 
 === Si vous voulez les slides
 
-image::images/url_github.png[]
+image::images/url_github.com.png[]
 
