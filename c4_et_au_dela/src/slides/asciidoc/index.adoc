@@ -18,9 +18,10 @@
 Checklist avant conférence
 
 . Ouvrir le dossier `C:\Users\nicolas-delsaux\Documents\Zenika\conferences\c4_et_au_dela\example\architecture` dans VSCode (il contient les snippets)
-. Démarrer structurizr-lite `docker run --rm --name structurizr-lite -d -p 18080:8080 -v %CD%/c4_et_au_dela/example/architecture:/usr/local/structurizr structurizr/lite`
+. Démarrer structurizr-lite `docker run --rm --name structurizr-lite -d -p 18080:8080 -v %CD%:/usr/local/structurizr structurizr/lite` (depuis la fenêtre VSCode du dossier d'exemple)
 . Parcourir la présentation une fois en warmup pour tout démarrer correctement
 . Configurer le workspace VSCode d'exemple pour avoir les retours à la ligne
+. Ouvrir une fenêtre Firefox avec Structurizr (https://localhost:18080).
 --
 
 ////
@@ -42,7 +43,7 @@ Et dans cette présentation, on va précisément parler de moyens de produire pl
 [%notitle]
 == Qui suis-je ?
 
-Nicolas Delsaux / @riduidel on https://twitter.com/riduidel[icon:twitter[]] / https://github.com/riduidel[icon:github[]] / https://stackexchange.com/users/8620[icon:stack-overflow[]]
+Nicolas Delsaux / https://stackexchange.com/users/8620[icon:stack-overflow[]] / https://www.linkedin.com/in/nicolasdelsaux/[icon:linkedin[]] / https://framapiaf.org/users/riduidel[@riduidel@framapiaf.org on 🐘]
 
 Développeur Java depuis l'an 2000
 
@@ -72,8 +73,7 @@ il ne répond pas à quelques autres questions
 --
 
 [.columns]
-[%notitle]
-=== Quelques solutions inefficaces (que nous utilisons tous)
+=== Comment documenter l'architecture ?
 
 [.column]
 * **Outil dédié**
@@ -181,6 +181,13 @@ Essentially, a container is a separately runnable/deployable unit (e.g. a separa
 
 En vérité, ça se discute, et il peut être parfois intéressant 
 de séparer plusieurs conteneurs tournant dans le même process (typiquement dans un monolithe significatif)
+
+Et certains cas sont vraiment complexes, comme par exemple Kafka.
+Un *topic* Kafka est 
+peut-être un conteneur de votre application,
+peut-être une connexion entre deux éléments de votre application.
+Mais le serveur Kafka hébergeant votre topic, lui, 
+n'a pas de sens dans votre schéma d'architecture, puisqu'il change selon le déploiement.
 --
 
 
@@ -236,6 +243,7 @@ image::https://media.giphy.com/media/YoWYbUDeJK6Telrvzs/giphy.gif[]
 [%step]
 * Les diagrammes peuvent être inconsistants
 * Les diagrammes ne peuvent pas répondre à toutes les questions
+** On n'a pas parlé des différents déploiements (dev vs préprod vs prod)
 * Les diagrammes peuvent ne pas être à jour
 
 [NOTE.speaker]
@@ -266,6 +274,7 @@ On va évidement parler de Structurizr
 --
 Le fait que C4 ne soit qu'un dessin est un inconvénient connu de son créateur, Simon Brown, qui a développé une suite d'outils, collectivement appelés Structurizr.
 On a donc 
+
 * Un DSL basé sur Kotlin (qu'on va tout de suite tester)
 * Un outil d'affichage des diagrammes en local (structurizr-lite) et en SaaS (Structurizr)
 * Des librairies permettant de créer des modèles d'architecture dans un certain nombre de langages
@@ -586,10 +595,8 @@ Alors pourquoi ne pas faire de la documentation d'architecture un module de l'ap
 === Quelques alternatives
 
 * https://carbide.dev/[💶 Carbide]
-* https://icepanel.io/c4-model[💶 IcePanel]
+* https://icepanel.io/c4-model[🎁 IcePanel]
 * https://github.com/avisi-cloud/structurizr-site-generatr[icon:github[] structurizr-site-generatr]
-* https://owulveryck.github.io/cue4puml4c4/[icon:github[] cue4puml4c4] (Spécialement pour Olivier Wulveryck 😘)
-* https://riduidel.github.io/aadarchi/[icon:github[] aadarchi] (mon interprétation)
 
 == Merci !
 
@@ -605,5 +612,5 @@ image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
 
 === Si vous voulez les slides
 
-image::images/qr_code_slides.png[]
+image::images/url_github.png[]
 
