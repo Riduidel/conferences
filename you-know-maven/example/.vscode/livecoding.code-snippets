@@ -1,0 +1,268 @@
+{
+	"Run main class": {
+		"prefix": "10_run_main_class",
+		"description": "",
+		"scope": "",
+		"body": [
+			"                    <plugin>",
+			"                        <groupId>org.codehaus.mojo</groupId>",
+			"                        <artifactId>exec-maven-plugin</artifactId>",
+			"                        <version>3.4.1</version>",
+			"                        <executions>",
+			"                            <execution>",
+			"                                <id>Run javalin</id>",
+			"                                <goals>",
+			"                                    <goal>java</goal>",
+			"                                </goals>",
+			"                                <phase>verify</phase>",
+			"                                <configuration>",
+			"                                    <mainClass>${main.class}</mainClass>",
+			"                                </configuration>",
+			"                            </execution>",
+			"                        </executions>",
+			"                    </plugin>",
+			""
+		]
+	},
+	"Add findclass-maven-plugin": {
+		"prefix": "09_findclass",
+		"description": "",
+		"scope": "",
+		"body": [
+			"            <plugin>",
+			"                <groupId>io.github.kerwin612</groupId>",
+			"                <artifactId>findclass-maven-plugin</artifactId>",
+			"                <version>0.0.2</version>",
+			"                <executions>",
+			"                    <execution>",
+			"                        <id>Find main class</id>",
+			"                        <goals>",
+			"                            <goal>find</goal>",
+			"                        </goals>",
+			"                        <configuration>",
+			"                            <methodKeyMatch>public static void .*\\.main\\(java.lang.String\\[\\]\\).*</methodKeyMatch>",
+			"                            <firstFound>true</firstFound>",
+			"                            <outputPropertyName>main.class</outputPropertyName>",
+			"                        </configuration>",
+			"                    </execution>",
+			"                </executions>",
+			"            </plugin>",
+			""
+		]
+	},
+	"Add SCM to parent pom": {
+		"prefix": "07_add_scm_to_parent",
+		"description": "",
+		"scope": "",
+		"body": [
+			"    <scm>",
+			"        <connection>scm:git:https://git@github.com/Riduidel/conferences.git</connection>",
+			"        <developerConnection>scm:git:https://git@github.com/Riduidel/conferences.git</developerConnection>",
+			"        <url>https://github.com/Riduidel/conferences.git</url>",
+			"        <tag>HEAD</tag>",
+			"    </scm>",
+			""
+		]
+	},
+	"Update About model": {
+		"prefix": "08_update_about_model",
+		"description": "",
+		"scope": "",
+		"body": [
+			"    private final String version;",
+			"    private final String buildNumber;",
+			"    private final String branch;",
+			"    public About() {",
+			"        try {",
+			"            try(InputStream input = getClass().getClassLoader().getResourceAsStream(\"version.properties\")) {",
+			"                Properties p = new Properties();",
+			"                p.load(input);",
+			"                version = p.getProperty(\"version\");",
+			"                buildNumber = p.getProperty(\"buildNumber\");",
+			"                branch = p.getProperty(\"branch\");",
+			"            }",
+			"        } catch(IOException e) {",
+			"            throw new RuntimeException(\"can't read version.properties\", e);",
+			"        }",
+			"    }",
+			"    public String getVersion() {",
+			"        return version;",
+			"    }",
+			"    public String getBuildNumber() {",
+			"        return buildNumber;",
+			"    }",
+			"    public String getBranch() {",
+			"        return branch;",
+			"    }",
+			""
+		]
+	},
+	"Add build number": {
+		"prefix": "06_add_buildnumber_plugin",
+		"description": "",
+		"scope": "",
+		"body": [
+			"            <plugin>",
+			"                <groupId>org.codehaus.mojo</groupId>",
+			"                <artifactId>buildnumber-maven-plugin</artifactId>",
+			"                <version>3.1.0</version>",
+			"                <executions>",
+			"                    <execution>",
+			"                        <goals>",
+			"                            <goal>create</goal>",
+			"                        </goals>",
+			"                        <phase>generate-resources</phase>",
+			"                        <configuration></configuration>",
+			"                    </execution>",
+			"                </executions>",
+			"            </plugin>",
+			""
+		]
+	},
+	"Implement read from resource properties": {
+		"prefix": "05_read_version_from_resources",
+		"description": "",
+		"scope": "",
+		"body": [
+			"    private String version;",
+			"    public About() {",
+			"        try {",
+			"            try(InputStream input = getClass().getClassLoader().getResourceAsStream(\"version.properties\")) {",
+			"                Properties p = new Properties();",
+			"                p.load(input);",
+			"                version = p.getProperty(\"version\");",
+			"            }",
+			"        } catch(IOException e) {",
+			"            throw new RuntimeException(\"can't read version.properties\", e);",
+			"        }",
+			"    }",
+			""
+		]
+	},
+	"Add system property": {
+		"prefix": "04_add_system_property_to_surefire",
+		"description": "",
+		"scope": "",
+		"body": [
+			"          <systemPropertyVariables>",
+			"            <project.version>${project.version}</project.version>",
+			"          </systemPropertyVariables>",
+			""
+		]
+	},
+	"Add surefire tree reporter": {
+		"prefix": "03_add_surefire_tree_report",
+		"description": "",
+		"scope": "",
+		"body": [
+			"                    <configuration>",
+			"                        <reportFormat>plain</reportFormat>",
+			"                        <consoleOutputReporter>",
+			"                            <disable>true</disable>",
+			"                        </consoleOutputReporter>",
+			"                        <statelessTestsetInfoReporter implementation=\"org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporter\">",
+			"                            <theme>UNICODE</theme>",
+			"                            <printStacktraceOnError>true</printStacktraceOnError>",
+			"                            <printStacktraceOnFailure>true</printStacktraceOnFailure>",
+			"                            <printStdoutOnError>true</printStdoutOnError>",
+			"                            <printStdoutOnFailure>true</printStdoutOnFailure>",
+			"                            <printStdoutOnSuccess>false</printStdoutOnSuccess>",
+			"                            <printStderrOnError>true</printStderrOnError>",
+			"                            <printStderrOnFailure>true</printStderrOnFailure>",
+			"                            <printStderrOnSuccess>false</printStderrOnSuccess>",
+			"                        </statelessTestsetInfoReporter>",
+			"                    </configuration>",
+			"                    <dependencies>",
+			"                        <dependency>",
+			"                            <groupId>me.fabriciorby</groupId>",
+			"                            <artifactId>maven-surefire-junit5-tree-reporter</artifactId>",
+			"                            <version>1.2.1</version>",
+			"                        </dependency>",
+			"                    </dependencies>",
+			""
+		]
+	},
+	"Add spotless plugin": {
+		"prefix": "02_add_spotless",
+		"description": "",
+		"scope": "",
+		"body": [
+			"<plugin>",
+			"    <groupId>com.diffplug.spotless</groupId>",
+			"    <artifactId>spotless-maven-plugin</artifactId>",
+			"    <version>2.43.0</version>",
+			"    <!-- Beware! order of elements declaration IS important -->",
+			"    <configuration>",
+			"        <pom>",
+			"            <sortPom>",
+			"                <encoding>UTF-8</encoding>",
+			"                <!-- The encoding of the pom files -->",
+			"                <indentSchemaLocation>true</indentSchemaLocation>",
+			"                <predefinedSortOrder>custom_1</predefinedSortOrder>",
+			"                <sortDependencies>scope,groupId,artifactId</sortDependencies>",
+			"                <nrOfIndentSpace>4</nrOfIndentSpace>",
+			"            </sortPom>",
+			"        </pom>",
+			"    </configuration>",
+			"    <executions>",
+			"        <execution>",
+			"            <id><![CDATA[Perform all formatting operations at once]]></id>",
+			"            <goals>",
+			"                <goal>apply</goal>",
+			"            </goals>",
+			"            <phase>process-sources</phase>",
+			"        </execution>",
+			"    </executions>",
+			"</plugin>",
+			""
+		]
+	},
+	"Add failsafe maven plugin": {
+		"prefix": "01_add_failsafe_plugin",
+		"description": "",
+		"scope": "",
+		"body": [
+			"  <build>",
+			"    <plugins>",
+			"        <plugin>",
+			"          <artifactId>maven-failsafe-plugin</artifactId>",
+			"          <version>3.3.1</version>",
+			"          <executions>",
+			"            <!-- ",
+			"            Mais pourquoi on a besoin de ça ?",
+			"            La réponse avec ",
+			"            mvn help:describe -Ddetail -Dplugin=org.apache.maven.plugins:maven-failsafe-plugin",
+			"            Comment ça marche ?",
+			"            https://maven.apache.org/plugins/maven-help-plugin/describe-mojo.html",
+			"            Plus de détails sur le plugin https://maven.apache.org/surefire/maven-failsafe-plugin/",
+			"TODO 1 - Comment exécuter maven ? (mvn it.serendigity.maven.plugins:lifecycle-helper-maven-plugin:execution-plan)",
+			"TODO 2 - Comment ranger mon pom ?",
+			"            -->",
+			"            <execution>",
+			"              <goals>",
+			"                <goal>integration-test</goal>",
+			"                <goal>verify</goal>",
+			"              </goals>            </execution>",
+			"          </executions>        </plugin>",
+			"    </plugins>",
+			"  </build>",
+			""
+		]
+	}
+	// Place your example workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+}

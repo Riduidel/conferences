@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.ndx.conferences.maven</groupId>
+        <artifactId>about</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>org.ndx.conferences.maven</groupId>
+    <artifactId>web</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>io.javalin</groupId>
+            <artifactId>javalin-bundle</artifactId>
+            <version>6.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ndx.conferences.maven</groupId>
+            <artifactId>service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.5.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <!-- 
+              Mais pourquoi on a besoin de ça ?
+              La réponse avec 
+              mvn help:describe -Ddetail -Dplugin=org.apache.maven.plugins:maven-failsafe-plugin
+              Comment ça marche ?
+              https://maven.apache.org/plugins/maven-help-plugin/describe-mojo.html
+              Plus de détails sur le plugin https://maven.apache.org/surefire/maven-failsafe-plugin/
+  TODO 1 - Comment exécuter maven ? (mvn it.serendigity.maven.plugins:lifecycle-helper-maven-plugin:execution-plan)
+  TODO 2 - Comment ranger mon pom ?
+              -->
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.github.kerwin612</groupId>
+                <artifactId>findclass-maven-plugin</artifactId>
+                <version>0.0.2</version>
+                <executions>
+                    <execution>
+                        <id>Find main class</id>
+                        <goals>
+                            <goal>find</goal>
+                        </goals>
+                        <configuration>
+                            <methodKeyMatch>public static void .*\.main\(java.lang.String\[\]\).*</methodKeyMatch>
+                            <firstFound>true</firstFound>
+                            <outputPropertyName>main.class</outputPropertyName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+</plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>run</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.4.1</version>
+                        <executions>
+                            <execution>
+                                <id>Run javalin</id>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <phase>verify</phase>
+                                <configuration>
+                                    <mainClass>${main.class}</mainClass>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

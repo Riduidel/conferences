@@ -1,0 +1,20 @@
+= C4 et au-dela
+
+Présentation donnée au Snowcamp 2022.
+
+== Checklist de présentation
+
+. Démarrer Structurizr-lite (et accepter la licence d'utilisation)
+. Démarrer OBS avec la scène "snowcamp-structurizr"
+. Démarrer la webcam OBS
+
+----
+cd %CONFERENCES%
+docker run --rm --name structurizr-lite -d -p 18080:8080 -v %CD%/c4_et_au_dela/example/architecture:/usr/local/structurizr structurizr/lite
+----
+
+== Réaliser des captures pour les différentes villes
+
+Prendre les captures en 800x600 avec 4 étages de zoom.
+
+Astuce: Utiliser Geenshot qui permet de faire une capture avec le même paramétrage que la précédente.

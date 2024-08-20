@@ -1,0 +1,14 @@
+mkdir .mvn
+
+cat <<EOF >.mvn/extensions.xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<extensions xmlns="http://maven.apache.org/EXTENSIONS/1.1.0"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://maven.apache.org/EXTENSIONS/1.1.0 https://maven.apache.org/xsd/core-extensions-1.1.0.xsd">
+    <extension>
+        <groupId>com.soebes.maven.extensions</groupId>
+        <artifactId>maven-buildtime-profiler</artifactId>
+        <version>0.2.0</version>
+    </extension>
+</extensions>
+EOF

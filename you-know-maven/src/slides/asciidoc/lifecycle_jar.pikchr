@@ -1,0 +1,52 @@
+boxwid = 1.5in
+box color lightgray "validate"
+arrow
+box color lightgray "initialize"
+arrow
+box color lightgray "generate-sources"
+arrow
+box color lightgray "process-sources"
+arrow
+box color lightgray "generate-resources"
+arrow
+box "process-resources"
+down
+arrow
+box "compile"
+left
+arrow
+box color lightgray "process-classes"
+arrow
+box color lightgray "generate-test-sources"
+arrow
+box color lightgray "process-test-sources"
+arrow
+box color lightgray "generate-test-resources"
+arrow
+box "process-test-resources"
+down
+arrow
+box "test-compile"
+right
+arrow
+box color lightgray "process-test-classes"
+arrow
+box "test"
+arrow
+box color lightgray "prepare-package"
+arrow
+box "package"
+arrow
+box color lightgray "pre-integration-test"
+down
+arrow
+box color lightgray "integration-test"
+left
+arrow
+box color lightgray "post-integration-test"
+arrow
+box color lightgray "verify"
+arrow
+box "install"
+arrow
+box "deploy"

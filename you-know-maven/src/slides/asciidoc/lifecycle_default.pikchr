@@ -1,0 +1,52 @@
+boxwid = 1.5in
+box "validate"
+arrow
+box "initialize"
+arrow
+box "generate-sources"
+arrow
+box "process-sources"
+arrow
+box "generate-resources"
+arrow
+box "process-resources"
+down
+arrow
+box "compile"
+left
+arrow
+box "process-classes"
+arrow
+box "generate-test-sources"
+arrow
+box "process-test-sources"
+arrow
+box "generate-test-resources"
+arrow
+box "process-test-resources"
+down
+arrow
+box "test-compile"
+right
+arrow
+box "process-test-classes"
+arrow
+box "test"
+arrow
+box "prepare-package"
+arrow
+box "package"
+arrow
+box "pre-integration-test"
+down
+arrow
+box "integration-test"
+left
+arrow
+box "post-integration-test"
+arrow
+box "verify"
+arrow
+box "install"
+arrow
+box "deploy"
