@@ -106,6 +106,9 @@ on ajoute les différents plugins marrants,
 on arrive à l'étape du test qui échoue, et on l'implémente avec la gestion de ressources.
 --
 
+[%notitle, background-iframe="https://serendipity-projects.github.io/lifecycle-helper-maven-plugin/"]
+=== Lifecycle helper
+
 [%notitle, background-iframe="https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html"]
 === Explication de la démo - 1 - filtrage de ressource et getResource!
 
