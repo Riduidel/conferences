@@ -21,6 +21,7 @@
         <module>architecture_as_code</module>
         <module>non-functional-requirements</module>
         <module>you-know-maven</module>
+        <module>docs-as-code</module>
     </modules>
     <properties>
         <kroki.server.url>http://localhost:29000</kroki.server.url>
