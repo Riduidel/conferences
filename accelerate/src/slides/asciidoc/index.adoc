@@ -201,7 +201,7 @@ Mais qu'est-ce qui permet d'atteindre ce haut niveau de qualité ?
 
 [.column]
 [%step]
-image::https://s3-us-west-2.amazonaws.com/usedphotosna/85119831_614.jpg[height=550]
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Laser_Standard_160588_01.jpg/500px-Laser_Standard_160588_01.jpg[height=550]
 
 [.column]
 [%step]
@@ -302,7 +302,7 @@ include::capabilities_goal_cd.pikchr[]
 ----
 
 [%notitle]
-== Quels bénéfices additionnels ? Moins de travail à refaire
+=== Quels bénéfices additionnels ? Moins de travail à refaire
 
 [pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
@@ -310,7 +310,7 @@ include::capabilities_goal_rework.pikchr[]
 ----
 
 [%notitle]
-== Quels bénéfices additionnels ? Moins de douleur à déployer
+=== Quels bénéfices additionnels ? Moins de douleur à déployer
 
 [pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
@@ -318,7 +318,7 @@ include::capabilities_goal_deploy.pikchr[]
 ----
 
 [%notitle]
-== Quels bénéfices additionnels ? Moins de burn-out
+=== Quels bénéfices additionnels ? Moins de burn-out
 
 [pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
@@ -326,7 +326,7 @@ include::capabilities_goal_burnout.pikchr[]
 ----
 
 [%notitle]
-== Quels bénéfices additionnels ? Identification à l'entreprise
+=== Quels bénéfices additionnels ? Identification à l'entreprise
 
 [pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
@@ -334,7 +334,7 @@ include::capabilities_goal_identification.pikchr[]
 ----
 
 [%notitle]
-== Quels bénéfices additionnels ? Culture organisationnelle de Westrum
+=== Quels bénéfices additionnels ? Culture organisationnelle de Westrum
 
 [pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
@@ -342,7 +342,7 @@ include::capabilities_goal_westrum.pikchr[]
 ----
 
 [%notitle]
-== Quels bénéfices additionnels ? Culture organisationnelle de Westrum - détails
+=== Quels bénéfices additionnels ? Culture organisationnelle de Westrum - détails
 
 [options=header, frame=none, role=westrum]
 |===
@@ -364,7 +364,7 @@ Ce tableau provient de https://qualitysafety.bmj.com/content/qhc/13/suppl_2/ii22
 
 
 [%notitle]
-== Quels bénéfices additionnels ? Satisfaction au travail
+=== Quels bénéfices additionnels ? Satisfaction au travail
 
 [pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
@@ -372,7 +372,7 @@ include::capabilities_goal_satisfaction.pikchr[]
 ----
 
 [%notitle]
-== Quels bénéfices additionnels ? Performance non-commerciale
+=== Quels bénéfices additionnels ? Performance non-commerciale
 
 [pikchr, capabilities_introduction, svg, opts=inline, role=svg]
 ----
@@ -381,6 +381,19 @@ include::capabilities_goal_image.pikchr[]
 
 == Conclusion
 
+
+=== Accélérer ? Ca demande de l'énergie
+
+
+[NOTE.speaker]
+--
+Est-ce que la courbe en J vous parle ?
+--
 === Accélérer ? Jusqu'à quelle vitesse
 
-=== Comment rendre compatible le green-it et les résultats d'Accelerate ?
+[%notitle, background-iframe="https://dora.dev/capabilities/"]
+=== Accélérer avec DORA
+
+== Merci !
+
+image::https://media.giphy.com/media/1sMH6m5alWauk/giphy.gif[width=200%]
